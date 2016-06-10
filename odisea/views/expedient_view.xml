@@ -7,9 +7,10 @@
             <field name="model">odisea.expedient</field>
             <field name="arch" type="xml">
                 <search string="Expedient">
-                    <field name="dependecy"/>
+                    <!--<field name="dependency"/>
                     <field name="number"/>
-                    <field name="created_year"/>
+                    <field name="created_year"/>-->
+                    <field name="exp_id"/>
                     <field name="create_date"/>
                 </search>
             </field>
@@ -22,10 +23,13 @@
             <field name="arch" type="xml">
                 <tree string="Expedient">
 <!--                    colors="grey:state=='cancelled';blue:state in (u'open',);black:state in (u'annulled', u'in_revision', u'closed');red:state in ()"
-                    >-->
-                    <field name="dependecy"/>
-                    <field name="number"/>
-                    <field name="created_year"/>
+                    
+                    <field name="dependency" nolabel="0"/>
+                    <field name="number" nolabel="0"/>
+                    <field name="created_year" nolabel="0"/>-->
+                    <field name="exp_id"/>
+		    <field name="front_page"/>
+		    <field name="goods"/>
                     <field name="create_date"/>
                 </tree>
             </field>
@@ -64,7 +68,7 @@
                         <group string="Expedient" class="oe_inline">
 <!--			<label for="planned_revenue" class="oe_edit_only"/>-->
 			<h2>
-			   <field name="dependecy" class="oe_inline" nolabel="1"/>-
+			   <field name="dependency" class="oe_inline" nolabel="1"/>-
 	                   <field name="number" class="oe_inline" nolabel="1"/>-
              	           <field name="created_year" class="oe_inline" nolabel="1"/>
 			</h2>

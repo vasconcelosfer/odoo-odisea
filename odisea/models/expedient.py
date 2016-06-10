@@ -37,8 +37,8 @@ class OdiseaExpedient(models.Model):
 	        default='open',
 	)
 
-	dependecy = fields.Integer(
-		string='Dependecy',
+	dependency = fields.Integer(
+		string='Dependency',
 		required=True, 
 		readonly=False
 	)
@@ -55,6 +55,11 @@ class OdiseaExpedient(models.Model):
 		readonly=False
 	)
 		
+	exp_id = fields.Char(
+		string=_('Number Com'),
+		compute='_comp_expedient_id'
+	)
+	
 	front_page = fields.Char(
 		string='Front Page',
 		required=True,
@@ -109,5 +114,11 @@ class OdiseaExpedient(models.Model):
 #		'num_exp',
 #		string="Attachments"
 #	)
+	
+	@api.one
+	@api.depends('dependency','number','created_year' )
+	def _comp_expedient_id(self):
+    		self.exp_id = (str(self.dependency) or '')+'-'+(str(self.number) or '')+'-'+(str(self.created_year) or '')
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
