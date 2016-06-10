@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+	<!-- Main Menu Related Info -->
+        <menuitem
+            name="Odisea"
+            id="menu_odisea_main"
+            sequence="45"
+            />
+	<!-- Main Menu Related Info -->
+	<menuitem
+            name="Odise"
+            id="menu_odisea"
+            sequence="10"
+	    parent="menu_odisea_main"
+            />
+
+   <record id="action_odisea_expedient_expedients" model="ir.actions.act_window">
+            <field name="name">Expedients</field>
+            <field name="res_model">odisea.expedient</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_odisea_expedient_tree"/>
+            <field name="search_view_id" ref="view_odisea_expedient_filter"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Click to create a Expedients.</p>
+            </field>
+        </record>
+
+
+	<!-- Action Menu Related Info -->
+	<menuitem
+	    action="action_odisea_expedient_expedients"
+	    id="menu_action_odisea"
+	    sequence="13"
+	    parent="menu_odisea"
+	/>
+
+     
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->
