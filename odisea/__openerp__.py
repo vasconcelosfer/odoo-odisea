@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Odisea",
-    'summary': """
+    'summary': """Odoo sIstema de Seguimiento de Expedientes y Actuaciones
        """,
     'description': """
-        Long description of module's purpose
+      
     """,
     'author': "Your Company",
     'website': "http://www.yourcompany.com",
