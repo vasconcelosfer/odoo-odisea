@@ -17,6 +17,7 @@
     'depends': ['base'],
     # always loaded
     'data': [
+        "views/note_view.xml",
         "views/expedient_view.xml",
 	"views/odisea_menuitems.xml"
         # 'security/ir.model.access.csv',

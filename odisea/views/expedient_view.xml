@@ -29,6 +29,7 @@
                     <field name="created_year" nolabel="0"/>-->
                     <field name="exp_id"/>
 		    <field name="front_page"/>
+	            <field name="issue"/>
 		    <field name="goods"/>
                     <field name="create_date"/>
                 </tree>
@@ -73,7 +74,10 @@
              	           <field name="created_year" class="oe_inline" nolabel="1"/>
 			</h2>
 			</group>
-			<field name="front_page" string="Front Page"/>
+			<label for="front_page" class="oe_edit_only"/>
+			<h1>
+			<field name="front_page" string="Front Page" nolabel="0"/>
+			</h1>
 			<group>
 			   <field name="issue_type" class="oe_inline" nolabel="0"/>
 	                   <field name="issue" class="oe_inline" nolabel="0"/>
@@ -88,7 +92,7 @@
                             <page string="Childs">
                                 <field name="child_ids" />
                             </page>
-                            <page string="Notes" attrs="{'invisible': [('note_ids', '=',[])]}" >
+                            <page string="Notes"> <!-- attrs="{'invisible': [('note_ids', '=',[])]}" >-->
                                 <field name="note_ids" />
                             </page>
                         </notebook>

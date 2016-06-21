@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api, _
 
+
 class OdiseaNote(models.Model):
 	"""Note"""
 
