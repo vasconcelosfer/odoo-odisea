@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- SEARCH VIEW -->
+        <record id="view_odisea_note_filter" model="ir.ui.view">
+            <field name="name">odisea.note.select</field>
+            <field name="model">odisea.note</field>
+            <field name="arch" type="xml">
+                <search string="Note">
+                    <!--<field name="dependency"/>
+                    <field name="number"/>
+                    <field name="created_year"/>>
+                    <field name="exp_id"/>
+                    <field name="create_date"/>-->
+                </search>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+        <record id="view_odisea_expedient_note" model="ir.ui.view">
+            <field name="name">odisea.note.tree</field>
+            <field name="model">odisea.note</field>
+            <field name="arch" type="xml">
+                <tree string="Note">
+<!--                    colors="grey:state=='cancelled';blue:state in (u'open',);black:state in (u'annulled', u'in_revision', u'closed');red:state in ()"
+                    -->
+		    <field name="id_note"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="datas"/>
+                    <field name="store_fname"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- FORMVIEW -->
+        <record id="view_odisea_note_form" model="ir.ui.view">
+            <field name="name">odisea.note.form</field>
+            <field name="model">odisea.note</field>
+            <field name="arch" type="xml">
+                <form string="Note">
+		<group>
+		   <field name="id_note" class="oe_inline" nolabel="0"/>
+	           <field name="release_year" class="oe_inline" nolabel="0"/>
+	           <field name="release_date" class="oe_inline" nolabel="0"/>
+		</group>
+		   <field name="name"/>
+		   <field name="datas_fname"/>
+		   <field name="res_name"/>
+                   <field name="type"/>
+                   <field name="datas"/>
+                  <field name="store_fname"/>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>
