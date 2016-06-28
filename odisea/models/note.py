@@ -39,11 +39,6 @@ class OdiseaNote(models.Model):
 		string='Expedient'
 	)
 
-	child_ids = fields.One2many(
-	        'odisea.expedient',
-     		'parent_id',
-	        string='Childs'
-    	)
 
 #	document = fields.Binary(
 #		"your_file", 
