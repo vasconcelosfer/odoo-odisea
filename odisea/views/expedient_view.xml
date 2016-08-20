@@ -28,10 +28,10 @@
                     <field name="number" nolabel="0"/>
                     <field name="created_year" nolabel="0"/>-->
                     <field name="exp_id"/>
+                    <field name="create_date" string="Date"/>
 		    <field name="front_page"/>
 	            <field name="issue"/>
 		    <field name="goods"/>
-                    <field name="create_date"/>
                 </tree>
             </field>
         </record>
@@ -44,26 +44,19 @@
                 <form string="Expedient">
 		     <header>
                         <button name="sgn_to_revision"
-                            states="open"
-                            string="To Revision"
-                            class="oe_highlight"/>
-                        <button name="action_cancel_open"
-                            type="object"
-                            states="cancel"
-                            string="To Draft"/>
-                        <button name="sgn_to_annulled"
-                            states="open"
-                            string="To Annulled"/>
+                           	states="open"
+                           	string="To Revision"
+				class="oe_highlight"/>
                         <button name="sgn_close"
-                            states="in_revision"
-                            string="Close"
-                            class="oe_highlight"/>
-                        <button name="sgn_cancel"
-                            states="annulled,closed,in_revision,open"
-                            string="Cancel"
-                            groups="base.group_no_one"/>
+                        	states="in_revision"
+                           	string="Close"
+                           	class="oe_highlight"/>
+			<button name="sgn_reopen"
+                        	states="close"
+                           	string="Reopen"
+                           	class="oe_highlight"/>
                         <field name="state" widget="statusbar"
-                            statusbar_colors='{}'/>
+                           	statusbar_colors='{}'/>
                     </header>
 		    <sheet string="Expedient">
                         <group string="Expedient" class="oe_inline">
@@ -89,11 +82,16 @@
                    	   <field name="create_date" readonly="1"/>
 			</group>
 	               <notebook>
+			  <page string="Notes"> <!-- attrs="{'invisible': [('note_ids', '=',[])]}" >-->
+                                <field name="note_ids" />
+                            </page>
+
+                            <page string="Events">
+                                <field name="event_ids" />
+                            </page>
+
                             <page string="Childs">
                                 <field name="child_ids" />
-                            </page>
-                            <page string="Notes"> <!-- attrs="{'invisible': [('note_ids', '=',[])]}" >-->
-                                <field name="note_ids" />
                             </page>
                         </notebook>
 

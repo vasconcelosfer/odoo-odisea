@@ -20,27 +20,23 @@ class OdiseaNote(models.Model):
 	)
 
 	id_note = fields.Integer(
-		string="Numero",
+		string="Number",
 		required=True
 	)
 
 	release_year = fields.Integer(
-		string="Año de salida",
+		string="Release year",
 		required=True
 	)
 
 	release_date = fields.Date(
-		string="Fecha", 
+		string="Release date", 
 		required=True
 	)
 
-	parent_id = fields.Many2one(
+	parent_exp_id = fields.Many2one(
 		'odisea.expedient',
 		string='Expedient'
 	)
 
 
-#	document = fields.Binary(
-#		"your_file", 
-#		related='ir.attachment.datas'
-#	)

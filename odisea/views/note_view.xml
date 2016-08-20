@@ -27,7 +27,7 @@
 		    <field name="id_note"/>
                     <field name="name"/>
                     <field name="type"/>
-                    <field name="datas"/>
+                   <field  name="datas" filename="datas_fname"/>
                     <field name="store_fname"/>
                 </tree>
             </field>
@@ -48,7 +48,7 @@
 		   <field name="datas_fname"/>
 		   <field name="res_name"/>
                    <field name="type"/>
-                   <field name="datas"/>
+                   <field  name="datas" filename="datas_fname"/>
                   <field name="store_fname"/>
                 </form>
             </field>

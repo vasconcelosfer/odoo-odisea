@@ -29,15 +29,25 @@ class OdiseaExpedient(models.Model):
         _description = 'Expedient'
 
 #        _order = "id desc"
+        _sql_constraints = [
+                        ('expedient_unique',
+                         'Unique(dependency,number,created_year)',
+                         "El número de expediente debe ser único"),
+        ]
 
         _states_ = [
-        # State definition
+        # State machine: untitle
                 ('open', 'Open'),
-                ('in_revision', 'In Revision'),
+        	('in_revision', 'In Revision'),
                 ('closed', 'Closed'),
-                ('annulled', 'Annulled'),
-                ('cancel', 'Cancel'),
         ]
+
+	_event_ = {
+		'open': 'Arrive',
+		'in_revision': 'Went to revision',
+		'closed': 'Departure',
+		'none': 'None'
+	}	
 
         _issues_ = [
         # Issue definition
@@ -135,11 +145,17 @@ class OdiseaExpedient(models.Model):
                 string='Parent'
         )
 
-#        note_ids = fields.One2many(
-#                'odisea.note',
-#                'parent_id',    
-#                string='Nota'
-#        )
+        note_ids = fields.One2many(
+                'odisea.note',
+                'parent_exp_id',    
+                string='Nota'
+        )
+
+        event_ids = fields.One2many(
+                'odisea.event',
+                'parent_exp_id',    
+                string='Event'
+        )
 
         branch = fields.Selection(
                 _branches_,
@@ -153,29 +169,29 @@ class OdiseaExpedient(models.Model):
                 readonly=False
         )
 
-        _sql_constraints = [
-                        ('expedient_unique',
-                         'Unique(dependency,number,created_year)',
-                         "El número de expediente debe ser único"),
-        ]
+#	destination_id = fields.Many2one(
+#               'odisea.destination',
+#               string='Parent'
+#        )
+
 
         @api.one
         @api.depends('dependency','number','created_year' )
         def _comp_expedient_id(self):
-                self.exp_id = (str(self.dependency) or '')+'-'+(str(self.number) or '')+'-'+(str(self.created_year) or '')        
+                self.exp_id = (str(self.dependency) or '')+'-'+\
+			      (str(self.number) or '')+'-'+\
+			      (str(self.created_year) or '')        
 
 
-#       files = fields.One2many(
-#               "ir.attachment",
-#       'odisea.salida_exp',
-#               'num_exp',
-#               string="Attachments"
-#       )
+	@api.multi
+	def write_with_event(self, vals):
+		for expedient in self:
+			state = vals['state'] if 'state' in vals else 'none'
+			#Creamos el event creat	e		
+			self.env['odisea.event'].create({
+					'parent_exp_id': expedient.id,
+					'state': state,
+					'event_id': expedient._event_[state]
+				})	
+	        return super(OdiseaExpedient, self).write(vals)
 
-        #Utiilzamos el campo que genera odoo create_date
-#       issue_date = fields.Datetime(
-#               string='Issue Date',
-#           readonly=True,
-#           required=False,
-#           default=fields.Datetime.now
-#       )
