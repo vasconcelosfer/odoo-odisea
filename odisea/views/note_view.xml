@@ -22,13 +22,14 @@
             <field name="model">odisea.note</field>
             <field name="arch" type="xml">
                 <tree string="Note">
-<!--                    colors="grey:state=='cancelled';blue:state in (u'open',);black:state in (u'annulled', u'in_revision', u'closed');red:state in ()"
-                    -->
-		    <field name="id_note"/>
-                    <field name="name"/>
-                    <field name="type"/>
-                   <field  name="datas" filename="datas_fname"/>
-                    <field name="store_fname"/>
+		   <button name="get_exp_file"
+			   attrs="{'enabled':'enabled'}"
+			   type="object" 
+			   string="Download"
+			   icon="gtk-file"/>
+	           <field name="note_type"/>
+		   <field name="note_id"/>
+                   <field name="release_date"/>
                 </tree>
             </field>
         </record>
@@ -40,16 +41,34 @@
             <field name="arch" type="xml">
                 <form string="Note">
 		<group>
-		   <field name="id_note" class="oe_inline" nolabel="0"/>
-	           <field name="release_year" class="oe_inline" nolabel="0"/>
-	           <field name="release_date" class="oe_inline" nolabel="0"/>
+		   <h1>
+	               <field name="note_type" class="oe_inline" nolabel="1"/>
+		       <field name="id_note" class="oe_inline" nolabel="1"/>/
+	               <field name="release_year" class="oe_inline" nolabel="1"/>
+		   </h1>
 		</group>
-		   <field name="name"/>
-		   <field name="datas_fname"/>
-		   <field name="res_name"/>
-                   <field name="type"/>
-                   <field  name="datas" filename="datas_fname"/>
-                  <field name="store_fname"/>
+		<group>
+	           <field name="release_date" string="Fecha" nolabel="0"/>
+		  <field name="position_ids"
+			 widget="many2many_tags"
+			 string="Posiciones"
+			 options="{'no_create_edit': True}"/>
+	   	   <field name="name" string="Nombre de archivo"/>
+		</group>
+<!--		   <field name="res_name"/>-->
+                   <field name="datas" filename="datas_fname"/>
+                   <field name="datas_fname" invisible="1"/>
+
+		   <button class="oe_inline oe_stat_button" 
+			   name="get_exp_file" 
+			   type="object"
+			   string="Download"
+			   icon="fa-file-o"/>
+		   <button class="oe_inline"
+			   name="set_exp_file" 
+			   type="object"
+			   string="Upload"
+			   icon="fa-file-o"/>
                 </form>
             </field>
         </record>

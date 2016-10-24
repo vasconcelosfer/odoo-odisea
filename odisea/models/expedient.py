@@ -49,6 +49,12 @@ class OdiseaExpedient(models.Model):
 		'none': 'None'
 	}	
 
+	_expedient_type_ = [
+		('actuacion', 'Actuación'),
+		('alcance', 'Alcance'),
+		('expediente', 'Expediente')
+	]
+
         _issues_ = [
         # Issue definition
                 ('criterio', 'Criterio'),
@@ -62,7 +68,7 @@ class OdiseaExpedient(models.Model):
         _branches_ = [
         # Branch definition
                 ('electricidad', 'Electricidad'), 
-                ('maquinas', 'Maquinas'),
+                ('maquinas', 'Máquinas'),
                 ('ferreteria', 'Ferretería'), 
                 ('drogas', 'Drogas'), 
                 ('alimentos', 'Alimentos'), 
@@ -90,6 +96,7 @@ class OdiseaExpedient(models.Model):
                 size=20
         )
 
+
         created_year = fields.Integer(
                 string='Created Year',
                 required=True,
@@ -97,9 +104,27 @@ class OdiseaExpedient(models.Model):
                 size=4
         )
 
+        alc_index = fields.Integer(
+                string='Number',
+                required=True,
+                readonly=False,
+                size=4
+	)
+
         exp_id = fields.Char(
                 string=_('Number Com'),
                 compute='_comp_expedient_id'
+        )
+
+        expedient_type = fields.Selection(
+                _expedient_type_,
+                'Expedient Type',
+                default='actuacion'
+        )
+
+        expedient_type_sh = fields.Char(
+                string=_('Expedient Type'),
+                compute='_comp_expedient_type'
         )
 
         front_page = fields.Char(
@@ -176,13 +201,31 @@ class OdiseaExpedient(models.Model):
 
 
         @api.one
-        @api.depends('dependency','number','created_year' )
+        @api.depends('dependency','number','created_year', 'alc_index')
         def _comp_expedient_id(self):
-                self.exp_id = (str(self.dependency) or '')+'-'+\
-			      (str(self.number) or '')+'-'+\
-			      (str(self.created_year) or '')        
-
-
+		if self.expedient_type != 'alcance':
+	                self.exp_id = (str(self.dependency) or '')+'-'+\
+				      (str(self.number) or '')+'-'+\
+				      (str(self.created_year) or '')        
+		else:
+	                self.exp_id = (str(self.dependency) or '')+'-'+\
+				      (str(self.number) or '')+'-'+\
+				      (str(self.created_year) or '')+'/'+\
+				      (str(self.alc_index) or '')        
+				
+        @api.one
+        @api.depends('dependency','number','created_year', 'alc_index', 'expedient_type')
+	def _comp_expedient_type(self):
+		if self.dependency == 1:
+			self.expedient_type = 'expediente'
+			self.expedient_type_sh = 'Expediente'
+		elif self.alc_index != 0:
+			self.expedient_type = 'alcance'
+			self.expedient_type_sh = 'Alcance'
+		else:
+			self.expedient_type = 'actuacion'
+			self.expedient_type_sh = 'Actuacion'
+	
 	@api.multi
 	def write_with_event(self, vals):
 		for expedient in self:
