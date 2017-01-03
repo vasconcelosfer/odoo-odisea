@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<openerp>
+   <data>
+		<record id="odisea_hr_employee_view_inh" model="ir.ui.view">
+		    <field name="name">odisea.hr.employee</field>
+		    <field name="model">hr.employee</field>
+		    <field name="inherit_id" ref="hr.view_employee_form"/>
+		    <field name="type">form</field>
+		    <field name="arch" type="xml">
+		    	<!-- Oculto el campo  -->
+		    	<!-- 	Se debe mostrar:
+		    				Nombre
+		    				Ramo
+		    				legajo
+		    			En info pública:
+		    				manager = Jefe
+		    			Info personal
+		    				identificacion NO
+		    				Domicilio 
+		    				email
+		    				tel personal
+		    				otro id NO 
+		    				cuenta bancaria NO 
+		    		ELIMINAR DEL MENU LATERAL:
+		    			GASTOS
+		    			CATEGORIA DE GASTOS
+		    	-->
+		    	<!-- Agrego el campo de legajo -->
+		    	<xpath expr="/form/sheet/div/label[@for='work_phone']" position="replace">
+		        	<field name="docket" />
+		    	</xpath>
+
+		        
+		    </field>
+		</record>
+	</data>
+</openerp>	
