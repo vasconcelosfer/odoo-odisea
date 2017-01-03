@@ -21,6 +21,11 @@
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning
 
+#import logging
+#from openerp import SUPERUSER_ID
+#from openerp import tools
+#from openerp.modules.module import get_module_resource
+
 class OdiseaExpedient(models.Model):
         """Expedient"""
 
@@ -192,6 +197,12 @@ class OdiseaExpedient(models.Model):
                 required=False,
                 default=False,
                 readonly=False
+        )
+
+        assigned_advisor = fields.Many2one(
+            'hr.employee',           
+            string='Assigned advisor'
+
         )
 
 #	destination_id = fields.Many2one(
