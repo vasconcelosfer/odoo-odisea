@@ -38,7 +38,7 @@ class OdiseaExpedient(models.Model):
 #        _order = "id desc"
         _sql_constraints = [
                         ('expedient_unique',
-                         'Unique(dependency,number,created_year)',
+                         'Unique(dependency,number,created_year,alc_index)',
                          "El número de expediente debe ser único"),
         ]
 
@@ -262,4 +262,3 @@ class OdiseaExpedient(models.Model):
 #        	    'res_id': self.id,
 	            'target': 'new',
 	        }
-
