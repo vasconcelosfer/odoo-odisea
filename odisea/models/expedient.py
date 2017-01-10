@@ -38,7 +38,7 @@ class OdiseaExpedient(models.Model):
 #        _order = "id desc"
         _sql_constraints = [
                         ('expedient_unique',
-                         'Unique(dependency,number,created_year)',
+                         'Unique(dependency,number,created_year,alc_index)',
                          "El número de expediente debe ser único"),
         ]
 
@@ -262,14 +262,3 @@ class OdiseaExpedient(models.Model):
         	    'res_id': self.id,
 	            'target': 'new',
 	        }
-
-	@api.multi
- 	def open_event_view(self, vals):
- 		id_created = self.write_with_event(vals)
- 		return {
- 	            'type': 'ir.actions.act_window',
- 	            'res_model': 'odisea.event',
- 	            'views': [[id_created, "form"]],
-         	    'res_id': self.id,
- 	            'target': 'new',
- 	        }	
