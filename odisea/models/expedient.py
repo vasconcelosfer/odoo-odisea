@@ -258,8 +258,8 @@ class OdiseaExpedient(models.Model):
 		return {
 	            'type': 'ir.actions.act_window',
 	            'res_model': 'odisea.event',
-	            'views': [[id_created, "form"]],
-        	    'res_id': self.id,
+	            #'views': [[id_created, "form"]],
+#        	    'res_id': self.id,
 	            'target': 'new',
 	        }
 
