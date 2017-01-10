@@ -21,60 +21,10 @@
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning
 
-class OdiseaEvent(models.Model):
-        """Event"""
+class OdiseaBranch(models.Model):
+	_name = 'odisea.branch'
 
-        _name = 'odisea.event'
+	name = fields.Char(string='Nombre del Ramo', required=True, size=25)
+	description = fields.Text(string='Descripción del Ramo') 
+	active_branch = fields.Boolean(string='Ramo activo', default=True)
 
-        _description = 'Event'
-
-	_sort = "create_date"
-
-#	_event_type_ = [
-        # Issue definition
-##               ('arrive', 'Arrive'),
-#                ('departure', 'Departure'),
-#                ('revision', 'Revision'),
-#                ('add_child', 'Add Child'),
-#        ]
-
-	
-
-# Tomamos las que no da odoo
-#	registration_date = fields.Date(
-#                string='Registration date',
-#                required=False,
-#                readonly=False
-#        )
-
-	parent_exp_id = fields.Many2one(
-		'odisea.expedient',
-		string='Expedient',
-	#	readonly=True
-	)
-
-	event_id = fields.Char(
-		string="Event Id",
-		readonly=True
-	)
-	
-	description = fields.Text(
-		"Description",
-		readonly=False,
-	)
-
-	# Aca se guardara el estado del expediente al momento de 
-	# generar el evento TODO: Hay que sacar el campo estado
-	# de expediente.
-	state = fields.Char(
-		string="State",
-		readonly=True
-	)
-
-
-
-#	@api.multi
-#	def write(self, vals):
-
-
-#

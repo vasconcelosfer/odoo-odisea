@@ -50,7 +50,6 @@ class OdiseaNote(models.Model):
 		'note_id_',
 		'position_id',
 		string='Position'
-
 	)
 
         @api.one
@@ -59,7 +58,12 @@ class OdiseaNote(models.Model):
                 self.note_id = (str(self.id_note) or '')+'/'+\
 			       (str(self.release_year) or '')
 
+
 	@api.multi 
+	def onchange_filename(self, filename):
+		return {'value':{'name':filename,}}
+
+	@api.multi
 	def get_exp_file(self):
    		return {
          	  'type' : 'ir.actions.act_url',

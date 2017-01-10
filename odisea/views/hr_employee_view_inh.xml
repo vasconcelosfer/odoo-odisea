@@ -11,26 +11,61 @@
 		    	<!-- 	Se debe mostrar:
 		    				Nombre
 		    				Ramo
-		    				legajo
-		    			En info pública:
-		    				manager = Jefe
-		    			Info personal
-		    				identificacion NO
-		    				Domicilio 
-		    				email
-		    				tel personal
-		    				otro id NO 
-		    				cuenta bancaria NO 
-		    		ELIMINAR DEL MENU LATERAL:
+		    				legajo 
+		   		ELIMINAR DEL MENU LATERAL:
 		    			GASTOS
 		    			CATEGORIA DE GASTOS
 		    	-->
 		    	<!-- Agrego el campo de legajo -->
 		    	<xpath expr="/form/sheet/div/label[@for='work_phone']" position="replace">
-		        	<field name="docket" />
+				<label for="docket" class="oe_edit_only"/>		        	
 		    	</xpath>
 
-		        
+		        <xpath expr="/form/sheet/div//field[@name='work_phone']" position="replace">       
+                                <field name="docket" />
+                        </xpath>
+
+			<!-- Información Publica modificación-->
+			<xpath expr="/form/sheet/notebook/page[@string='Public Information']/group/group[@string='Contact Information']/field[@name='mobile_phone']" position="replace">
+                                <field name="work_phone" />
+                        </xpath>
+
+			<xpath expr="/form/sheet/notebook/page[@string='Public Information']/group/group[@string='Contact Information']/field[@name='address_id']" position="attributes">
+                                <attribute name="invisible">True</attribute>
+                        </xpath>
+			<!--Cambiar manager -->
+			<xpath expr="/form/sheet/notebook/page[@string='Public Information']/group/group[@string='Position']/field[@name='parent_id']" position="attributes">
+				<attribute name="string">Jefe</attribute>
+				<attribute name="placeholder">Jefe</attribute>
+                              
+                        </xpath>
+
+			<!--Ocultar campo Supervisor -->
+			<xpath expr="/form/sheet/notebook/page[@string='Public Information']/group/group[@string='Position']/field[@name='coach_id']" position="attributes">
+                                <attribute name="invisible">True</attribute>                                
+                        </xpath> 
+
+			<!--Modificación Información Personal -->
+                        <xpath expr="/form/sheet/notebook/page[@string='Personal Information']" position="attributes">
+                                <attribute name="invisible">True</attribute>
+			</xpath>
+
+<!--			<xpath expr="/form/sheet/notebook/page[@string='Personal Information']/group/group[@string='Citizenship &amp; Other Info']/field[@name='identification_id']" position="attributes">
+                                <attribute name="invisible">True</attribute>
+                        </xpath>
+			
+			<xpath expr="/form/sheet/notebook/page[@string='Personal Information']/group/group[@string='Citizenship &amp; Other Info']/field[@name='otherid']" position="attributes">
+                                <attribute name="invisible">True</attribute>
+                        </xpath> 
+
+			<xpath expr="/form/sheet/notebook/page[@string='Personal Information']/group/group[@string='Citizenship &amp; Other Info']/field[@name='bank_account_id']" position="attributes">
+                                <attribute name="invisible">True</attribute>
+                        </xpath>
+
+			<xpath expr="/form/sheet/notebook/page[@string='Personal Information']/group/group[@string='Citizenship &amp; Other Info']/field[@name='passport_id']" position="attributes">
+                                <attribute name="string">Número de Documento</attribute>
+                        </xpath>
+-->
 		    </field>
 		</record>
 	</data>
