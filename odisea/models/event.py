@@ -60,7 +60,7 @@ class OdiseaEvent(models.Model):
 	
 	description = fields.Text(
 		"Description",
-		readonly=True,
+		readonly=False,
 	)
 
 	# Aca se guardara el estado del expediente al momento de 

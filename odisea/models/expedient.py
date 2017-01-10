@@ -22,6 +22,8 @@ from openerp import models, fields, api, _
 from openerp.exceptions import Warning
 
 #import logging
+#_logger = logging.getlogger(__name__)
+
 #from openerp import SUPERUSER_ID
 #from openerp import tools
 #from openerp.modules.module import get_module_resource
@@ -242,10 +244,22 @@ class OdiseaExpedient(models.Model):
 		for expedient in self:
 			state = vals['state'] if 'state' in vals else 'none'
 			#Creamos el event creat	e		
-			self.env['odisea.event'].create({
+			id_created = self.env['odisea.event'].create({
 					'parent_exp_id': expedient.id,
 					'state': state,
 					'event_id': expedient._event_[state]
 				})	
-	        return super(OdiseaExpedient, self).write(vals)
+	        super(OdiseaExpedient, self).write(vals)
+		return id_created
+
+	@api.multi
+	def open_event_view(self, vals):
+		id_created = self.write_with_event(vals)
+		return {
+	            'type': 'ir.actions.act_window',
+	            'res_model': 'odisea.event',
+	            'views': [[id_created, "form"]],
+        	    'res_id': self.id,
+	            'target': 'new',
+	        }
 

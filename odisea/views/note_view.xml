@@ -56,19 +56,8 @@
 	   	   <field name="name" string="Nombre de archivo"/>
 		</group>
 <!--		   <field name="res_name"/>-->
-                   <field name="datas" filename="datas_fname"/>
-                   <field name="datas_fname" invisible="1"/>
-
-		   <button class="oe_inline oe_stat_button" 
-			   name="get_exp_file" 
-			   type="object"
-			   string="Download"
-			   icon="fa-file-o"/>
-		   <button class="oe_inline"
-			   name="set_exp_file" 
-			   type="object"
-			   string="Upload"
-			   icon="fa-file-o"/>
+                   <field name="datas" filename="datas_fname" />
+                   <field name="datas_fname" invisible="1" on_change="onchange_filename(datas_fname)"/>
                 </form>
             </field>
         </record>
