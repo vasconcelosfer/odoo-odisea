@@ -16,7 +16,7 @@
             <field name="flow_start">True</field>
             <field name="name">Open</field>
             <field name="action">
-                write_with_event({'state':'open'})
+		open_event_view({'state':'open'})
             </field>
             <field name="kind">function</field>
         </record>
@@ -25,7 +25,7 @@
             <field name="wkf_id" ref="expedient_untitle_wkf"/>
             <field name="name">In Revision</field>
             <field name="action">
-                write_with_event({'state':'in_revision'})
+		open_event_view({'state':'in_revision'})
             </field>
             <field name="kind">function</field>
         </record>

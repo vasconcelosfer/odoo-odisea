@@ -253,6 +253,17 @@ class OdiseaExpedient(models.Model):
 		return id_created
 
 	@api.multi
+	def open_event_view(self, vals):
+		id_created = self.write_with_event(vals)
+		return {
+	            'type': 'ir.actions.act_window',
+	            'res_model': 'odisea.event',
+	            'views': [[id_created, "form"]],
+        	    'res_id': self.id,
+	            'target': 'new',
+	        }
+
+	@api.multi
  	def open_event_view(self, vals):
  		id_created = self.write_with_event(vals)
  		return {
