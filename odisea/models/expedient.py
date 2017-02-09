@@ -70,6 +70,11 @@ class OdiseaExpedient(models.Model):
                 ('consulta', 'Consulta'),
                 ('embarque_escalonado', 'Embarque Escalonado'),
                 ('posicion_arancelaria', 'Posición Arancelaria'),
+		('oficio', 'Oficio'),
+		('res_256_2000', 'Resolución 256/2000'),
+		('apertura_sim','Apertura SIM'),
+		('prorroga_ee', 'Prórroga Emb. Escalonado'),
+		('res_1243_1992', 'Resolución 1243/1992')
         ]
 
         _branches_ = [
@@ -192,9 +197,14 @@ class OdiseaExpedient(models.Model):
                 string='Event'
         )
 
-        branch = fields.Selection(
-                _branches_,
-                'Branch'                
+#        branch = fields.Selection(
+#                _branches_,
+#                'Branch'                
+#        )
+
+        branch = fields.Many2one(
+                'odisea.branch',
+                string='Branch'
         )
 
         is_child = fields.Boolean(
@@ -265,7 +275,7 @@ class OdiseaExpedient(models.Model):
 			self.expedient_type_sh = 'Alcance'
 		else:
 			self.expedient_type = 'actuacion'
-			self.expedient_type_sh = 'Actuacion'
+			self.expedient_type_sh = 'Actuación'
 	
 	@api.multi
 	def write_with_event(self, vals):

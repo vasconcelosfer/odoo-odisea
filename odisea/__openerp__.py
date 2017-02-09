@@ -20,9 +20,10 @@
         "views/event_view.xml",
         "views/note_view.xml",
         "views/expedient_view.xml",
-	    "views/odisea_menuitems.xml",
-        "views/hr_employee_view_inh.xml",        
-	    "workflow/expedient_workflow.xml",# "views/branch_view.xml"
+	"views/odisea_menuitems.xml",
+        "views/hr_employee_view_inh.xml",
+	"workflow/expedient_workflow.xml",
+	"views/branch_view.xml",
         #"views/res_partner_view_inh.xml",
         #'security/ir.model.access.csv',
     ],

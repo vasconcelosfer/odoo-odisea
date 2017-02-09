@@ -24,6 +24,6 @@ class hr_employee(models.Model):
 	_inherit='hr.employee'
 
 	docket = fields.Char(string='Legajo', size=12)
-#	branch = fields.Many2one('odisea.branch', string="Branch")
+	branch = fields.Many2one('odisea.branch', string="Branch")
 	
 	

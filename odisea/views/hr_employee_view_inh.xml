@@ -17,12 +17,29 @@
 		    			CATEGORIA DE GASTOS
 		    	-->
 		    	<!-- Agrego el campo de legajo -->
-		    	<xpath expr="/form/sheet/div/label[@for='work_phone']" position="replace">
+		    	<xpath expr="/form/sheet/div/label[@for='work_email']" position="replace">
 				<label for="docket" class="oe_edit_only"/>		        	
 		    	</xpath>
 
-		        <xpath expr="/form/sheet/div//field[@name='work_phone']" position="replace">       
+		        <xpath expr="/form/sheet/div//field[@name='work_email']" position="replace">       
                                 <field name="docket" />
+                        </xpath>
+
+                        <xpath expr="/form/sheet/div/label[@for='work_phone']" position="replace">
+                                <label for="branch" class="oe_edit_only"/>
+                        </xpath>
+
+                        <xpath expr="/form/sheet/div//field[@name='work_phone']" position="replace">
+                                <field name="branch" />
+                        </xpath>
+			
+			<!-- tag invisible -->
+                        <xpath expr="/form/sheet/div/label[@for='category_ids']" position="attributes">
+                                <attribute name="invisible">True</attribute>
+                        </xpath>
+
+                        <xpath expr="/form/sheet/div//field[@name='category_ids']" position="attributes">
+                                <attribute name="invisible">True</attribute>
                         </xpath>
 
 			<!-- Información Publica modificación-->
