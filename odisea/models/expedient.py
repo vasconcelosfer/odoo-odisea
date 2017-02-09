@@ -120,8 +120,11 @@ class OdiseaExpedient(models.Model):
 
         exp_id = fields.Char(
                 string=_('Number Com'),
-                compute='_comp_expedient_id'
+                compute='_comp_expedient_id',
+		store=True
         )
+
+	_rec_name = 'exp_id'
 
         expedient_type = fields.Selection(
                 _expedient_type_,
@@ -212,6 +215,31 @@ class OdiseaExpedient(models.Model):
 #               string='Parent'
 #        )
 
+#	def name_get(self, cr, uid, ids, context=None):
+#		if context is None:
+#			context = {}
+#		if isinstance(ids, (int, long)):
+#			ids = [ids]
+#		res = []
+#		if context.get('special_display_name', False):
+#			for record in self.browse(cr, uid, ids, context=context):
+#				res.append((record.id, record.exp_id))	
+			#	if record.expedient_type != 'alcance':
+			 #               res.append((record.id, (str(record.dependency) or '')+'-'+\
+			#			      (str(record.number) or '')+'-'+\
+			#			      (str(record.created_year) or '')))        
+			#	else:
+	        	#	        res.append((record.id, (str(record.dependency) or '')+'-'+\
+			#			      (str(record.number) or '')+'-'+\
+			#			      (str(record.created_year) or '')+'/'+\
+			#			      (str(record.alc_index) or '')))        
+#		else:
+	        # Do a for and set here the standard display name,
+		#  for example if the standard display name were name, you should do the next for
+		#	for record in self.browse(cr, uid, ids, context=context):
+		#		res.append((record.id, record.name))
+#	        	res = super(OdiseaExpedient, self).name_get(cr, uid, ids, context)
+#		return res
 
         @api.one
         @api.depends('dependency','number','created_year', 'alc_index')
@@ -254,11 +282,44 @@ class OdiseaExpedient(models.Model):
 
 	@api.multi
 	def open_event_view(self, vals):
-		id_created = self.write_with_event(vals)
+		id_created = int(self.write_with_event(vals))
+		#Me devuelve una lista por lo tanto accedo al primero valor de la misma
+		#el cual es el id
+		#id_created = int(id_createdlst[0][0])
 		return {
+		    'name': 'Evento ' + self.state,
 	            'type': 'ir.actions.act_window',
 	            'res_model': 'odisea.event',
-	            #'views': [[id_created, "form"]],
-#        	    'res_id': self.id,
+		    'view_type': 'form',
+		    'view_mode': 'form',
+	            'views': [(False, "form")],
+		    'res_id': id_created,
 	            'target': 'new',
+		    'flags': {'action_buttons': True},
+	        }
+
+	@api.multi
+	def open_note_view(self, vals):
+		id_created = int(self.write_with_event(vals))
+		#Me devuelve una lista por lo tanto accedo al primero valor de la misma
+		#el cual es el id
+		#id_created = int(id_createdlst[0][0])
+		#= context.get('active_id', False)
+#		expCtx = self.env.context(
+		expCtx = {
+			'default_parent_exp_id': str(self.id)
+		}
+		return {
+	#	    'name': 'Evento ' + self.state,
+	            'type': 'ir.actions.act_window',
+	            'res_model': 'odisea.note',
+		    'view_type': 'form',
+		    'view_mode': 'form',
+	            'views': [(False, "form")],
+#		    'res_id': id_created,
+		    #'context': "{'parent_exp_id': " + str(self.id) + "}",		
+		    'context': "{'default_parent_exp_id': " + str(self.id) + "}",		
+#		    'context': expCtx,
+	            'target': 'new',
+		    'flags': {'action_buttons': True},
 	        }

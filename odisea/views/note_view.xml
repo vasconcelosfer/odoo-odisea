@@ -40,6 +40,7 @@
             <field name="model">odisea.note</field>
             <field name="arch" type="xml">
                 <form string="Note">
+		<field name="parent_exp_id" invisible="1"/>
 		<group>
 		   <h1>
 	               <field name="note_type" class="oe_inline" nolabel="1"/>

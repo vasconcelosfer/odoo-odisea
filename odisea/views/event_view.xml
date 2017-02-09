@@ -25,10 +25,10 @@
             <field name="model">odisea.event</field>
             <field name="arch" type="xml">
                 <form string="Event">
-                    <field name="create_date">Created date</field>
-                    <field name="event_id">Event Id</field>
-                    <field name="description">Description</field>
-		    <field name="state">State</field>
+		 <group>
+                    <field name="create_date" attrs="{'readonly':True}" string="Date" nolabel="0"/>
+                    <field name="description" string="Details" nolabel="0"/>
+		 </group>
                 </form>
             </field>
         </record>

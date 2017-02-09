@@ -34,11 +34,19 @@
             <field name="wkf_id" ref="expedient_untitle_wkf"/>
             <field name="name">Closed</field>
             <field name="action">
-                write_with_event({'state':'closed'})
+                open_note_view({'state':'closed'})
             </field>
             <field name="kind">function</field>
         </record>
  
+        <record id="a_reopen" model="workflow.activity">
+            <field name="wkf_id" ref="expedient_untitle_wkf"/>
+            <field name="name">Reopen</field>
+            <field name="action">
+                open_event_view({'state':'open'})
+            </field>
+            <field name="kind">function</field>
+        </record>
 
         <!-- Transitions -->
 	<record id="t_open_in_revision" model="workflow.transition">
@@ -47,12 +55,14 @@
             <field name="signal">sgn_to_revision</field>
             <field name="condition">True</field>
         </record>
+
 	<record id="t_in_revision_closed" model="workflow.transition">
             <field name="act_from" ref="a_in_revision"/>
             <field name="act_to" ref="a_closed"/>
             <field name="signal">sgn_close</field>
             <field name="condition">True</field>
         </record>
+
 	<record id="t_closed_open" model="workflow.transition">
             <field name="act_from" ref="a_closed"/>
             <field name="act_to" ref="a_open"/>
