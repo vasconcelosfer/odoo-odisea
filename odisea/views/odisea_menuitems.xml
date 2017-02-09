@@ -9,14 +9,22 @@
             sequence="45"
             />
 	<!-- Main Menu Related Info -->
-	<menuitem
+    	<menuitem
             name="Odise"
             id="menu_odisea"
             sequence="10"
-	    parent="menu_odisea_main"
-            />
+    	    parent="menu_odisea_main"
+        />
 
-   <record id="action_odisea_expedient_expedients" model="ir.actions.act_window">
+        <!-- Título de menu para las configuraciones -->
+        <menuitem
+            name="Configuration"
+            id="menu_odisea_config"
+            sequence="10"
+            parent="menu_odisea_main"
+       />
+
+       <record id="action_odisea_expedient_expedients" model="ir.actions.act_window">
             <field name="name">Expedients</field>
             <field name="res_model">odisea.expedient</field>
             <field name="view_type">form</field>
@@ -24,20 +32,44 @@
             <field name="view_id" ref="view_odisea_expedient_tree"/>
             <field name="search_view_id" ref="view_odisea_expedient_filter"/>
             <field name="help" type="html">
-                <p class="oe_view_nocontent_create"> Click to create a Expedients.</p>
+                <p class="oe_view_nocontent_create"> 
+                    Click to create a Expedients.
+                </p>
             </field>
         </record>
 
+        <!-- Menu para Ramos -->
+        <record id="action_odisea_branches" model="ir.actions.act_window">
+            <field name="name">Branches</field>
+            <field name="res_model">odisea.branch</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_odisea_branch_tree"/>
+            <field name="search_view_id" ref="view_odisea_branch_filter"/> 
+
+<!--            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> 
+                    Click to create a Braches.
+                </p>
+            </field>
+-->
+        </record>
 
 	<!-- Action Menu Related Info -->
-	<menuitem
-	    action="action_odisea_expedient_expedients"
-	    id="menu_action_odisea"
-	    sequence="13"
-	    parent="menu_odisea"
-	/>
+    	<menuitem
+    	    action="action_odisea_expedient_expedients"
+    	    id="menu_action_odisea"
+    	    sequence="13"
+    	    parent="menu_odisea"
+    	/>
 
-     
+        <!-- Menu de Ramos -->
+        <menuitem
+            action="action_odisea_branches"
+            id="menu_action_odisea_branch"
+            sequence="13"
+            parent="menu_odisea_config"
+        />
     </data>
 </openerp>
 <!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4

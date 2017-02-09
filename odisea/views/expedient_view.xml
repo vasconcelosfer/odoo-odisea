@@ -5,13 +5,12 @@
         <record id="view_odisea_expedient_filter" model="ir.ui.view">
             <field name="name">odisea.expedient.select</field>
             <field name="model">odisea.expedient</field>
-            <field name="arch" type="xml">
+	    <field name="arch" type="xml">
                 <search string="Expedient">
-                    <!--<field name="dependency"/>
-                    <field name="number"/>
-                    <field name="created_year"/>-->
-                    <field name="exp_id"/>
-                    <field name="create_date"/>
+ 		    <field name="exp_id" string="Expedientes" />
+       		    <group string="Busqueda en expedientes">
+         	        <field name="created_year" string="Año del expediente"/>
+		    </group>
                 </search>
             </field>
         </record>
@@ -60,18 +59,19 @@
                     </header>
 		    <sheet string="Expedient">
 			<label for="expedient_type_sh" class="oe_edit_only"/>
-			<h1>
+			<h2>
 			  <field name="expedient_type_sh" class="oe_inline" nolabel="1"/> Nro:
 			   <field name="dependency" class="oe_inline" nolabel="1"/>-
 	                   <field name="number" class="oe_inline" nolabel="1"/>-
-             	           <field name="created_year" class="oe_inline" nolabel="1"/>/
-             	           <field name="alc_index" class="oe_inline" nolabel="1" />
-<!--					 attrs="{'invisible':[('alc_index', '==', '0')]}"/> -->
-			</h1>
+             	           <field name="created_year" class="oe_inline" nolabel="1"/> /
+<!--<h2 class="oe_inline" attrs="{'invisible':[('expedient_type_sh', '!=', 'alcance')]}"> / </h2> -->
+             	           <field name="alc_index" class="oe_inline" nolabel="1"/>
+<!--					 attrs="{'invisible':[('expedient_type_sh', '!=', 'alcance')]}"/> -->
+			</h2>
 			<label for="front_page" class="oe_edit_only"/>
-			<h1>
+			<h2>
 			     <field name="front_page" string="Front Page" nolabel="0"/>
-			</h1>
+			</h2>
 			<group>
 			   <field name="issue_type" class="oe_inline" nolabel="0"/>
 	                   <field name="issue" class="oe_inline" nolabel="0"/>
