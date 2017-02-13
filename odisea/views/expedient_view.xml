@@ -42,6 +42,7 @@
             <field name="arch" type="xml">
                 <form string="Expedient">
 		     <header>
+			<div>
                         <button name="sgn_to_revision"
                            	states="open"
 				confirm="Are you sure you want to continue?"
@@ -57,6 +58,7 @@
                           	class="oe_highlight"/>
                         <field name="state" widget="statusbar"
                            	statusbar_colors='{}'/>
+			</div>
                     </header>
 		    <sheet string="Expedient">
 			<label for="expedient_type_sh" class="oe_edit_only"/>
@@ -73,9 +75,18 @@
 			<h2>
 			     <field name="front_page" string="Front Page" nolabel="0"/>
 			</h2>
+			<group name="Issue Date">
+			<group name="Issue" class="oe_left">
+			    <field name="issue_type" string="Issue Type" class="oe_inline" nolabel="0"/>   
+			</group>	
+			<group name="Summary" class="oe_left" attrs="{'invisible':[('issue_type','!=','denuncia')]}">
+	                    <field name="summary_date" string="Summary Date" class="oe_edit_only"  readonly="0"/>
+	                    <field name="prescription_date" string="Prescription Date"   readonly="1"/>
+			</group>
+
+			</group>
 			<group>
-			   <field name="issue_type" class="oe_inline" nolabel="0"/>
-	                   <field name="issue" class="oe_inline" nolabel="0"/>
+	                    <field name="issue"  nolabel="0"/>
 			</group>
 			<group>
 			<field name="goods" string="Goods" nolabel="0"/>
