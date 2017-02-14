@@ -62,7 +62,7 @@
 			<label for="expedient_type_sh" class="oe_edit_only"/>
 			<h2>
 			  <field name="expedient_type_sh" class="oe_inline" nolabel="1"/> Nro:
-			   <field name="dependency" class="oe_inline" nolabel="1"/>-
+			   <field name="dependency" class="oe_inline" nolabel="1" />-
 	                   <field name="number" class="oe_inline" nolabel="1"/>-
              	           <field name="created_year" class="oe_inline" nolabel="1"/> /
 <!--<h2 class="oe_inline" attrs="{'invisible':[('expedient_type_sh', '!=', 'alcance')]}"> / </h2> -->
@@ -101,10 +101,12 @@
                 <page string="Childs" attrs="{'invisible':[('is_child','=', True)]}">
                     <field name="child_ids" >
                         <tree string="Childs creation">
-                            <field name="dependency"/>
+<!--                            <field name="dependency"/>
                             <field name="number"/>
                             <field name="created_year"/>
                             <field name="number"/>
+-->
+			    <field name="exp_id" />
                             <field name="front_page"/>
                             <field name="issue"/>
                             <field name="goods"/>
