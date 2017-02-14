@@ -21,6 +21,8 @@
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning
 
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 #import logging
 #_logger = logging.getlogger(__name__)
 
@@ -220,36 +222,21 @@ class OdiseaExpedient(models.Model):
 
         )
 
+	summary_date = fields.Date(
+		string = 'Summary Date',
+		default = datetime.now().date()
+	)
+
+	prescription_date = fields.Date(
+                string=_('Prescription Date'),
+                compute='_comp_prescription_date',
+		store=True
+	)
 #	destination_id = fields.Many2one(
 #               'odisea.destination',
 #               string='Parent'
 #        )
 
-#	def name_get(self, cr, uid, ids, context=None):
-#		if context is None:
-#			context = {}
-#		if isinstance(ids, (int, long)):
-#			ids = [ids]
-#		res = []
-#		if context.get('special_display_name', False):
-#			for record in self.browse(cr, uid, ids, context=context):
-#				res.append((record.id, record.exp_id))	
-			#	if record.expedient_type != 'alcance':
-			 #               res.append((record.id, (str(record.dependency) or '')+'-'+\
-			#			      (str(record.number) or '')+'-'+\
-			#			      (str(record.created_year) or '')))        
-			#	else:
-	        	#	        res.append((record.id, (str(record.dependency) or '')+'-'+\
-			#			      (str(record.number) or '')+'-'+\
-			#			      (str(record.created_year) or '')+'/'+\
-			#			      (str(record.alc_index) or '')))        
-#		else:
-	        # Do a for and set here the standard display name,
-		#  for example if the standard display name were name, you should do the next for
-		#	for record in self.browse(cr, uid, ids, context=context):
-		#		res.append((record.id, record.name))
-#	        	res = super(OdiseaExpedient, self).name_get(cr, uid, ids, context)
-#		return res
 
         @api.one
         @api.depends('dependency','number','created_year', 'alc_index')
@@ -277,6 +264,11 @@ class OdiseaExpedient(models.Model):
 			self.expedient_type = 'actuacion'
 			self.expedient_type_sh = 'Actuación'
 	
+	@api.one
+	@api.depends('summary_date')
+	def _comp_prescription_date(self):
+		self.prescription_date =(datetime.strptime(self.summary_date,'%Y-%m-%d') + relativedelta(years=+5)).strftime('%Y-%m-%d')
+
 	@api.multi
 	def write_with_event(self, vals):
 		for expedient in self:
