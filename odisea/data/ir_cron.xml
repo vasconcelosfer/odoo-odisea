@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="cron" model="ir.cron">
+            <field name="name">Run OCR on uploaded documents</field>
+            <field name="interval_type">minutes</field>
+            <field name="interval_number">10</field>
+            <field name="model">odisea.note</field>
+            <field name="function">_index_content_cron</field>
+            <field name="args" eval="" />
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</openerp>
