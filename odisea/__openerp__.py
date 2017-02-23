@@ -24,6 +24,7 @@
         "views/hr_employee_view_inh.xml",
 	"workflow/expedient_workflow.xml",
 	"views/branch_view.xml",
+	"data/ir_cron.xml",
         #"views/res_partner_view_inh.xml",
         #'security/ir.model.access.csv',
     ],

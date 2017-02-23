@@ -59,6 +59,9 @@
 <!--		   <field name="res_name"/>-->
                    <field name="datas" filename="datas_fname" />
                    <field name="datas_fname" invisible="1" on_change="onchange_filename(datas_fname)"/>
+		<group>
+                   <field name="content_index" string="Content"/>
+		</group>
                 </form>
             </field>
         </record>
