@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-from openerp import models, fields, api, _
+from openerp import models, fields, api, tools, _
 from openerp.exceptions import Warning
 
 from datetime import datetime
@@ -189,6 +189,12 @@ class OdiseaExpedient(models.Model):
 
         note_ids = fields.One2many(
                 'odisea.note',
+                'parent_exp_id',    
+                string='Nota'
+        )
+
+        image_ids = fields.One2many(
+                'odisea.image',
                 'parent_exp_id',    
                 string='Nota'
         )

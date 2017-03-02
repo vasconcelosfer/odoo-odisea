@@ -19,6 +19,7 @@
     'data': [
         "views/event_view.xml",
         "views/note_view.xml",
+	"views/image_view.xml",
         "views/expedient_view.xml",
 	"views/odisea_menuitems.xml",
         "views/hr_employee_view_inh.xml",
