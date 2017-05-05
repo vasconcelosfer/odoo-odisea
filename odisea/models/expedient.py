@@ -23,13 +23,14 @@ from openerp.exceptions import Warning
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-#import logging
+import logging
 #_logger = logging.getlogger(__name__)
 
 #from openerp import SUPERUSER_ID
 #from openerp import tools
 #from openerp.modules.module import get_module_resource
 
+_exp_logger = logging.getLogger(__name__)
 class OdiseaExpedient(models.Model):
         """Expedient"""
 
@@ -68,7 +69,7 @@ class OdiseaExpedient(models.Model):
         # Issue definition
                 ('criterio', 'Criterio'),
                 ('denuncia', 'Denuncia'),
-                ('devolución', 'Devolución'),
+                ('devolucion', 'Devolución'),
                 ('consulta', 'Consulta'),
                 ('embarque_escalonado', 'Embarque Escalonado'),
                 ('posicion_arancelaria', 'Posición Arancelaria'),
@@ -193,11 +194,11 @@ class OdiseaExpedient(models.Model):
                 string='Nota'
         )
 
-        image_ids = fields.One2many(
-                'odisea.image',
-                'parent_exp_id',    
-                string='Nota'
-        )
+#        image_ids = fields.One2many(
+#                'odisea.image',
+#                'parent_exp_id',    
+#                string='Nota'
+#        )
 
         event_ids = fields.One2many(
                 'odisea.event',
@@ -213,6 +214,11 @@ class OdiseaExpedient(models.Model):
         branch = fields.Many2one(
                 'odisea.branch',
                 string='Branch'
+        )
+
+        customs_broker = fields.Many2one(
+                'odisea.representative',
+                string='Custom Broker'
         )
 
         is_child = fields.Boolean(
@@ -274,6 +280,13 @@ class OdiseaExpedient(models.Model):
 	@api.depends('summary_date')
 	def _comp_prescription_date(self):
 		self.prescription_date =(datetime.strptime(self.summary_date,'%Y-%m-%d') + relativedelta(years=+5)).strftime('%Y-%m-%d')
+
+	@api.one
+        @api.depends('is_child', 'parent_id')
+        def _onchange_ischild(self, is_child):
+                if not is_child:
+			#TODO: No funciona
+                        self.parent_id = None
 
 	@api.multi
 	def write_with_event(self, vals):

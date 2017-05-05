@@ -23,6 +23,7 @@
         "views/expedient_view.xml",
 	"views/odisea_menuitems.xml",
         "views/hr_employee_view_inh.xml",
+	"views/representative_view.xml",
 	"workflow/expedient_workflow.xml",
 	"views/branch_view.xml",
 	"data/ir_cron.xml",

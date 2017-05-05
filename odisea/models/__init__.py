@@ -5,4 +5,5 @@ import event
 import hr_employee
 import branch
 import image
+import representative
 #import res_partner
