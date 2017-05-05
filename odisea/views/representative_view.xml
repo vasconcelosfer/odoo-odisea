@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<openerp>
+  <data>
+
+	<!-- SEARCH VIEW -->
+        <record id="view_odisea_representative_filter" model="ir.ui.view">
+            <field name="name">odisea.representative.select</field>
+            <field name="model">odisea.representative</field>
+	    <field name="arch" type="xml">
+                <search string="Representative">
+ 		    <field name="cuit" string="CUIT" />
+                </search>
+            </field>
+        </record>
+
+
+        <!-- TREEVIEW -->
+        <record id="view_odisea_representative_tree" model="ir.ui.view">
+            <field name="name">odisea.representative.tree</field>
+            <field name="model">odisea.representative</field>
+	    <field name="inherit_id" ref="base.view_partner_tree"/>
+	    <field name="mode">primary</field>
+            <field name="arch" type="xml">
+		<field name="phone" position="after">
+			<field name="cuit"/>
+		</field>
+	    </field>
+        </record>
+ 
+        <!-- FORMVIEW -->
+        <record id="view_odisea_representative_form" model="ir.ui.view">
+            <field name="name">odisea.representative.form</field>
+            <field name="model">odisea.representative</field>
+	    <field name="inherit_id" ref="base.view_partner_form"/>
+	    <field name="mode">primary</field>
+            <field name="arch" type="xml">
+		<field name="phone" position="after">
+			<field name="cuit"/>
+		</field>
+            </field>
+        </record>
+ 
+
+  </data>
+</openerp>
+
+
