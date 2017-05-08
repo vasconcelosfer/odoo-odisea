@@ -24,6 +24,4 @@ class OdiseaRepresentative(models.Model):
 	_name = 'odisea.representative'
 	_inherit = 'res.partner'
 
-	cuit = fields.Char(string='CUIT', size=12)
-	
-	
+	cuit = fields.Char(string='CUIT', size=13)
