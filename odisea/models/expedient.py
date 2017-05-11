@@ -180,6 +180,8 @@ class OdiseaExpedient(models.Model):
         child_ids = fields.One2many(
                 'odisea.expedient',
                 'parent_id',
+		readonly= True,
+#		context = "{'default_is_child': True}",
                 string='Childs'
         )
 
@@ -203,6 +205,7 @@ class OdiseaExpedient(models.Model):
         event_ids = fields.One2many(
                 'odisea.event',
                 'parent_exp_id',    
+		readonly= True,
                 string='Event'
         )
 
@@ -218,7 +221,15 @@ class OdiseaExpedient(models.Model):
 
         customs_broker = fields.Many2one(
                 'odisea.representative',
+		domain = "[('is_company', '=', False)]",
                 string='Custom Broker'
+        )
+
+        organization = fields.Many2one(
+                'odisea.representative',
+		domain = "[('is_company', '=', True)]",
+		context = "{'default_is_company': True}",
+                string='Organization'
         )
 
         is_child = fields.Boolean(
