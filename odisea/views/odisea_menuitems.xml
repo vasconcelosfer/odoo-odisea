@@ -8,14 +8,23 @@
             id="menu_odisea_main"
             sequence="45"
             />
-	<!-- Main Menu Related Info -->
+	<!-- Main Menu Notas -->
     	<menuitem
-            name="Odisea"
+
+            name="Notas"
             id="menu_odisea"
             sequence="10"
     	    parent="menu_odisea_main"
         />
 
+
+	<!-- Main Menu Menu -->
+        <menuitem
+            name="Main Menu"
+            id="menu_odisea2"
+            sequence="9"
+            parent="menu_odisea_main"
+        />
 
         <!-- Título de menu para las configuraciones -->
         <menuitem
@@ -25,15 +34,33 @@
             parent="menu_odisea_main"
        />
 
-       <record id="action_odisea_expedient_expedients" model="ir.actions.act_window">
+       <!-- Mis Expedientes General -->
+       <record id="action_odisea_expedient_myexpedients" model="ir.actions.act_window">
+            <field name="name">My Expedients</field>
+            <field name="res_model">odisea.expedient</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_odisea_expedient_tree"/>
+            <field name="search_view_id" ref="view_odisea_expedient_filter"/>
+	    <field name="domain">[('is_child','=',False),('assigned_user','=',uid)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> 
+                    Click to create My  Expedients.
+                </p>
+            </field>
+        </record>
+	
+	<!-- Tipo Expediente -->
+	<record id="action_odisea_expedient_expedients" model="ir.actions.act_window">
             <field name="name">Expedients</field>
             <field name="res_model">odisea.expedient</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_odisea_expedient_tree"/>
             <field name="search_view_id" ref="view_odisea_expedient_filter"/>
+  	    <field name="domain">[('is_child','=',False)]</field>
             <field name="help" type="html">
-                <p class="oe_view_nocontent_create"> 
+                <p class="oe_view_nocontent_create">
                     Click to create a Expedients.
                 </p>
             </field>
@@ -58,6 +85,87 @@
     </record>
 -->
 
+	<!-- Tipo Criterio -->
+        <record id="action_odisea_expedient_criterio" model="ir.actions.act_window">
+            <field name="name">Criterio</field>
+            <field name="res_model">odisea.note</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_odisea_expedient_note"/>
+            <field name="search_view_id" ref="view_odisea_note_filter" />
+<!--	    <field name="context">{'search_default_type_criterio':1}</field>-->
+	    <field name="domain">[('note_type','=','1')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to Add Criterios.
+                </p>
+            </field>
+        </record>
+
+        <!-- Tipo DV CLAR -->
+        <record id="action_odisea_expedient_dvclar" model="ir.actions.act_window">
+            <field name="name">DV CLAR</field>
+            <field name="res_model">odisea.note</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_odisea_expedient_note"/>
+            <field name="search_view_id" ref="view_odisea_note_filter"/>
+	    <field name="domain">[('note_type','=','3')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to Add a DV CLAR.
+                </p>
+            </field>
+        </record>
+
+        <!-- Tipo Dictamen Técnico -->
+        <record id="action_odisea_expedient_dictec" model="ir.actions.act_window">
+            <field name="name">Technical Report</field>
+            <field name="res_model">odisea.note</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_odisea_expedient_note"/>
+            <field name="search_view_id" ref="view_odisea_note_filter"/>
+	    <field name="domain">[('note_type','=','2')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to Add a Technical Report.
+                </p>
+            </field>
+        </record>
+
+        <!-- Tipo DI TECN -->
+        <record id="action_odisea_expedient_ditecn" model="ir.actions.act_window">
+            <field name="name">DI TECN</field>
+            <field name="res_model">odisea.note</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_odisea_expedient_note"/>
+            <field name="search_view_id" ref="view_odisea_note_filter"/>
+            <field name="domain">[('note_type','=','5')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to Add a DI TECN.
+                </p>
+            </field>
+        </record>
+
+        <!-- Tipo Resolución -->
+        <record id="action_odisea_expedient_resolution" model="ir.actions.act_window">
+            <field name="name">Resolution</field>
+            <field name="res_model">odisea.note</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_odisea_expedient_note"/>
+            <field name="search_view_id" ref="view_odisea_note_filter"/>
+            <field name="domain">[('note_type','=','6')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to Add a Resolution.
+                </p>
+            </field>
+        </record>
+
         <!-- Menu para Ramos -->
         <record id="action_odisea_branches" model="ir.actions.act_window">
             <field name="name">Branches</field>
@@ -75,12 +183,12 @@
 -->
         </record>
 
-	<!-- Action Menu Related Info -->
+	<!-- Main Menu Menu General -->
     	<menuitem
-    	    action="action_odisea_expedient_expedients"
+    	    action="action_odisea_expedient_myexpedients"
     	    id="menu_action_odisea"
     	    sequence="13"
-    	    parent="menu_odisea"
+    	    parent="menu_odisea2"
     	/>
 <!--
 	<menuitem 
@@ -91,6 +199,45 @@
             action="action_contacts"
         />
 -->
+
+        <menuitem
+            action="action_odisea_expedient_expedients"
+            id="menu_action_odisea2"
+            sequence="12"
+            parent="menu_odisea2"
+        />
+	
+	<!-- Expedientes de Notas -->
+	<menuitem
+            action="action_odisea_expedient_dictec"
+            id="menu_action_odisea3"
+            sequence="14"
+            parent="menu_odisea"
+        />
+	<menuitem
+            action="action_odisea_expedient_criterio"
+            id="menu_action_odisea4"
+            sequence="15"
+            parent="menu_odisea"
+        />
+	<menuitem
+            action="action_odisea_expedient_dvclar"
+            id="menu_action_odisea5"
+            sequence="16"
+            parent="menu_odisea"
+        />
+        <menuitem
+            action="action_odisea_expedient_ditecn"
+            id="menu_action_odisea6"
+            sequence="17"
+            parent="menu_odisea"
+        />
+        <menuitem
+            action="action_odisea_expedient_resolution"
+            id="menu_action_odisea7"
+            sequence="18"
+            parent="menu_odisea"
+        />
 
         <!-- Menu de Ramos -->
         <menuitem
