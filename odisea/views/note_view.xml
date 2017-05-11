@@ -7,12 +7,11 @@
             <field name="model">odisea.note</field>
             <field name="arch" type="xml">
                 <search string="Note">
-                    <!--<field name="dependency"/>
-                    <field name="number"/>
-                    <field name="created_year"/>>
-                    <field name="exp_id"/>
-                    <field name="create_date"/>-->
-                </search>
+			<field name="note_type" string="Tipo de Nota"/>
+			<group expand="1" string="Group by..">
+				<filter string="Año" icon="terp-project" domain="[]" context="{'group_by':'release_year'}" /> 
+			</group>
+               </search>
             </field>
         </record>
 
@@ -20,16 +19,18 @@
         <record id="view_odisea_expedient_note" model="ir.ui.view">
             <field name="name">odisea.note.tree</field>
             <field name="model">odisea.note</field>
+<!--	    <field domain="[('note_type','=','1')]" name="id_note"/> -->
             <field name="arch" type="xml">
                 <tree string="Note">
+		   <field name="note_id"/>
+		   <field name="release_date"/>
+		   <field name="position_ids" />
+                   <field name="note_type"/>
 		   <button name="get_exp_file"
 			   attrs="{'enabled':'enabled'}"
 			   type="object" 
 			   string="Download"
-			   icon="gtk-file"/>
-	           <field name="note_type"/>
-		   <field name="note_id"/>
-                   <field name="release_date"/>
+			   icon="gtk-file">Download</button>
                 </tree>
             </field>
         </record>

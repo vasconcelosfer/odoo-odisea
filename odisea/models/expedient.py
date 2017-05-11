@@ -224,9 +224,19 @@ class OdiseaExpedient(models.Model):
 
         assigned_advisor = fields.Many2one(
             'hr.employee',           
-            string='Assigned advisor'
+            string='Assigned advisor',
+	    store=True,
+	    default='_employee_get'
 
         )
+	
+	assigned_user = fields.Integer(
+#		'res.user',
+		compute='_comp_user',
+		string='User assigned for employee',
+		store=True,
+		readonly=True
+	)
 
 	summary_date = fields.Date(
 		string = 'Summary Date',
@@ -274,6 +284,23 @@ class OdiseaExpedient(models.Model):
 	@api.depends('summary_date')
 	def _comp_prescription_date(self):
 		self.prescription_date =(datetime.strptime(self.summary_date,'%Y-%m-%d') + relativedelta(years=+5)).strftime('%Y-%m-%d')
+
+	@api.one
+        @api.depends('assigned_advisor')
+	def _comp_user(self):
+		if self.assigned_advisor:
+			self.assigned_user = self.assigned_advisor.resource_id
+			resource = self.env['resource.resource'].search([('id','=',self.assigned_user)])
+#			res = self.env['res.user'].search([('id','=',resource.user_id)])
+			self.assigned_user = resource.user_id
+#		employee = self.env['hr.employee'].search([('resource_id','=',resource.id)])
+#		resource = self.env['resource.resource'].search([('user_id','=',self.env.user.id)])
+#			self.assigned_user = self.env['res.user'].search([('user_id','=',employee)])
+	@api.one
+        @api.depends('assigned_advisor')
+	def _employee_get(self):
+		record = self.env['hr.employee'].search([('user_id', '=', self.env.user.login)]) 
+		return record[0]
 
 	@api.multi
 	def write_with_event(self, vals):

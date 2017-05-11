@@ -14,7 +14,8 @@ class OdiseaNote(models.Model):
 
 	_inherit = 'ir.attachment'
 	_name = 'odisea.note'
-	_sort = 'id_note'
+	_sort = 'note_id' # 'id_note':
+
 
         note_type = fields.Selection([
 		('1', 'CRITERIO'),
@@ -89,6 +90,7 @@ class OdiseaNote(models.Model):
          	  'type' : 'ir.actions.act_url',
 		  'url': '/web/binary/saveas?model=odisea.note&field=datas&filename_field=datas_fname&id=%s'%(self.id),
                   'target': 'self',
+		  'string':'Download',
  }
 	@api.multi 
 	def set_exp_file(self):
