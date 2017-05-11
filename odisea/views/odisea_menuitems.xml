@@ -10,11 +10,13 @@
             />
 	<!-- Main Menu Notas -->
     	<menuitem
+
             name="Notas"
             id="menu_odisea"
             sequence="10"
     	    parent="menu_odisea_main"
         />
+
 
 	<!-- Main Menu Menu -->
         <menuitem
@@ -63,6 +65,25 @@
                 </p>
             </field>
         </record>
+<!--
+       <record id="action_contacts" model="ir.actions.act_window">
+            <field name="name">Representative</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odisea.representative</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="odisea.view_odisea_representative_filter"/>
+       	    <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a contact in your address book.
+          </p><p>
+            Odoo helps you easily track all activities related to
+            a customer; discussions, history of business opportunities,
+            documents, etc.
+          </p>
+        </field>
+    </record>
+-->
 
 	<!-- Tipo Criterio -->
         <record id="action_odisea_expedient_criterio" model="ir.actions.act_window">
@@ -169,6 +190,15 @@
     	    sequence="13"
     	    parent="menu_odisea2"
     	/>
+<!--
+	<menuitem 
+	    name="Contacts" 
+            id="menu_action_contacts" 
+            parent="menu_odisea"
+            sequence="11" 
+            action="action_contacts"
+        />
+-->
 
         <menuitem
             action="action_odisea_expedient_expedients"
