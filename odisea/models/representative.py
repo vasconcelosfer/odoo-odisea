@@ -25,7 +25,7 @@ class odisea_representative(models.Model):
 	_name = 'odisea.representative'
 
 	@api.multi
-	def _has_image(self, name, args):
+	def _has_image(self):
 		return dict((p.id, bool(p.image)) for p in self)
 
         name = fields.Char(string='Name', required=True)
