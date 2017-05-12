@@ -320,6 +320,7 @@ class OdiseaExpedient(models.Model):
 		record = self.env['hr.employee'].search([('user_id', '=', self.env.user.login)]) 
 		return record[0]
 
+	@api.one
         @api.depends('is_child', 'parent_id')
         def _onchange_ischild(self, is_child):
                 if not is_child:
