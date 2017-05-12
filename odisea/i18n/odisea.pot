@@ -1,0 +1,1068 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* odisea
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-12 16:51+0000\n"
+"PO-Revision-Date: 2017-05-12 16:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_expedient_criterio
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add Criterios.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add Criterios.\n"
+"                </p>\n"
+"            "
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_expedient_ditecn
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add a DI TECN.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add a DI TECN.\n"
+"                </p>\n"
+"            "
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_expedient_dvclar
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add a DV CLAR.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add a DV CLAR.\n"
+"                </p>\n"
+"            "
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_expedient_resolution
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add a Resolution.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add a Resolution.\n"
+"                </p>\n"
+"            "
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_expedient_dictec
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add a Technical Report.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to Add a Technical Report.\n"
+"                </p>\n"
+"            "
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_expedient_expedients
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to create a Expedients.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to create a Expedients.\n"
+"                </p>\n"
+"            "
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_expedient_myexpedients
+msgid "<p class=\"oe_view_nocontent_create\"> \n"
+"                    Click to create My  Expedients.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\"> \n"
+"                    Click to create My  Expedients.\n"
+"                </p>\n"
+"            "
+
+#. module: odisea
+#: field:odisea.representative,active:0
+msgid "Active"
+msgstr "Active"
+
+#. module: odisea
+#: selection:odisea.expedient,expedient_type:0
+msgid "Actuación"
+msgstr "Actuación"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+msgid "Address"
+msgstr "Address"
+
+#. module: odisea
+#: selection:odisea.expedient,expedient_type:0
+msgid "Alcance"
+msgstr "Alcance"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Apertura SIM"
+msgstr "Apertura SIM"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Are you sure you want to continue?"
+msgstr "Are you sure you want to continue?"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_filter
+msgid "Asesor"
+msgstr "Asesor"
+
+#. module: odisea
+#: field:odisea.expedient,assigned_advisor:0
+msgid "Assigned advisor"
+msgstr "Assigned advisor"
+
+#. module: odisea
+#: field:odisea.note,name:0
+msgid "Attachment Name"
+msgstr "Attachment Name"
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_note_filter
+msgid "Año"
+msgstr "Año"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_filter
+msgid "Año del expediente"
+msgstr "Año del expediente"
+
+#. module: odisea
+#: field:odisea.image,image_big:0
+msgid "Big-sized image"
+msgstr "Big-sized image"
+
+#. module: odisea
+#: help:odisea.image,image_big:0
+msgid "Big-sized image of this model. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+msgstr "Big-sized image of this model. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+
+#. module: odisea
+#: selection:odisea.note,type:0
+msgid "Binary"
+msgstr "Binary"
+
+#. module: odisea
+#: help:odisea.note,type:0
+msgid "Binary File or URL"
+msgstr "Binary File or URL"
+
+#. module: odisea
+#: field:odisea.representative,birthdate:0
+msgid "Birthdate"
+msgstr "Birthdate"
+
+#. module: odisea
+#: field:hr.employee,branch:0
+#: view:odisea.branch:odisea.view_odisea_branch_filter
+#: view:odisea.branch:odisea.view_odisea_branch_form
+#: view:odisea.branch:odisea.view_odisea_branch_tree
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.expedient,branch:0
+msgid "Branch"
+msgstr "Branch"
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_branches
+#: model:ir.ui.menu,name:odisea.menu_action_odisea_branch
+msgid "Branches"
+msgstr "Branches"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_filter
+msgid "Busqueda en expedientes"
+msgstr "Busqueda en expedientes"
+
+#. module: odisea
+#: selection:odisea.note,note_type:0
+msgid "CRITERIO"
+msgstr "CRITERIO"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+#: field:odisea.representative,cuit:0
+msgid "CUIT"
+msgstr "CUIT"
+
+#. module: odisea
+#: help:odisea.representative,is_company:0
+msgid "Check if the contact is a company, otherwise it is a person"
+msgstr "Check if the contact is a company, otherwise it is a person"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.expedient,child_ids:0
+msgid "Childs"
+msgstr "Childs"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Childs creation"
+msgstr "Childs creation"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+#: field:odisea.representative,city:0
+msgid "City"
+msgstr "City"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Close"
+msgstr "Close"
+
+#. module: odisea
+#: selection:odisea.expedient,state:0
+msgid "Closed"
+msgstr "Closed"
+
+#. module: odisea
+#: field:odisea.representative,color:0
+msgid "Color Index"
+msgstr "Color Index"
+
+#. module: odisea
+#: field:odisea.note,company_id:0
+#: view:odisea.representative:odisea.view_odisea_representative_form
+#: field:odisea.representative,company:0
+msgid "Company"
+msgstr "Company"
+
+#. module: odisea
+#: model:ir.ui.menu,name:odisea.menu_odisea_config
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Consulta"
+msgstr "Consulta"
+
+#. module: odisea
+#: field:odisea.representative,ref:0
+msgid "Contact Reference"
+msgstr "Contact Reference"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_tree
+msgid "Contacts"
+msgstr "Contacts"
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_note_form
+msgid "Content"
+msgstr "Content"
+
+#. module: odisea
+#: field:odisea.note,content_index:0
+msgid "Content Index"
+msgstr "Content Index"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+#: field:odisea.representative,country_id:0
+msgid "Country"
+msgstr "Country"
+
+#. module: odisea
+#: field:odisea.expedient,created_year:0
+msgid "Created Year"
+msgstr "Created Year"
+
+#. module: odisea
+#: field:odisea.branch,create_uid:0
+#: field:odisea.event,create_uid:0
+#: field:odisea.expedient,create_uid:0
+#: field:odisea.image,create_uid:0
+#: field:odisea.position,create_uid:0
+#: field:odisea.representative,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: odisea
+#: field:odisea.branch,create_date:0
+#: field:odisea.event,create_date:0
+#: field:odisea.expedient,create_date:0
+#: field:odisea.image,create_date:0
+#: field:odisea.position,create_date:0
+#: field:odisea.representative,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_criterio
+#: model:ir.ui.menu,name:odisea.menu_action_odisea4
+#: selection:odisea.expedient,issue_type:0
+msgid "Criterio"
+msgstr "Criterio"
+
+#. module: odisea
+#: field:odisea.expedient,customs_broker:0
+msgid "Custom Broker"
+msgstr "Custom Broker"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: view:odisea.representative:odisea.view_odisea_representative_filter
+msgid "Customs Broker"
+msgstr "Customs Broker"
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_ditecn
+#: model:ir.ui.menu,name:odisea.menu_action_odisea6
+#: selection:odisea.note,note_type:0
+msgid "DI TECN"
+msgstr "DI TECN"
+
+#. module: odisea
+#: selection:odisea.note,note_type:0
+msgid "DICTAMEN TÉCNICO"
+msgstr "DICTAMEN TÉCNICO"
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_dvclar
+#: model:ir.ui.menu,name:odisea.menu_action_odisea5
+#: selection:odisea.note,note_type:0
+msgid "DV CLAR"
+msgstr "DV CLAR"
+
+#. module: odisea
+#: field:odisea.note,db_datas:0
+msgid "Database Data"
+msgstr "Database Data"
+
+#. module: odisea
+#: view:odisea.event:odisea.view_odisea_event_form
+#: view:odisea.expedient:odisea.view_odisea_expedient_tree
+msgid "Date"
+msgstr "Date"
+
+#. module: odisea
+#: field:odisea.note,create_date:0
+msgid "Date Created"
+msgstr "Date Created"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Denuncia"
+msgstr "Denuncia"
+
+#. module: odisea
+#: field:odisea.expedient,dependency:0
+msgid "Dependency"
+msgstr "Dependency"
+
+#. module: odisea
+#: field:odisea.branch,description:0
+msgid "Descripción del Ramo"
+msgstr "Descripción del Ramo"
+
+#. module: odisea
+#: field:odisea.event,description:0
+#: field:odisea.note,description:0
+msgid "Description"
+msgstr "Description"
+
+#. module: odisea
+#: view:odisea.event:odisea.view_odisea_event_form
+msgid "Details"
+msgstr "Details"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Devolución"
+msgstr "Devolución"
+
+#. module: odisea
+#: field:odisea.branch,display_name:0
+#: field:odisea.event,display_name:0
+#: field:odisea.expedient,display_name:0
+#: field:odisea.image,display_name:0
+#: field:odisea.note,display_name:0
+#: field:odisea.position,display_name:0
+#: field:odisea.representative,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_expedient_note
+msgid "Download"
+msgstr "Download"
+
+#. module: odisea
+#: sql_constraint:odisea.expedient:0
+msgid "El número de expediente debe ser único"
+msgstr "El número de expediente debe ser único"
+
+#. module: odisea
+#: field:odisea.representative,email:0
+msgid "Email"
+msgstr "Email"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Embarque Escalonado"
+msgstr "Embarque Escalonado"
+
+#. module: odisea
+#: model:ir.model,name:odisea.model_hr_employee
+msgid "Employee"
+msgstr "Employee"
+
+#. module: odisea
+#: model:ir.model,name:odisea.model_odisea_event
+#: view:odisea.event:odisea.view_odisea_event_form
+#: view:odisea.event:odisea.view_odisea_expedient_event
+#: field:odisea.expedient,event_ids:0
+msgid "Event"
+msgstr "Event"
+
+#. module: odisea
+#: field:odisea.event,event_id:0
+msgid "Event Id"
+msgstr "Event Id"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Events"
+msgstr "Events"
+
+#. module: odisea
+#: model:ir.model,name:odisea.model_odisea_expedient
+#: field:odisea.event,parent_exp_id:0
+#: view:odisea.expedient:odisea.view_odisea_expedient_filter
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: view:odisea.expedient:odisea.view_odisea_expedient_tree
+#: field:odisea.image,parent_exp_id:0
+#: field:odisea.note,parent_exp_id:0
+msgid "Expedient"
+msgstr "Expedient"
+
+#. module: odisea
+#: code:addons/odisea/models/expedient.py:144
+#: field:odisea.expedient,expedient_type:0
+#: field:odisea.expedient,expedient_type_sh:0
+#, python-format
+msgid "Expedient Type"
+msgstr "Expedient Type"
+
+#. module: odisea
+#: selection:odisea.expedient,expedient_type:0
+msgid "Expediente"
+msgstr "Expediente"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_filter
+msgid "Expedientes"
+msgstr "Expedientes"
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_expedients
+#: model:ir.ui.menu,name:odisea.menu_action_odisea2
+msgid "Expedients"
+msgstr "Expedients"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Father"
+msgstr "Father"
+
+#. module: odisea
+#: field:odisea.representative,fax:0
+msgid "Fax"
+msgstr "Fax"
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_note_form
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: odisea
+#: field:odisea.note,datas:0
+msgid "File Content"
+msgstr "File Content"
+
+#. module: odisea
+#: field:odisea.note,datas_fname:0
+msgid "File Name"
+msgstr "File Name"
+
+#. module: odisea
+#: field:odisea.note,file_size:0
+msgid "File Size"
+msgstr "File Size"
+
+#. module: odisea
+#: field:odisea.note,file_type_icon:0
+msgid "File Type Icon"
+msgstr "File Type Icon"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.expedient,front_page:0
+msgid "Front Page"
+msgstr "Front Page"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.expedient,goods:0
+msgid "Goods"
+msgstr "Goods"
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_note_filter
+msgid "Group by.."
+msgstr "Group by.."
+
+#. module: odisea
+#: field:odisea.representative,has_image:0
+msgid "Has image"
+msgstr "Has image"
+
+#. module: odisea
+#: field:odisea.branch,id:0
+#: field:odisea.event,id:0
+#: field:odisea.expedient,id:0
+#: field:odisea.image,id:0
+#: field:odisea.note,id:0
+#: field:odisea.position,id:0
+#: field:odisea.representative,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: odisea
+#: field:odisea.image,image:0
+#: field:odisea.representative,image:0
+msgid "Image"
+msgstr "Image"
+
+#. module: odisea
+#: field:odisea.image,image_filename:0
+msgid "Image Filename"
+msgstr "Image Filename"
+
+#. module: odisea
+#: selection:odisea.expedient,state:0
+msgid "In Revision"
+msgstr "In Revision"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+msgid "Internal Notes"
+msgstr "Internal Notes"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Is a Child?"
+msgstr "Is a Child?"
+
+#. module: odisea
+#: field:odisea.representative,is_company:0
+msgid "Is a Company"
+msgstr "Is a Company"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+msgid "Is a Company?"
+msgstr "Is a Company?"
+
+#. module: odisea
+#: field:odisea.expedient,is_child:0
+msgid "Is child"
+msgstr "Is child"
+
+#. module: odisea
+#: field:odisea.expedient,issue:0
+msgid "Issue"
+msgstr "Issue"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.expedient,issue_type:0
+msgid "Issue Type"
+msgstr "Issue Type"
+
+#. module: odisea
+#: view:hr.employee:odisea.odisea_hr_employee_view_inh
+msgid "Jefe"
+msgstr "Jefe"
+
+#. module: odisea
+#: field:odisea.representative,function:0
+msgid "Job Position"
+msgstr "Job Position"
+
+#. module: odisea
+#: field:odisea.branch,__last_update:0
+#: field:odisea.event,__last_update:0
+#: field:odisea.expedient,__last_update:0
+#: field:odisea.image,__last_update:0
+#: field:odisea.note,__last_update:0
+#: field:odisea.position,__last_update:0
+#: field:odisea.representative,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: odisea
+#: field:odisea.branch,write_uid:0
+#: field:odisea.event,write_uid:0
+#: field:odisea.expedient,write_uid:0
+#: field:odisea.image,write_uid:0
+#: field:odisea.note,write_uid:0
+#: field:odisea.position,write_uid:0
+#: field:odisea.representative,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: odisea
+#: field:odisea.branch,write_date:0
+#: field:odisea.event,write_date:0
+#: field:odisea.expedient,write_date:0
+#: field:odisea.image,write_date:0
+#: field:odisea.note,write_date:0
+#: field:odisea.position,write_date:0
+#: field:odisea.representative,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: odisea
+#: field:hr.employee,docket:0
+msgid "Legajo"
+msgstr "Legajo"
+
+#. module: odisea
+#: model:ir.ui.menu,name:odisea.menu_odisea2
+msgid "Main Menu"
+msgstr "Main Menu"
+
+#. module: odisea
+#: field:odisea.image,image_medium:0
+#: field:odisea.representative,image_medium:0
+msgid "Medium-sized image"
+msgstr "Medium-sized image"
+
+#. module: odisea
+#: help:odisea.representative,image_medium:0
+msgid "Medium-sized image of this contact. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+msgstr "Medium-sized image of this contact. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+
+#. module: odisea
+#: help:odisea.image,image_medium:0
+msgid "Medium-sized image of this model. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+msgstr "Medium-sized image of this model. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+
+#. module: odisea
+#: field:odisea.representative,mobile:0
+msgid "Mobile"
+msgstr "Mobile"
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_myexpedients
+#: model:ir.ui.menu,name:odisea.menu_action_odisea
+msgid "My Expedients"
+msgstr "My Expedients"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_filter
+#: view:odisea.representative:odisea.view_odisea_representative_form
+#: field:odisea.representative,name:0
+msgid "Name"
+msgstr "Name"
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_note_form
+msgid "Nombre de archivo"
+msgstr "Nombre de archivo"
+
+#. module: odisea
+#: field:odisea.branch,name:0
+msgid "Nombre del Ramo"
+msgstr "Nombre del Ramo"
+
+#. module: odisea
+#: field:odisea.expedient,note_ids:0
+msgid "Nota"
+msgstr "Nota"
+
+#. module: odisea
+#: model:ir.ui.menu,name:odisea.menu_odisea
+msgid "Notas"
+msgstr "Notas"
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_expedient_note
+#: view:odisea.note:odisea.view_odisea_note_filter
+#: view:odisea.note:odisea.view_odisea_note_form
+msgid "Note"
+msgstr "Note"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.position,note_ids:0
+#: field:odisea.representative,comment:0
+msgid "Notes"
+msgstr "Notes"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Nro:"
+msgstr "Nro:"
+
+#. module: odisea
+#: field:odisea.expedient,alc_index:0
+#: field:odisea.expedient,number:0
+#: field:odisea.note,id_note:0
+msgid "Number"
+msgstr "Number"
+
+#. module: odisea
+#: code:addons/odisea/models/expedient.py:130
+#: code:addons/odisea/models/note.py:41
+#: field:odisea.expedient,exp_id:0
+#: field:odisea.note,note_id:0
+#, python-format
+msgid "Number Com"
+msgstr "Number Com"
+
+#. module: odisea
+#: model:ir.ui.menu,name:odisea.menu_odisea_main
+msgid "Odisea"
+msgstr "Odisea"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Oficio"
+msgstr "Oficio"
+
+#. module: odisea
+#: selection:odisea.expedient,state:0
+msgid "Open"
+msgstr "Open"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.expedient,organization:0
+msgid "Organization"
+msgstr "Organization"
+
+#. module: odisea
+#: field:odisea.note,create_uid:0
+msgid "Owner"
+msgstr "Owner"
+
+#. module: odisea
+#: field:odisea.expedient,parent_id:0
+msgid "Parent"
+msgstr "Parent"
+
+#. module: odisea
+#: model:ir.model,name:odisea.model_odisea_representative
+msgid "Partner"
+msgstr "Partner"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+msgid "Partners"
+msgstr "Partners"
+
+#. module: odisea
+#: field:odisea.representative,phone:0
+msgid "Phone"
+msgstr "Phone"
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_note_form
+msgid "Posiciones"
+msgstr "Posiciones"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Posición Arancelaria"
+msgstr "Posición Arancelaria"
+
+#. module: odisea
+#: field:odisea.note,position_ids:0
+#: field:odisea.position,name:0
+msgid "Position"
+msgstr "Position"
+
+#. module: odisea
+#: code:addons/odisea/models/expedient.py:264
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.expedient,prescription_date:0
+#, python-format
+msgid "Prescription Date"
+msgstr "Prescription Date"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Prórroga Emb. Escalonado"
+msgstr "Prórroga Emb. Escalonado"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+msgid "Put an internal note..."
+msgstr "Put an internal note..."
+
+#. module: odisea
+#: selection:odisea.note,note_type:0
+msgid "RESOLUCIÓN"
+msgstr "RESOLUCIÓN"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_filter
+msgid "Ramo"
+msgstr "Ramo"
+
+#. module: odisea
+#: field:odisea.branch,active_branch:0
+msgid "Ramo activo"
+msgstr "Ramo activo"
+
+#. module: odisea
+#: field:odisea.expedient,registration_date:0
+msgid "Registration date"
+msgstr "Registration date"
+
+#. module: odisea
+#: field:odisea.note,release_date:0
+msgid "Release date"
+msgstr "Release date"
+
+#. module: odisea
+#: field:odisea.note,release_year:0
+msgid "Release year"
+msgstr "Release year"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Reopen"
+msgstr "Reopen"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Resolución 1243/1992"
+msgstr "Resolución 1243/1992"
+
+#. module: odisea
+#: selection:odisea.expedient,issue_type:0
+msgid "Resolución 256/2000"
+msgstr "Resolución 256/2000"
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_resolution
+#: model:ir.ui.menu,name:odisea.menu_action_odisea7
+msgid "Resolution"
+msgstr "Resolution"
+
+#. module: odisea
+#: field:odisea.note,res_id:0
+msgid "Resource ID"
+msgstr "Resource ID"
+
+#. module: odisea
+#: field:odisea.note,res_model:0
+msgid "Resource Model"
+msgstr "Resource Model"
+
+#. module: odisea
+#: field:odisea.note,res_name:0
+msgid "Resource Name"
+msgstr "Resource Name"
+
+#. module: odisea
+#: help:odisea.representative,use_parent_address:0
+msgid "Select this if you want to set company's address information  for this contact"
+msgstr "Select this if you want to set company's address information  for this contact"
+
+#. module: odisea
+#: help:odisea.image,image_small:0
+msgid "Small sized image of this model. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+msgstr "Small sized image of this model. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+
+#. module: odisea
+#: field:odisea.image,image_small:0
+#: field:odisea.representative,image_small:0
+msgid "Small-sized image"
+msgstr "Small-sized image"
+
+#. module: odisea
+#: help:odisea.representative,image_small:0
+msgid "Small-sized image of this contact. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "Small-sized image of this contact. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+
+#. module: odisea
+#: field:odisea.event,state:0
+#: field:odisea.expedient,state:0
+#: view:odisea.representative:odisea.view_odisea_representative_form
+#: field:odisea.representative,state_id:0
+msgid "State"
+msgstr "State"
+
+#. module: odisea
+#: field:odisea.note,store_fname:0
+msgid "Stored Filename"
+msgstr "Stored Filename"
+
+#. module: odisea
+#: field:odisea.representative,street:0
+msgid "Street"
+msgstr "Street"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+msgid "Street..."
+msgstr "Street..."
+
+#. module: odisea
+#: field:odisea.representative,street2:0
+msgid "Street2"
+msgstr "Street2"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Student Address"
+msgstr "Student Address"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.expedient,summary_date:0
+msgid "Summary Date"
+msgstr "Summary Date"
+
+#. module: odisea
+#: field:odisea.representative,category_id:0
+msgid "Tags"
+msgstr "Tags"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+msgid "Tags..."
+msgstr "Tags..."
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_dictec
+#: model:ir.ui.menu,name:odisea.menu_action_odisea3
+msgid "Technical Report"
+msgstr "Technical Report"
+
+#. module: odisea
+#: help:odisea.note,res_model:0
+msgid "The database object this attachment will be attached to"
+msgstr "The database object this attachment will be attached to"
+
+#. module: odisea
+#: help:odisea.note,res_id:0
+msgid "The record id this is attached to"
+msgstr "The record id this is attached to"
+
+#. module: odisea
+#: help:odisea.representative,image:0
+msgid "This field holds the image used as avatar for this contact, limited to 1024x1024px"
+msgstr "This field holds the image used as avatar for this contact, limited to 1024x1024px"
+
+#. module: odisea
+#: field:odisea.note,note_type:0
+msgid "Tipo"
+msgstr "Tipo"
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_note_filter
+msgid "Tipo de Nota"
+msgstr "Tipo de Nota"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_filter
+msgid "Tipo de expediente"
+msgstr "Tipo de expediente"
+
+#. module: odisea
+#: field:odisea.representative,title:0
+msgid "Title"
+msgstr "Title"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "To Revision"
+msgstr "To Revision"
+
+#. module: odisea
+#: view:hr.employee:odisea.odisea_hr_employee_view_inh
+msgid "True"
+msgstr "True"
+
+#. module: odisea
+#: field:odisea.note,type:0
+msgid "Type"
+msgstr "Type"
+
+#. module: odisea
+#: selection:odisea.note,type:0
+msgid "URL"
+msgstr "URL"
+
+#. module: odisea
+#: field:odisea.note,url:0
+msgid "Url"
+msgstr "Url"
+
+#. module: odisea
+#: field:odisea.representative,use_parent_address:0
+msgid "Use Company Address"
+msgstr "Use Company Address"
+
+#. module: odisea
+#: field:odisea.expedient,assigned_user:0
+msgid "User assigned for employee"
+msgstr "User assigned for employee"
+
+#. module: odisea
+#: field:odisea.representative,website:0
+msgid "Website"
+msgstr "Website"
+
+#. module: odisea
+#: help:odisea.representative,website:0
+msgid "Website of Partner or Company"
+msgstr "Website of Partner or Company"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+msgid "ZIP"
+msgstr "ZIP"
+
+#. module: odisea
+#: field:odisea.representative,zip:0
+msgid "Zip"
+msgstr "Zip"
+
+#. module: odisea
+#: view:odisea.representative:odisea.view_odisea_representative_form
+msgid "e.g. www.odoo.com"
+msgstr "e.g. www.odoo.com"
+
+#. module: odisea
+#: field:odisea.note,file_type:0
+msgid "unknown"
+msgstr "unknown"
+
