@@ -8,6 +8,8 @@
             <field name="arch" type="xml">
                 <search string="Note">
 			<field name="note_type" string="Tipo de Nota"/>
+			<field name="note_id" string="Number of note"/>
+			<field name="position_ids" string="Positions"/>
 			<group expand="1" string="Group by..">
 				<filter string="Año" icon="terp-project" domain="[]" context="{'group_by':'release_year'}" /> 
 			</group>
