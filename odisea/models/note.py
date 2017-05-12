@@ -123,6 +123,7 @@ class OdiseaNote(models.Model):
 		stdout, stderr = process.communicate(imagePDF.getvalue())
 		if stderr:
 			_logger.error('Error during OCR: %s', stderr)
+			return _MARKER_PHRASE
 		return stdout
 
 
