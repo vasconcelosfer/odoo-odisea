@@ -13,6 +13,9 @@
 			<field name="assigned_advisor" string="Asesor"/>
 			<field name="branch" string="Ramo"/>
 			<field name="issue_type" string="Tipo de expediente"/>
+			<field name="customs_broker" string="Customs Broker"/>
+			<field name="organization" string="Organization"/>
+			<field name="goods" string="Goods"/>
 		    </group>
                 </search>
             </field>
