@@ -265,11 +265,11 @@ class OdiseaExpedient(models.Model):
                 compute='_comp_prescription_date',
 		store=True
 	)
+
 #	destination_id = fields.Many2one(
 #               'odisea.destination',
 #               string='Parent'
 #        )
-
 
         @api.one
         @api.depends('dependency','number','created_year', 'alc_index')
@@ -288,13 +288,13 @@ class OdiseaExpedient(models.Model):
         @api.depends('dependency','number','created_year', 'alc_index', 'expedient_type')
 	def _comp_expedient_type(self):
 		if self.dependency == 1:
-			self.expedient_type = 'expediente'
+			self.write({'expedient_type': 'expediente'})
 			self.expedient_type_sh = 'Expediente'
 		elif self.alc_index != 0:
-			self.expedient_type = 'alcance'
+			self.write({'expedient_type': 'alcance'})
 			self.expedient_type_sh = 'Alcance'
 		else:
-			self.expedient_type = 'actuacion'
+			self.write({'expedient_type':'actuacion'})
 			self.expedient_type_sh = 'Actuación'
 	
 	@api.one
@@ -303,7 +303,6 @@ class OdiseaExpedient(models.Model):
 		self.prescription_date =(datetime.strptime(self.summary_date,'%Y-%m-%d') + relativedelta(years=+5)).strftime('%Y-%m-%d')
 
 	@api.one
-
         @api.depends('assigned_advisor')
 	def _comp_user(self):
 		if self.assigned_advisor:
@@ -314,6 +313,7 @@ class OdiseaExpedient(models.Model):
 #		employee = self.env['hr.employee'].search([('resource_id','=',resource.id)])
 #		resource = self.env['resource.resource'].search([('user_id','=',self.env.user.id)])
 #			self.assigned_user = self.env['res.user'].search([('user_id','=',employee)])
+
 	@api.one
         @api.depends('assigned_advisor')
 	def _employee_get(self):
@@ -326,7 +326,6 @@ class OdiseaExpedient(models.Model):
                 if not is_child:
 			#TODO: No funciona
                         self.parent_id = None
-
 
 	@api.multi
 	def write_with_event(self, vals):
@@ -346,7 +345,6 @@ class OdiseaExpedient(models.Model):
 		id_created = int(self.write_with_event(vals))
 		#Me devuelve una lista por lo tanto accedo al primero valor de la misma
 		#el cual es el id
-		#id_created = int(id_createdlst[0][0])
 		return {
 		    'name': 'Evento ' + self.state,
 	            'type': 'ir.actions.act_window',
@@ -364,9 +362,6 @@ class OdiseaExpedient(models.Model):
 		id_created = int(self.write_with_event(vals))
 		#Me devuelve una lista por lo tanto accedo al primero valor de la misma
 		#el cual es el id
-		#id_created = int(id_createdlst[0][0])
-		#= context.get('active_id', False)
-#		expCtx = self.env.context(
 		expCtx = {
 			'default_parent_exp_id': str(self.id)
 		}
@@ -384,3 +379,4 @@ class OdiseaExpedient(models.Model):
 	            'target': 'new',
 		    'flags': {'action_buttons': True},
 	        }
+
