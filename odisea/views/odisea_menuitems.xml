@@ -208,13 +208,14 @@
     	    parent="menu_odisea2"
     	/>
 
+<!-- Deshabilitamos Branch 
 	 <menuitem
             action="action_odisea_expedient_mybranch"
             id="menu_action_odisea_mybranch"
             sequence="33"
             parent="menu_odisea2"
         />
-
+-->
         <menuitem
             action="action_odisea_expedient_expedients"
             id="menu_action_odisea2"

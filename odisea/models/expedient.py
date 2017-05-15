@@ -288,13 +288,13 @@ class OdiseaExpedient(models.Model):
         @api.depends('dependency','number','created_year', 'alc_index', 'expedient_type')
 	def _comp_expedient_type(self):
 		if self.dependency == 1:
-			self.write({'expedient_type': 'expediente'})
+			#self.write({'expedient_type': 'expediente'})
 			self.expedient_type_sh = 'Expediente'
 		elif self.alc_index != 0:
-			self.write({'expedient_type': 'alcance'})
+			#self.write({'expedient_type': 'alcance'})
 			self.expedient_type_sh = 'Alcance'
 		else:
-			self.write({'expedient_type':'actuacion'})
+			#self.write({'expedient_type':'actuacion'})
 			self.expedient_type_sh = 'Actuación'
 	
 	@api.one
@@ -324,8 +324,9 @@ class OdiseaExpedient(models.Model):
         @api.depends('is_child', 'parent_id')
         def _onchange_ischild(self, is_child):
                 if not is_child:
-			#TODO: No funciona
-                        self.parent_id = None
+#			if parent_id != None:
+#				self.write({'parent_id': 'Null'})
+		return
 
 	@api.multi
 	def write_with_event(self, vals):
