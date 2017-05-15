@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <!-- Odisea Statics -->
+        <menuitem
+            name="Statistics"
+            id="menu_odisea_statistics"
+            sequence="9"
+            parent="menu_odisea_main"
+       />
+
+       <!-- General Expedient Static-->
+       <record id="action_odisea_expedient_statistics" model="ir.actions.act_window">
+            <field name="name">General Expedient</field>
+            <field name="res_model">odisea.expedient</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_odisea_expedient_general_graph"/>
+            <field name="search_view_id" ref="view_odisea_expedient_statistics_general_filter"/>
+	    <field name="domain">[('is_child','=',False)]</field>
+        </record>
+
+       <!-- Branch Expedient Static-->
+       <record id="action_odisea_expedient_branch_statistics" model="ir.actions.act_window">
+            <field name="name">Branch Expedient</field>
+            <field name="res_model">odisea.expedient</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_odisea_expedient_branch_graph"/>
+            <field name="search_view_id" ref="view_odisea_expedient_statistics_general_filter"/>
+	    <field name="domain">[('is_child','=',False)]</field>
+        </record>
+
+       <!-- Advisor Expedient Static-->
+       <record id="action_odisea_expedient_advisor_statistics" model="ir.actions.act_window">
+            <field name="name">Advisor Expedient</field>
+            <field name="res_model">odisea.expedient</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_odisea_expedient_advisor_graph"/>
+            <field name="search_view_id" ref="view_odisea_expedient_statistics_general_filter"/>
+	    <field name="domain">[('is_child','=',False)]</field>
+        </record>
+
+
+	<!-- General Expedient Static -->
+    	<menuitem
+    	    action="action_odisea_expedient_statistics"
+    	    id="menu_action_odisea_general_statistics"
+    	    sequence="1"
+    	    parent="menu_odisea_statistics"
+    	/>
+
+	<!-- Branch Expedient Static -->
+    	<menuitem
+    	    action="action_odisea_expedient_branch_statistics"
+    	    id="menu_action_odisea_branch_statistics"
+    	    sequence="2"
+    	    parent="menu_odisea_statistics"
+    	/>
+
+	<!-- Advisor Expedient Static -->
+    	<menuitem
+    	    action="action_odisea_expedient_advisor_statistics"
+    	    id="menu_action_odisea_advisor_statistics"
+    	    sequence="3"
+    	    parent="menu_odisea_statistics"
+    	/>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

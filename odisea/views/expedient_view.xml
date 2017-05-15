@@ -11,7 +11,7 @@
        		    <group string="Busqueda en expedientes">
          	        <field name="created_year" string="Año del expediente"/>
 			<field name="assigned_advisor" string="Asesor"/>
-			<field name="branch" string="Ramo"/>
+			<field name="branch" string="Ramo"  filter_domain="[('branch','ilike',self)]"/>
 			<field name="issue_type" string="Tipo de expediente"/>
 			<field name="customs_broker" string="Customs Broker"/>
 			<field name="organization" string="Organization"/>
@@ -26,7 +26,7 @@
             <field name="name">odisea.expedient.tree</field>
             <field name="model">odisea.expedient</field>
             <field name="arch" type="xml">
-                <tree string="Expedient">
+                <tree string="Expedient" colors="black:state=='closed';blue:state in (u'open', u'in_revision')">
 <!--                    colors="grey:state=='cancelled';blue:state in (u'open',);black:state in (u'annulled', u'in_revision', u'closed');red:state in ()"
 />-->
                     <field name="exp_id" widget="text"/>
@@ -34,9 +34,11 @@
 		    <field name="front_page"/>
 	           <!-- <field name="issue"/> -->
 		    <field name="goods"/>
+		    <field name="state" invisible='1'/>
                 </tree>
             </field>
         </record>
+
 
         <!-- FORMVIEW -->
         <record id="view_odisea_expedient_form" model="ir.ui.view">
@@ -136,6 +138,7 @@
                         <form string="Student Address" >
                             <label for="expedient_type_sh" class="oe_edit_only"/>
                             <h2>
+                              <field name="expedient_type" class="oe_inline" invisible="1"/> 
                               <field name="expedient_type_sh" class="oe_inline" nolabel="1"/> Nro:
                                <field name="dependency" class="oe_inline" nolabel="1"/>-
                                        <field name="number" class="oe_inline" nolabel="1"/>-
@@ -167,6 +170,68 @@
                 </form>
             </field>
         </record>
+
+
+
+
+	<!-- Statics -->
+	<!-- GENERAL EXPEDIENT -->
+	<!-- General Filte -->
+	 <record id="view_odisea_expedient_statistics_general_filter" model="ir.ui.view">
+            <field name="name">odisea.expedient.select</field>
+            <field name="model">odisea.expedient</field>
+	    <field name="arch" type="xml">
+                <search string="Expedient">
+			<group expand="1" string="Group by..">-->
+				<filter string="Year" icon="terp-project" domain="[]" context="{'group_by':'create_date:year'}" /> 
+			</group>
+                </search>
+            </field>
+        </record>
+
+	<!-- GENERAL GRAPH -->
+        <record id="view_odisea_expedient_general_graph" model="ir.ui.view">
+            <field name="name">odisea.expedient.graph</field>
+            <field name="model">odisea.expedient</field>
+            <field name="arch" type="xml">
+                <graph string="Expedient Statistics" type="bar" stacked="True">
+                   <field name="create_date" interval="year"/>
+                   <field name="state"/>
+<!--                    <field name="exp_id" type="messure"/>-->
+                   <!-- <field name="created_year" interval="year"/>-->
+                </graph>
+            </field>
+         </record>
+
+	<!-- BRANCH GRAPH -->
+        <record id="view_odisea_expedient_branch_graph" model="ir.ui.view">
+            <field name="name">odisea.expedient.graph</field>
+            <field name="model">odisea.expedient</field>
+            <field name="arch" type="xml">
+                <graph string="Branch Expedient Statistics" type="bar" stacked="True">
+                   <field name="branch"/>
+                   <field name="state"/>
+<!--                    <field name="exp_id" type="messure"/>-->
+                   <!-- <field name="created_year" interval="year"/>-->
+                </graph>
+            </field>
+         </record>
+
+	<!-- ADVISOR GRAPH -->
+        <record id="view_odisea_expedient_advisor_graph" model="ir.ui.view">
+            <field name="name">odisea.expedient.graph</field>
+            <field name="model">odisea.expedient</field>
+            <field name="arch" type="xml">
+                <graph string="Advisor Expedient Statistics" type="bar" stacked="True">
+		   <field name="assigned_advisor"/>
+                   <field name="state"/>
+<!--                    <field name="exp_id" type="messure"/>-->
+<!--                    <field name="created_year" type="messure"/>-->
+                </graph>
+            </field>
+         </record>
+
+
 
 
     </data>

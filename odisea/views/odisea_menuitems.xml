@@ -8,6 +8,7 @@
             id="menu_odisea_main"
             sequence="45"
             />
+
 	<!-- Main Menu Notas -->
     	<menuitem
 
@@ -49,7 +50,23 @@
                 </p>
             </field>
         </record>
-	
+
+	<!-- My branch -->
+       <record id="action_odisea_expedient_mybranch" model="ir.actions.act_window">
+            <field name="name">My Branch</field>
+            <field name="res_model">odisea.expedient</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_odisea_expedient_tree"/>
+            <field name="search_view_id" ref="view_odisea_expedient_filter"/>
+	    <field name="domain">[('is_child','=',False),('branch','=', 2)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> 
+                    Click to create an Expedients.
+                </p>
+            </field>
+        </record>
+
 	<!-- Tipo Expediente -->
 	<record id="action_odisea_expedient_expedients" model="ir.actions.act_window">
             <field name="name">Expedients</field>
@@ -61,7 +78,7 @@
   	    <field name="domain">[('is_child','=',False)]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
-                    Click to create a Expedients.
+                    Click to create an Expedients.
                 </p>
             </field>
         </record>
@@ -190,15 +207,13 @@
     	    sequence="13"
     	    parent="menu_odisea2"
     	/>
-<!--
-	<menuitem 
-	    name="Contacts" 
-            id="menu_action_contacts" 
-            parent="menu_odisea"
-            sequence="11" 
-            action="action_contacts"
+
+	 <menuitem
+            action="action_odisea_expedient_mybranch"
+            id="menu_action_odisea_mybranch"
+            sequence="33"
+            parent="menu_odisea2"
         />
--->
 
         <menuitem
             action="action_odisea_expedient_expedients"
@@ -206,7 +221,7 @@
             sequence="12"
             parent="menu_odisea2"
         />
-	
+
 	<!-- Expedientes de Notas -->
 	<menuitem
             action="action_odisea_expedient_dictec"
