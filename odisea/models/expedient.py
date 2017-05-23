@@ -323,7 +323,7 @@ class OdiseaExpedient(models.Model):
 	@api.one
         @api.depends('is_child', 'parent_id')
         def _onchange_ischild(self, is_child):
-                if not is_child:
+#                if not is_child:
 #			if parent_id != None:
 #				self.write({'parent_id': 'Null'})
 		return
