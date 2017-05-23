@@ -24,7 +24,7 @@ from openerp.exceptions import Warning
 class OdiseaBranch(models.Model):
 	_name = 'odisea.branch'
 
-	name = fields.Char(string='Nombre del Ramo', required=True, size=25)
-	description = fields.Text(string='Descripción del Ramo') 
-	active_branch = fields.Boolean(string='Ramo activo', default=True)
+	name = fields.Char(string='Branch name', required=True, size=25)
+	description = fields.Text(string='Branch description') 
+	active_branch = fields.Boolean(string='Active', default=True)
 

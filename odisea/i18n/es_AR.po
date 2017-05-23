@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-12 15:38-0300\n"
-"PO-Revision-Date: 2017-05-12 16:04-0300\n"
+"POT-Creation-Date: 2017-05-15 15:58-0300\n"
+"PO-Revision-Date: 2017-05-15 16:04-0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,7 +73,7 @@ msgstr ""
 #: model:ir.actions.act_window,help:odisea.action_odisea_expedient_expedients
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
-"                    Click to create a Expedients.\n"
+"                    Click to create an Expedients.\n"
 "                </p>\n"
 "            "
 msgstr ""
@@ -91,6 +91,17 @@ msgstr ""
 "<p class=\"oe_view_nocontent_create\">Haga clic para crear Expedientes.</p>"
 
 #. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_expedient_mybranch
+msgid ""
+"<p class=\"oe_view_nocontent_create\"> \n"
+"                    Click to create an Expedients.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">Haga clic para crear un Expedientes.</"
+"p>"
+
+#. module: odisea
 #: field:odisea.representative,active:0
 msgid "Active"
 msgstr "Activo"
@@ -98,12 +109,23 @@ msgstr "Activo"
 #. module: odisea
 #: selection:odisea.expedient,expedient_type:0
 msgid "Actuación"
-msgstr ""
+msgstr "Actuación"
 
 #. module: odisea
 #: view:odisea.representative:odisea.view_odisea_representative_form
 msgid "Address"
 msgstr "Dirección"
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_advisor_statistics
+#: model:ir.ui.menu,name:odisea.menu_action_odisea_advisor_statistics
+msgid "Advisor Expedient"
+msgstr "Asesor asignado"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_advisor_graph
+msgid "Advisor Expedient Statistics"
+msgstr "Asesor de estadísticas convenientes"
 
 #. module: odisea
 #: selection:odisea.expedient,expedient_type:0
@@ -113,7 +135,7 @@ msgstr ""
 #. module: odisea
 #: selection:odisea.expedient,issue_type:0
 msgid "Apertura SIM"
-msgstr ""
+msgstr "Apertura SIM"
 
 #. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
@@ -187,6 +209,17 @@ msgid "Branch"
 msgstr "Ramo"
 
 #. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_branch_statistics
+#: model:ir.ui.menu,name:odisea.menu_action_odisea_branch_statistics
+msgid "Branch Expedient"
+msgstr "Expediente por ramo"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_branch_graph
+msgid "Branch Expedient Statistics"
+msgstr "Expediente"
+
+#. module: odisea
 #: model:ir.actions.act_window,name:odisea.action_odisea_branches
 #: model:ir.ui.menu,name:odisea.menu_action_odisea_branch
 msgid "Branches"
@@ -219,11 +252,6 @@ msgstr ""
 #: field:odisea.expedient,child_ids:0
 msgid "Childs"
 msgstr "Hijos"
-
-#. module: odisea
-#: view:odisea.expedient:odisea.view_odisea_expedient_form
-msgid "Childs creation"
-msgstr "Creación del hijo"
 
 #. module: odisea
 #: view:odisea.representative:odisea.view_odisea_representative_form
@@ -333,7 +361,7 @@ msgstr "Patrocinador"
 #: model:ir.ui.menu,name:odisea.menu_action_odisea6
 #: selection:odisea.note,note_type:0
 msgid "DI TECN"
-msgstr ""
+msgstr "DI TECN"
 
 #. module: odisea
 #: selection:odisea.note,note_type:0
@@ -345,12 +373,12 @@ msgstr ""
 #: model:ir.ui.menu,name:odisea.menu_action_odisea5
 #: selection:odisea.note,note_type:0
 msgid "DV CLAR"
-msgstr ""
+msgstr "DV CLAR"
 
 #. module: odisea
 #: field:odisea.note,db_datas:0
 msgid "Database Data"
-msgstr ""
+msgstr "Datos de Base de Datos"
 
 #. module: odisea
 #: view:odisea.event:odisea.view_odisea_event_form
@@ -424,7 +452,7 @@ msgstr ""
 #. module: odisea
 #: model:ir.model,name:odisea.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Empleado"
 
 #. module: odisea
 #: model:ir.model,name:odisea.model_odisea_event
@@ -449,9 +477,15 @@ msgstr "Eventos"
 #: field:odisea.event,parent_exp_id:0
 #: view:odisea.expedient:odisea.view_odisea_expedient_filter
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: view:odisea.expedient:odisea.view_odisea_expedient_statistics_general_filter
 #: view:odisea.expedient:odisea.view_odisea_expedient_tree
 #: field:odisea.image,parent_exp_id:0 field:odisea.note,parent_exp_id:0
 msgid "Expedient"
+msgstr "Expediente"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_general_graph
+msgid "Expedient Statistics"
 msgstr "Expediente"
 
 #. module: odisea
@@ -495,7 +529,7 @@ msgstr ""
 #. module: odisea
 #: field:odisea.expedient,prescription_date:0
 msgid "Fecha de prescripción"
-msgstr ""
+msgstr "Actuación"
 
 #. module: odisea
 #: field:odisea.note,datas:0
@@ -524,6 +558,12 @@ msgid "Front Page"
 msgstr "Carátula"
 
 #. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_statistics
+#: model:ir.ui.menu,name:odisea.menu_action_odisea_general_statistics
+msgid "General Expedient"
+msgstr "Expediente"
+
+#. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_filter
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
 #: field:odisea.expedient,goods:0
@@ -531,6 +571,7 @@ msgid "Goods"
 msgstr "Mercaderías"
 
 #. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_statistics_general_filter
 #: view:odisea.note:odisea.view_odisea_note_filter
 msgid "Group by.."
 msgstr "Agrupado por.."
@@ -675,6 +716,11 @@ msgid "Mobile"
 msgstr "Celular"
 
 #. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_mybranch
+msgid "My Branch"
+msgstr "Ramo"
+
+#. module: odisea
 #: model:ir.actions.act_window,name:odisea.action_odisea_expedient_myexpedients
 #: model:ir.ui.menu,name:odisea.menu_action_odisea
 msgid "My Expedients"
@@ -685,12 +731,12 @@ msgstr "Mis Expedientes"
 #: view:odisea.representative:odisea.view_odisea_representative_form
 #: field:odisea.representative,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: odisea
 #: view:odisea.note:odisea.view_odisea_note_form
 msgid "Nombre de archivo"
-msgstr ""
+msgstr "Actuación"
 
 #. module: odisea
 #: field:odisea.branch,name:0
@@ -745,7 +791,7 @@ msgstr "Número"
 
 #. module: odisea
 #: field:odisea.expedient,exp_id:0 field:odisea.note,note_id:0
-msgid "Número de Actuación"
+msgid "Número"
 msgstr "Actuación"
 
 #. module: odisea
@@ -808,12 +854,12 @@ msgstr ""
 #. module: odisea
 #: field:odisea.note,position_ids:0 field:odisea.position,name:0
 msgid "Position"
-msgstr "Posición"
+msgstr ""
 
 #. module: odisea
 #: view:odisea.note:odisea.view_odisea_note_filter
 msgid "Positions"
-msgstr ""
+msgstr "Posiciones"
 
 #. module: odisea
 #: code:addons/odisea/models/expedient.py:264
@@ -942,6 +988,11 @@ msgid "State"
 msgstr "Estado"
 
 #. module: odisea
+#: model:ir.ui.menu,name:odisea.menu_odisea_statistics
+msgid "Statistics"
+msgstr "Estadisticas"
+
+#. module: odisea
 #: field:odisea.note,store_fname:0
 msgid "Stored Filename"
 msgstr "Nombre de archivo guardado"
@@ -960,11 +1011,6 @@ msgstr "Calle..."
 #: field:odisea.representative,street2:0
 msgid "Street2"
 msgstr "Calle 2"
-
-#. module: odisea
-#: view:odisea.expedient:odisea.view_odisea_expedient_form
-msgid "Student Address"
-msgstr "Dirección del estudiante"
 
 #. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
@@ -1015,13 +1061,13 @@ msgstr ""
 #. module: odisea
 #: view:odisea.note:odisea.view_odisea_note_filter
 msgid "Tipo de Nota"
-msgstr ""
+msgstr "Actuación"
 
 #. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_filter
 #: field:odisea.expedient,expedient_type_sh:0
 msgid "Tipo de expediente"
-msgstr ""
+msgstr "Actuación"
 
 #. module: odisea
 #: field:odisea.representative,title:0
@@ -1072,6 +1118,11 @@ msgstr "Sitio web"
 #: help:odisea.representative,website:0
 msgid "Website of Partner or Company"
 msgstr "Sitio web de Socio o Empresa"
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_statistics_general_filter
+msgid "Year"
+msgstr "Año de creación"
 
 #. module: odisea
 #: view:odisea.representative:odisea.view_odisea_representative_form

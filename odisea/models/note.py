@@ -14,17 +14,24 @@ class OdiseaNote(models.Model):
 
 	_inherit = 'ir.attachment'
 	_name = 'odisea.note'
-	_sort = 'note_id' # 'id_note':
+	_sort = 'id_note'
 
 
-        note_type = fields.Selection([
+	_sql_constraints = [
+		('note_unique',
+		 'Unique(note_type,id_note,release_year)',
+		 "El número de Nota debe ser único"),
+	]
+	
+	note_type = fields.Selection([
 		('1', 'CRITERIO'),
 		('2', 'DICTAMEN TÉCNICO'),
                 ('3', 'DV CLAR'),
-                ('5', 'DI TECN'),
+                ('5', 'DE TNCA'),
  		('6', 'RESOLUCIÓN')
                 ],
-		 string='Tipo' 
+		 string='Type',
+		 required=True
 	)
 
 	id_note = fields.Integer(
@@ -39,7 +46,8 @@ class OdiseaNote(models.Model):
 
         note_id = fields.Char(
                 string=_('Number Com'),
-                compute='_comp_note_id'
+                compute='_comp_note_id',
+		store=True
         )
 
 	release_date = fields.Date(

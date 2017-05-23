@@ -153,7 +153,7 @@
 
         <!-- Tipo DI TECN -->
         <record id="action_odisea_expedient_ditecn" model="ir.actions.act_window">
-            <field name="name">DI TECN</field>
+            <field name="name">DE TNCA</field>
             <field name="res_model">odisea.note</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -162,7 +162,7 @@
             <field name="domain">[('note_type','=','5')]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
-                    Click to Add a DI TECN.
+                    Click to Add a DE TNCA.
                 </p>
             </field>
         </record>
