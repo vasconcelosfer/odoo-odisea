@@ -31,7 +31,7 @@ msgstr ""
 #: model:ir.actions.act_window,help:odisea.action_odisea_expedient_ditecn
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
-"                    Click to Add a DI TECN.\n"
+"                    Click to Add a DE TNCA.\n"
 "                </p>\n"
 "            "
 msgstr ""
