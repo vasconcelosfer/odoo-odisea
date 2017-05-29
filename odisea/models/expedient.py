@@ -38,6 +38,8 @@ class OdiseaExpedient(models.Model):
 
         _description = 'Expedient'
 
+	_order = 'create_date desc'
+
 #        _order = "id desc"
         _sql_constraints = [
                         ('expedient_unique',
@@ -195,6 +197,13 @@ class OdiseaExpedient(models.Model):
                 'parent_exp_id',    
                 string='Nota'
         )
+	
+	
+	image_ids = fields.One2many(
+		'odisea.image',
+		'expedient_relation' ,
+		string="Image"
+	)
 
 #        image_ids = fields.One2many(
 #                'odisea.image',

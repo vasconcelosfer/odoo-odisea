@@ -14,7 +14,7 @@ class OdiseaNote(models.Model):
 
 	_inherit = 'ir.attachment'
 	_name = 'odisea.note'
-	_sort = 'id_note'
+	_order = 'release_year desc,id_note desc'
 
 
 	_sql_constraints = [

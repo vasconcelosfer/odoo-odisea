@@ -26,6 +26,9 @@
 #	"views/image_view.xml",
 
         "views/expedient_view.xml",
+	"views/image_view.xml",
+	"views/good_view.xml",
+	"views/issue_type_view.xml",
 	"views/odisea_menuitems.xml",
         "views/hr_employee_view_inh.xml",
 	"views/representative_view.xml",

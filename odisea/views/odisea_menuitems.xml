@@ -6,7 +6,7 @@
         <menuitem
             name="Odisea"
             id="menu_odisea_main"
-            sequence="45"
+            sequence="0"
             />
 
 	<!-- Main Menu Notas -->
@@ -33,7 +33,7 @@
             id="menu_odisea_config"
             sequence="10"
             parent="menu_odisea_main"
-       />
+	    groups="" />
 
        <!-- Mis Expedientes General -->
        <record id="action_odisea_expedient_myexpedients" model="ir.actions.act_window">
@@ -43,7 +43,7 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_odisea_expedient_tree"/>
             <field name="search_view_id" ref="view_odisea_expedient_filter"/>
-	    <field name="domain">[('is_child','=',False),('assigned_user','=',uid)]</field>
+	    <field name="domain">[('is_child','=',False),('assigned_user','=',uid),('state','!=','closed')]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create"> 
                     Click to create My  Expedients.
@@ -200,6 +200,45 @@
 -->
         </record>
 
+        <!-- Menu para Tipo de Asunto-->
+        <record id="action_odisea_issue_type" model="ir.actions.act_window">
+            <field name="name">Issue types</field>
+            <field name="res_model">odisea.issue.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Issue type.
+                </p>
+            </field>
+        </record>
+
+	<!-- Menu para Mercadería -->
+        <record id="action_odisea_good" model="ir.actions.act_window">
+            <field name="name">Goods</field>
+            <field name="res_model">odisea.good</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Good.
+                </p>
+            </field>
+        </record>
+
+	<!-- Menu para Image -->
+        <record id="action_odisea_image" model="ir.actions.act_window">
+            <field name="name">Image</field>
+            <field name="res_model">odisea.image</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Image.
+                </p>
+            </field>
+        </record>
+
 	<!-- Main Menu Menu General -->
     	<menuitem
     	    action="action_odisea_expedient_myexpedients"
@@ -208,21 +247,14 @@
     	    parent="menu_odisea2"
     	/>
 
-<!-- Deshabilitamos Branch 
-	 <menuitem
-            action="action_odisea_expedient_mybranch"
-            id="menu_action_odisea_mybranch"
-            sequence="33"
-            parent="menu_odisea2"
-        />
--->
-        <menuitem
+       <menuitem
             action="action_odisea_expedient_expedients"
             id="menu_action_odisea2"
             sequence="12"
             parent="menu_odisea2"
         />
 
+<!-- Subitems para el menu Notas -->
 	<!-- Expedientes de Notas -->
 	<menuitem
             action="action_odisea_expedient_dictec"
@@ -255,6 +287,7 @@
             parent="menu_odisea"
         />
 
+<!-- Subitems para el menu Configuracion -->
         <!-- Menu de Ramos -->
         <menuitem
             action="action_odisea_branches"
@@ -262,6 +295,31 @@
             sequence="13"
             parent="menu_odisea_config"
         />
+
+        <!-- Menu de Issue Type -->
+        <menuitem
+            action="action_odisea_issue_type"
+            id="menu_action_odisea_issue_type"
+            sequence="14"
+            parent="menu_odisea_config"
+        />
+
+        <!-- Menu de Good -->
+        <menuitem
+            action="action_odisea_good"
+            id="menu_action_odisea_good"
+            sequence="15"
+            parent="menu_odisea_config"
+        />
+
+        <!-- Menu de Image -->
+        <menuitem
+            action="action_odisea_image"
+            id="menu_action_odisea_image"
+            sequence="16"
+	    parent="menu_odisea_config"
+	/>
+
     </data>
 </openerp>
 <!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
