@@ -43,7 +43,7 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_odisea_expedient_tree"/>
             <field name="search_view_id" ref="view_odisea_expedient_filter"/>
-	    <field name="domain">[('is_child','=',False),('assigned_user','=',uid)]</field>
+    	    <field name="domain">[('is_child','=',False),('assigned_user','=',uid),('state','!=','closed')]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create"> 
                     Click to create My  Expedients.
