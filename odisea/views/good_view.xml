@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- SEARCH VIEW -->
+
+        <record id="view_odisea_good_filter" model="ir.ui.view">
+            <field name="name">odisea.good.select</field>
+            <field name="model">odisea.good</field>
+            <field name="arch" type="xml">
+                <search string="Good">
+                   <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+        <record id="view_odisea_good_tree" model="ir.ui.view">
+            <field name="name">odisea.good.tree</field>
+            <field name="model">odisea.good</field>
+            <field name="arch" type="xml">
+                <tree string="Good">
+                   <field name="name"/>
+                   <field name="active_good" />
+               </tree>
+            </field>
+        </record>
+        <!-- FORMVIEW -->
+        <record id="view_odisea_good_form" model="ir.ui.view">
+            <field name="name">odisea.good.form</field>
+            <field name="model">odisea.good</field>
+            <field name="arch" type="xml">
+                <form string="good">
+                   	<sheet string="Good">
+				<p><label for="name" /></p>
+                        	<field name="name" />
+				<p><label for="active_good" /></p>
+                          	<field name="active_good" />
+				<p><label for="description"/></p>
+                          	<field name="description" />
+<!--				<p><label for="good_image" /></p>                                
+				<field name="good_image"  />
+-->
+<!--Se muestra la imagen -->
+<!--			<sheet string="Image">
+				<record id="view_images_form" model="ir.ui.view">
+			            <field name="name">odisea.image.form</fiel>
+			            <field name="model">odisea.image</field>
+			            <field name="arch" type="xml">
+			            	<form string="Our images">
+						<group>
+							<field name="image_filename"/>
+							<field name="image_medium"/>
+							<field name="image_small"/>
+						</group>
+                		     	</form>
+            	       	            </field>
+        			</record>
+			</sheet>
+-->
+
+
+<!--                              attrs="{'invisible':[('alc_index', '==', '0')]}"/> -->
+			</sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>		    			
