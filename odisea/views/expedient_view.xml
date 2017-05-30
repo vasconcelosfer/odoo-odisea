@@ -67,48 +67,49 @@
                     </header>
 		    <sheet string="Expedient">
 
-			<label for="expedient_type" class="oe_edit_only"/>
-			<div class="oe_edit_only">(
-                            <field name="is_child" on_change="_onchange_ischild(is_child)"  class="oe_inline"/> <label for="is_child" string="Is a Child?"/>)
+			<label for="expedient_type" class="oe_edit_only" attrs="{'invisible':[('state','=','closed')]}"/>
+			<div class="oe_edit_only" attrs="{'invisible':[('state','=','closed')]}" >(
+                            <field name="is_child" on_change="_onchange_ischild(is_child)"  class="oe_inline"/>
+       			    <label for="is_child" string="Is a Child?"/>)
                         </div>
 			<div>
 			<field name="parent_id" class="oe_inline"  context="{'special_display_name': True}" 					    domain="[('is_child', '=', False)]" attrs="{'invisible':[('is_child','!=', True)]}">Father</field>
 			</div>
 
 			<h2>
-			  <field name="expedient_type" class="oe_inline" nolabel="1"/> Nro:
-			   <field name="dependency" class="oe_inline" nolabel="1" />-
-	                   <field name="number" class="oe_inline" nolabel="1"/>-
-             	           <field name="created_year" class="oe_inline" nolabel="1"/> /
-             	           <field name="alc_index" class="oe_inline" nolabel="1"/>
+			  <field name="expedient_type" class="oe_inline" nolabel="1" /> Nro:
+			   <field name="dependency" class="oe_inline" nolabel="1" attrs="{'readonly':[('state','!=','open')]}"/> -
+	                   <field name="number" class="oe_inline" nolabel="1" attrs="{'readonly':[('state','!=','open')]}"/>-
+             	           <field name="created_year" class="oe_inline" nolabel="1" attrs="{'readonly':[('state','!=','open')]}"/> /
+             	           <field name="alc_index" class="oe_inline" nolabel="1" attrs="{'readonly':[('state','!=','open')]}"/>
 			</h2>
-						<label for="front_page" class="oe_edit_only"/>
+			<label for="front_page" class="oe_edit_only" attrs="{'invisible':[('state','!=','open')]}"/>
 			<h2>
-			     <field name="front_page" string="Front Page" nolabel="0"/>
+			     <field name="front_page" string="Front Page" nolabel="0" attrs="{'readonly':[('state','!=','open')]}"/>
 			</h2>
 			<group name="Issue Date">
 			<group name="Issue" class="oe_left">
-			    <field name="issue_type" string="Issue Type" class="oe_inline" nolabel="0" />   
+			    <field name="issue_type" string="Issue Type" class="oe_inline" nolabel="0" attrs="{'readonly':[('state','!=','open')]}"/>   
 			</group>	
 			<group name="Summary" class="oe_left" attrs="{'invisible':[('issue_type','!=','denuncia')]}">
-	                    <field name="summary_date" string="Summary Date" class="oe_edit_only"  readonly="0"/>
+	                    <field name="summary_date" string="Summary Date" class="oe_edit_only"  attrs="{'readonly':[('state','!=','open')],'invisible':[('state','!=','open')]}"/>
 	                    <field name="prescription_date" string="Prescription Date"   readonly="1"/>
 			</group>
 
 			</group>
 			<group>
-	                    <field name="issue"  nolabel="0"/>
+	                    <field name="issue"  nolabel="0" attrs="{'readonly':[('state','!=','open')]}"/>
 			</group>
 			<group>
-			    <field name="customs_broker" string="Customs Broker"/>
-			    <field name="organization" string="Organization"/>
+			    <field name="customs_broker" string="Customs Broker" attrs="{'readonly':[('state','!=','open')]}"/>
+			    <field name="organization" string="Organization" attrs="{'readonly':[('state','!=','open')]}"/>
 			</group>
 			<group>
-				<field name="goods" string="Goods" nolabel="0"/>
+				<field name="goods" string="Goods" nolabel="0" attrs="{'readonly':[('state','!=','open')]}"/>
 			</group>
 			<group>
-			    <field name="branch" string="Branch" nolabel="0"/>
-            	  	    <field name="assigned_advisor" nolabel="0"/>		   
+			    <field name="branch" string="Branch" nolabel="0" required="1" attrs="{'readonly':[('state','!=','open')]}"/>
+            	  	    <field name="assigned_advisor" nolabel="0" required="1" attrs="{'readonly':[('state','!=','open')]}"/>		   
 			</group>
 			<group>
 	                    <field name="create_date" readonly="1"/>
@@ -135,6 +136,15 @@
                             <field name="issue"/>
                             <field name="goods"/>
                         </tree>-->
+                    </field>
+                </page>
+
+		<page string="Images" attrs="{'invisible':[('is_child','=', True)]}">
+                    <field name="image_ids" attrs="{'readonly':[('state','=','closed')]}" >
+                    	<tree string="Image adding">
+                            <field name="image_filename" />
+                            <field name="image_big" />
+                       </tree>
                     </field>
                 </page>
             </notebook>

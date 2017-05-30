@@ -24,8 +24,10 @@ from openerp.exceptions import Warning
 class OdiseaImage(models.Model):
 	_name = 'odisea.image'
 
+	_rec_name = 'image_filename'
+
 	image = fields.Binary('Image', required=True)
-	image_filename = fields.Char("Image Filename")
+	image_filename = fields.Char("Image Filename", )
 
 	# Scaled Images
 	image_big = fields.Binary(string="Big-sized image",
@@ -49,9 +51,14 @@ class OdiseaImage(models.Model):
                                      "resized as a 64x64px image, with aspect ratio preserved. " \
                                      "Use this field in form views or some kanban views.")
 
-	parent_exp_id = fields.Many2one(
+#	parent_exp_id = fields.Many2one(
+#		'odisea.expedient',
+#		string='Expedient'
+#	)
+
+	expedient_relation = fields.Many2one(
 		'odisea.expedient',
-		string='Expedient'
+		string='Image relation'
 	)
 
 	@api.one
@@ -72,4 +79,7 @@ class OdiseaImage(models.Model):
 		self.image_big = data["image"]
 		self.image_medium = data["image_medium"]
 		self.image_small = data["image_small"]
+#		self.image_filename = str(image.name)
 		return True
+
+

@@ -23,7 +23,7 @@ from openerp import models, fields, api, _
 class hr_employee(models.Model):
 	_inherit='hr.employee'
 
-	docket = fields.Char(string='Legajo', size=12)
+	docket = fields.Char(string='Docket', size=12)
 	branch = fields.Many2one('odisea.branch', string="Branch")
 	
 	

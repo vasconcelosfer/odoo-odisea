@@ -38,6 +38,8 @@ class OdiseaExpedient(models.Model):
 
         _description = 'Expedient'
 
+	_order = 'create_date desc'
+
 #        _order = "id desc"
         _sql_constraints = [
                         ('expedient_unique',
@@ -191,6 +193,13 @@ class OdiseaExpedient(models.Model):
                 'parent_exp_id',    
                 string='Nota'
         )
+	
+	
+	image_ids = fields.One2many(
+		'odisea.image',
+		'expedient_relation' ,
+		string="Image"
+	)
 
 #        image_ids = fields.One2many(
 #                'odisea.image',
@@ -322,9 +331,15 @@ class OdiseaExpedient(models.Model):
 	@api.one
         @api.depends('is_child', 'parent_id')
         def _onchange_ischild(self, is_child):
+
+#                if not is_child:
+#			if parent_id != None:
+#				self.write({'parent_id': 'Null'})
+
         #        if not is_child:
 	#		if self.parent_id != None:
 	#			self.write({'parent_id': 'Null'})
+
 		return
 
 	@api.multi

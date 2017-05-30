@@ -31,7 +31,7 @@ msgstr ""
 #: model:ir.actions.act_window,help:odisea.action_odisea_expedient_ditecn
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
-"                    Click to Add a DI TECN.\n"
+"                    Click to Add a DE TNCA.\n"
 "                </p>\n"
 "            "
 msgstr ""
@@ -360,8 +360,8 @@ msgstr "Patrocinador"
 #: model:ir.actions.act_window,name:odisea.action_odisea_expedient_ditecn
 #: model:ir.ui.menu,name:odisea.menu_action_odisea6
 #: selection:odisea.note,note_type:0
-msgid "DI TECN"
-msgstr "DI TECN"
+msgid "DE TNCA"
+msgstr "DE TNCA"
 
 #. module: odisea
 #: selection:odisea.note,note_type:0

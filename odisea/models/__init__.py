@@ -6,4 +6,6 @@ import hr_employee
 import branch
 import image
 import representative
+import issue_type
+import good
 #import res_partner
