@@ -67,7 +67,7 @@
                     </header>
 		    <sheet string="Expedient">
 
-			<label for="expedient_type_sh" class="oe_edit_only"/>
+			<label for="expedient_type" class="oe_edit_only"/>
 			<div class="oe_edit_only">(
                             <field name="is_child" on_change="_onchange_ischild(is_child)"  class="oe_inline"/> <label for="is_child" string="Is a Child?"/>)
                         </div>
@@ -76,7 +76,7 @@
 			</div>
 
 			<h2>
-			  <field name="expedient_type_sh" class="oe_inline" nolabel="1"/> Nro:
+			  <field name="expedient_type" class="oe_inline" nolabel="1"/> Nro:
 			   <field name="dependency" class="oe_inline" nolabel="1" />-
 	                   <field name="number" class="oe_inline" nolabel="1"/>-
              	           <field name="created_year" class="oe_inline" nolabel="1"/> /
