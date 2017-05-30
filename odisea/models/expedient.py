@@ -178,7 +178,7 @@ class OdiseaExpedient(models.Model):
         child_ids = fields.One2many(
                 'odisea.expedient',
                 'parent_id',
-		readonly= True,
+		readonly= False,
 #		context = "{'default_is_child': True}",
                 string='Childs'
         )
@@ -329,17 +329,12 @@ class OdiseaExpedient(models.Model):
 		return record[0]
 
 	@api.one
-        @api.depends('is_child', 'parent_id')
+        @api.depends('is_child')
         def _onchange_ischild(self, is_child):
 
-#                if not is_child:
-#			if parent_id != None:
-#				self.write({'parent_id': 'Null'})
-
-        #        if not is_child:
-	#		if self.parent_id != None:
-	#			self.write({'parent_id': 'Null'})
-
+                if not is_child:
+			if self.parent_id != None:
+				self.write({'parent_id': None })
 		return
 
 	@api.multi
