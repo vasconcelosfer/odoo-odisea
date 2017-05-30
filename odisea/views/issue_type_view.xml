@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- SEARCH VIEW -->
+
+        <record id="view_odisea_issue_type_filter" model="ir.ui.view">
+            <field name="name">odisea.issue.type.select</field>
+            <field name="model">odisea.issue.type</field>
+            <field name="arch" type="xml">
+                <search string="Issue Type">
+                   <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+        <record id="view_odisea_issue_type_tree" model="ir.ui.view">
+            <field name="name">odisea.issue.type.tree</field>
+            <field name="model">odisea.issue.type</field>
+            <field name="arch" type="xml">
+                <tree string="Issue Type">
+                   <field name="name"/>
+                   <field name="active_issue_type" />
+               </tree>
+            </field>
+        </record>
+        <!-- FORMVIEW -->
+        <record id="view_odisea_issue_type_form" model="ir.ui.view">
+            <field name="name">odisea.issue.type.form</field>
+            <field name="model">odisea.issue.type</field>
+            <field name="arch" type="xml">
+                <form string="Issue Type">
+                   	<sheet string="Issue Type">
+				<p><label for="name" /></p>
+                        	<field name="name" />
+				<label for="active_issue_type" />
+                          	<field name="active_issue_type" />
+				<p><label for="description"/></p>
+                          	<field name="description" />
+<!--                              attrs="{'invisible':[('alc_index', '==', '0')]}"/> -->
+			</sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>		    			
