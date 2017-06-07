@@ -62,9 +62,9 @@ class OdiseaExpedient(models.Model):
 	}	
 
 	_expedient_type_ = [
-		('actuacion', 'Actuación'),
-		('alcance', 'Alcance'),
-		('expediente', 'Expediente')
+		('1', 'Actuación'),
+		('2', 'Alcance'),
+		('3', 'Expediente')
 	]
 
         _issues_ = [
@@ -137,13 +137,9 @@ class OdiseaExpedient(models.Model):
 	_rec_name = 'exp_id'
 
         expedient_type = fields.Selection(
-                _expedient_type_,
-                'Expedient Type',
-                default='actuacion'
-        )
-
-        expedient_type_sh = fields.Char(
+		_expedient_type_,
                 string=_('Expedient Type'),
+		store=True,
                 compute='_comp_expedient_type'
         )
 
@@ -182,7 +178,7 @@ class OdiseaExpedient(models.Model):
         child_ids = fields.One2many(
                 'odisea.expedient',
                 'parent_id',
-		readonly= True,
+		readonly= False,
 #		context = "{'default_is_child': True}",
                 string='Childs',
 		compute='_compute_read_childs'
@@ -284,7 +280,7 @@ class OdiseaExpedient(models.Model):
         @api.one
         @api.depends('dependency','number','created_year', 'alc_index')
         def _comp_expedient_id(self):
-		if self.expedient_type != 'alcance':
+		if self.expedient_type != '2':
 	                self.exp_id = (str(self.dependency) or '')+'-'+\
 				      (str(self.number) or '')+'-'+\
 				      (str(self.created_year) or '')        
@@ -295,17 +291,20 @@ class OdiseaExpedient(models.Model):
 				      (str(self.alc_index) or '')        
 				
         @api.one
-        @api.depends('dependency','number','created_year', 'alc_index', 'expedient_type')
+        @api.depends('dependency','number','created_year', 'alc_index')
 	def _comp_expedient_type(self):
 		if self.dependency == 1:
 			#self.write({'expedient_type': 'expediente'})
-			self.expedient_type_sh = 'Expediente'
+			# Es Expediente
+			self.expedient_type = '3'
 		elif self.alc_index != 0:
+			# Es alcance
 			#self.write({'expedient_type': 'alcance'})
-			self.expedient_type_sh = 'Alcance'
+			self.expedient_type = '2'
 		else:
+			# Es Actuacion
 			#self.write({'expedient_type':'actuacion'})
-			self.expedient_type_sh = 'Actuación'
+			self.expedient_type = '1'
 	
 	@api.one
 	@api.depends('summary_date')
@@ -350,17 +349,12 @@ class OdiseaExpedient(models.Model):
 		return
 	
 	@api.one
-        @api.depends('is_child', 'parent_id')
+        @api.depends('is_child')
         def _onchange_ischild(self, is_child):
 
-#                if not is_child:
-#			if parent_id != None:
-#				self.write({'parent_id': 'Null'})
-
-        #        if not is_child:
-	#		if self.parent_id != None:
-	#			self.write({'parent_id': 'Null'})
-
+                if not is_child:
+			if self.parent_id != None:
+				self.write({'parent_id': None })
 		return
 
 	@api.multi
