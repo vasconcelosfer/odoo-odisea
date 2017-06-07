@@ -184,7 +184,8 @@ class OdiseaExpedient(models.Model):
                 'parent_id',
 		readonly= True,
 #		context = "{'default_is_child': True}",
-                string='Childs'
+                string='Childs',
+		compute='_compute_read_childs'
         )
 
         parent_id = fields.Many2one(
@@ -329,6 +330,25 @@ class OdiseaExpedient(models.Model):
 		record = self.env['hr.employee'].search([('user_id', '=', self.env.user.login)]) 
 		return record[0]
 
+
+	@api.one
+#        @api.depends('assigned_advisor')
+	def _compute_read_childs(self):
+		#Buscamos los hijos de un padre
+		if not self.is_child & self.child_ids:
+			record = self.childs_id
+			i = 0
+			for record in child:
+				#Agrego los hijos del expediente, al padre de los 2.	
+				self.childs_id.append(child.childs_id)
+#                               (self.env.cr.execute(
+#                                       """
+#                                       SELECT id 
+#                                       FROM odisea_expedient 
+#                                       WHERE parent_id EQ '+child.ids))
+#                                       """
+		return
+	
 	@api.one
         @api.depends('is_child', 'parent_id')
         def _onchange_ischild(self, is_child):

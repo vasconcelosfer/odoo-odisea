@@ -129,7 +129,7 @@
                             </page>
 
                 <page string="Childs" attrs="{'invisible':[('is_child','=', True)]}">
-                    <field name="child_ids" >
+                    <field name="child_ids" > <!--on_change="_onchange_ischild(is_child)" >-->
                     <!--    <tree string="Childs creation">
 			    <field name="exp_id" />
                             <field name="front_page"/>
