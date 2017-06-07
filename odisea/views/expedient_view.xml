@@ -47,7 +47,7 @@
             <field name="arch" type="xml">
                 <form string="Expedient">
 		     <header>
-			<div attrs="{'invisible':[('is_child''=', True)]}">
+			<div attrs="{'invisible':[('is_child', '=', True)]}">
                         <button name="sgn_to_revision"
                            	states="open"
 				confirm="Are you sure you want to continue?"
@@ -129,6 +129,7 @@
                             </page>
 
                 <page string="Childs" attrs="{'invisible':[('is_child','=', True)]}">
+<!--                    <field name="child_ids"  on_change="_onchange_ischild(is_child)" >-->
                     <field name="child_ids" create="false" >
                     <!--    <tree string="Childs creation">
 			    <field name="exp_id" />
