@@ -57,7 +57,7 @@
 			 widget="many2many_tags"
 			 string="Posiciones"
 			 options="{'no_create_edit': True}"
-			 attrs="{'required':[('note_type','in',['1','2','5'])]}" />
+			 attrs="{'required':[('note_type','in',['1','2'])]}" />
 	   	   <field name="name" string="Nombre de archivo"/>
 		</group>
 <!--		   <field name="res_name"/>-->
