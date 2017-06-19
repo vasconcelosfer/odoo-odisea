@@ -22,8 +22,10 @@ from openerp import models, fields, api, tools, _
 from openerp.exceptions import Warning
 
 class OdiseaImage(models.Model):
-	_name = 'odisea.image'
+	"""Image"""
 
+	_name = 'odisea.image'
+	_description = 'Image'
 	_rec_name = 'image_filename'
 
 	image = fields.Binary('Image', required=True)

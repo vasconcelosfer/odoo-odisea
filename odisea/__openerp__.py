@@ -19,25 +19,24 @@
     'data': [
         "views/event_view.xml",
         "views/note_view.xml",
-
 	#"views/note_view_criterio.xml",
 	#"views/image_view.xml",
-
-#	"views/image_view.xml",
-
+	#"views/image_view.xml",
         "views/expedient_view.xml",
 	"views/image_view.xml",
+	"views/reserve_note_view.xml",
 	"views/good_view.xml",
 	"views/issue_type_view.xml",
 	"views/odisea_menuitems.xml",
         "views/hr_employee_view_inh.xml",
 	"views/representative_view.xml",
-	"views/odisea_statics_view.xml",
+	"views/odisea_statics_view.xml",	
 	"workflow/expedient_workflow.xml",
 	"views/branch_view.xml",
 	"data/ir_cron.xml",
         #"views/res_partner_view_inh.xml",
-        #'security/ir.model.access.csv',
+        'security/security.xml',
+	'security/ir.model.access.csv',
     ],
     'update_xml': [
     ],

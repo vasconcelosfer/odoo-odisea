@@ -23,7 +23,9 @@ from openerp import models, fields, api, tools, _
 from openerp.exceptions import Warning
 
 class OdiseaGood(models.Model):
+	"""Good"""
 	_name = 'odisea.good'
+	_description = 'Good'
 
 	name = fields.Char(string='Good name', required=True, size=25)
 	description = fields.Text(string='Good description') 

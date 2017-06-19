@@ -1,2 +1,31 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hola_hola,hola.hola,model_hola_hola,,1,0,0,0
+access_odisea_expedient_user,Model admin access,model_odisea_expedient,group_odisea_manager,1,1,1,1
+access_odisea_expedient_emp,Model user access,model_odisea_expedient,group_odisea_user,1,1,1,0
+
+access_odisea_notes_user,Model note admin access,model_odisea_note,group_odisea_manager,1,1,1,1
+access_odisea_notes_emp,Model note user access,model_odisea_note,group_odisea_user,1,1,1,0
+
+access_odisea_position_user,Model position admin access,model_odisea_position,group_odisea_manager,1,1,1,1
+access_odisea_position_emp,Model position user access,model_odisea_position,group_odisea_user,1,1,1,0
+
+access_odisea_event_user,Model event admin access,model_odisea_event,group_odisea_manager,1,1,1,1
+access_odisea_event_emp,Model event user access,model_odisea_event,group_odisea_user,1,1,1,0
+
+access_odisea_branch_user,Model branch admin access,model_odisea_branch,group_odisea_manager,1,1,1,1
+access_odisea_branch_emp,Model branch user access,model_odisea_branch,group_odisea_user,1,0,0,0
+
+access_odisea_good_user,Model good admin access,model_odisea_good,group_odisea_manager,1,1,1,1
+access_odisea_good_emp,Model good user access,model_odisea_good,group_odisea_user,1,1,1,0
+
+
+access_odisea_hr_employee_user,Model employee admin access,model_hr_employee,group_odisea_manager,1,1,1,1
+access_odisea_hr_employee_emp,Model hr_employee user access,model_hr_employee,group_odisea_user,1,0,0,0
+
+access_odisea_image_user,Model image admin access,model_odisea_image,group_odisea_manager,1,1,1,1
+access_odisea_image_emp,Model image user access,model_odisea_image,group_odisea_user,1,1,1,0
+
+access_odisea_issue_type_user,Model issue_type admin access,model_odisea_issue_type,group_odisea_manager,1,1,1,1
+access_odisea_issue_type_emp,Model issue_type user access,model_odisea_issue_type,group_odisea_user,1,1,1,0
+
+access_odisea_representative_user,Model representative admin access,model_odisea_representative,group_odisea_manager,1,1,1,1
+access_odisea_representative_emp,Model representative user access,model_odisea_representative,group_odisea_user,1,1,1,0

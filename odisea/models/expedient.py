@@ -181,7 +181,7 @@ class OdiseaExpedient(models.Model):
 		readonly= False,
 #		context = "{'default_is_child': True}",
                 string='Childs',
-		compute='_compute_read_childs'
+#		compute='_compute_read_childs'
         )
 
         parent_id = fields.Many2one(
@@ -233,7 +233,7 @@ class OdiseaExpedient(models.Model):
 
         organization = fields.Many2one(
                 'odisea.representative',
-		domain = "[('is_company', '=', True)]",
+		domain = "[('is_company', '=', True),('category_id','=','3')]",
 		context = "{'default_is_company': True}",
                 string='Organization'
         )
@@ -330,23 +330,27 @@ class OdiseaExpedient(models.Model):
 		return record[0]
 
 
-	@api.one
-#        @api.depends('assigned_advisor')
+	@api.multi
+        @api.depends('child_ids')
 	def _compute_read_childs(self):
-		#Buscamos los hijos de un padre
-		if not self.is_child & self.child_ids:
-			record = self.childs_id
-			i = 0
-			for record in child:
-				#Agrego los hijos del expediente, al padre de los 2.	
-				self.childs_id.append(child.childs_id)
+		#Buscamos los hijos de un padre		
+		if not self.is_child:			
+#			if  self.child_ids:
+#				raise Warning("Message")
+#				record = self.childs_id
+#				raise osv.except_osv(('Error'), ('Error  Cannot Edit'))
+#				i = 0
+#				for child in record:
+					#Agrego los hijos del expediente, al padre de los 2.	
+#					self.childs_id.append(child.childs_id)
+			return self.child_ids
 #                               (self.env.cr.execute(
 #                                       """
 #                                       SELECT id 
 #                                       FROM odisea_expedient 
 #                                       WHERE parent_id EQ '+child.ids))
 #                                       """
-		return
+		return self.child_ids
 	
 	@api.one
         @api.depends('is_child')

@@ -11,11 +11,11 @@
 
 	<!-- Main Menu Notas -->
     	<menuitem
-
-            name="Notas"
-            id="menu_odisea"
+            name="Notes"
+            id="menu_odisea_notes"
             sequence="10"
     	    parent="menu_odisea_main"
+	    
         />
 
 
@@ -23,17 +23,19 @@
         <menuitem
             name="Main Menu"
             id="menu_odisea2"
-            sequence="9"
+            sequence="8"
             parent="menu_odisea_main"
-        />
+           
+	/>
 
         <!-- Título de menu para las configuraciones -->
         <menuitem
             name="Configuration"
             id="menu_odisea_config"
-            sequence="10"
+            sequence="11"
             parent="menu_odisea_main"
-	    groups="" />
+	    groups="group_odisea_manager"  
+	/>
 
        <!-- Mis Expedientes General -->
        <record id="action_odisea_expedient_myexpedients" model="ir.actions.act_window">
@@ -110,6 +112,7 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_odisea_expedient_note"/>
             <field name="search_view_id" ref="view_odisea_note_filter" />
+	    <field name="form_view_id" ref="view_odisea_note_form"/>
 <!--	    <field name="context">{'search_default_type_criterio':1}</field>-->
 	    <field name="domain">[('note_type','=','1')]</field>
             <field name="help" type="html">
@@ -127,7 +130,8 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_odisea_expedient_note"/>
             <field name="search_view_id" ref="view_odisea_note_filter"/>
-	    <field name="domain">[('note_type','=','3')]</field>
+	    <field name="form_view_id" ref="view_odisea_note_form"/>
+	    <field name="domain">[('note_type','=','3'),('is_reserved','=',False)]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Click to Add a DV CLAR.
@@ -143,6 +147,7 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_odisea_expedient_note"/>
             <field name="search_view_id" ref="view_odisea_note_filter"/>
+	    <field name="form_view_id" ref="view_odisea_note_form"/>
 	    <field name="domain">[('note_type','=','2')]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
@@ -159,6 +164,7 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_odisea_expedient_note"/>
             <field name="search_view_id" ref="view_odisea_note_filter"/>
+	    <field name="form_view_id" ref="view_odisea_note_form"/>
             <field name="domain">[('note_type','=','5')]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
@@ -175,6 +181,7 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_odisea_expedient_note"/>
             <field name="search_view_id" ref="view_odisea_note_filter"/>
+	    <field name="form_view_id" ref="view_odisea_note_form"/>
             <field name="domain">[('note_type','=','6')]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
@@ -182,6 +189,53 @@
                 </p>
             </field>
         </record>
+
+	<!-- Reserva de notas -->
+	<record id="action_odisea_reserve_note2" model="ir.actions.act_window">
+            <field name="name">Reserve Note</field>
+            <field name="res_model">odisea.note</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+	    <field name="view_id" ref="view_odisea_reserve_note_form"/>
+<!--           <field name="domain">[('note_type','=','3'),('is_reserved','=',True)]</field>-->
+        </record>
+
+        <record id="action_odisea_reserved_note" model="ir.actions.act_window">
+            <field name="name">Reserved Note</field>
+            <field name="res_model">odisea.note</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,form</field>
+<!--            <field name="form_view_id" ref="view_odisea_reserve_note_form"/> 
+	    <field name="view_id" ref="view_odisea_reserve_note_tree"/>
+            <field name="search_view_id" ref="view_odisea_reserve_note_filter"/>
+-->
+            <field name="domain">[('note_type','=','3'),('is_reserved','=',True)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Reserve note.
+                </p>
+            </field>
+        </record>
+        <record id="action_odisea_reserve_note_map1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence" />
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_odisea_reserve_note_tree"/>
+            <field name="search_view_id" ref="view_odisea_reserve_note_filter"/>
+            <field name="act_window_id" ref="action_odisea_reserved_note"/>
+            <field name="domain">[('note_type','=','3'),('is_reserved','=',True)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Reserve note.
+                </p>
+            </field>
+        </record>
+<!--        <record id="action_odisea_reserve_note_map2" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_odisea_reserve_note_form"/>
+	    <field name="act_window_id" ref="action_odisea_reserve_note"/>
+        </record>
+-->
 
         <!-- Menu para Ramos -->
         <record id="action_odisea_branches" model="ir.actions.act_window">
@@ -253,6 +307,19 @@
             sequence="12"
             parent="menu_odisea2"
         />
+	
+	<menuitem
+            action="action_odisea_reserve_note2"
+            id="menu_action_reserve_note"
+            sequence="14"
+            parent="menu_odisea2"
+        />
+	<menuitem
+            action="action_odisea_reserved_note"
+            id="menu_action_reserved_note"
+            sequence="15"
+            parent="menu_odisea2"
+        />
 
 <!-- Subitems para el menu Notas -->
 	<!-- Expedientes de Notas -->
@@ -260,31 +327,32 @@
             action="action_odisea_expedient_dictec"
             id="menu_action_odisea3"
             sequence="14"
-            parent="menu_odisea"
+            parent="menu_odisea_notes"
         />
 	<menuitem
             action="action_odisea_expedient_criterio"
             id="menu_action_odisea4"
             sequence="15"
-            parent="menu_odisea"
+            parent="menu_odisea_notes"
         />
+
 	<menuitem
             action="action_odisea_expedient_dvclar"
             id="menu_action_odisea5"
             sequence="16"
-            parent="menu_odisea"
+            parent="menu_odisea_notes"
         />
         <menuitem
             action="action_odisea_expedient_ditecn"
             id="menu_action_odisea6"
             sequence="17"
-            parent="menu_odisea"
+            parent="menu_odisea_notes"
         />
         <menuitem
             action="action_odisea_expedient_resolution"
             id="menu_action_odisea7"
             sequence="18"
-            parent="menu_odisea"
+            parent="menu_odisea_notes"
         />
 
 <!-- Subitems para el menu Configuracion -->

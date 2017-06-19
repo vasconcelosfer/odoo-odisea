@@ -1,6 +1,26 @@
 # -*- coding: utf-8 -*-
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any laer version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+#############################################################################
 from openerp import models, fields, api, _
 
+import time
 import logging
 import subprocess
 from PIL import Image
@@ -14,6 +34,7 @@ class OdiseaNote(models.Model):
 
 	_inherit = 'ir.attachment'
 	_name = 'odisea.note'
+	_description = 'Note'
 	_order = 'release_year desc,id_note desc'
 
 
@@ -23,6 +44,10 @@ class OdiseaNote(models.Model):
 		 "El número de Nota debe ser único"),
 	]
 	
+	_defaults = {
+		'release_date': fields.Date.today(),
+	}
+
 	note_type = fields.Selection([
 		('1', 'CRITERIO'),
 		('2', 'DICTAMEN TÉCNICO'),
@@ -75,6 +100,27 @@ class OdiseaNote(models.Model):
 		#index=True
 	)
 
+	assigned_advisor = fields.Many2one(
+		'hr.employee',		
+		string='Assigned advisor',			
+		store=True,							                
+								        
+	)
+
+	is_reserved = fields.Boolean(
+		string = 'Reserved',
+		compute ='_comp_change_reserved',
+		store=True,
+		default=True,
+		
+	)
+
+	exp_type = fields.Char(
+		string=_('Expedient type'),
+		compute='_comp_exp_type',
+		store=True
+	)
+	
         @api.one
         @api.depends('id_note','release_year')
         def _comp_note_id(self):
@@ -145,6 +191,71 @@ class OdiseaNote(models.Model):
 			this.write({
 	                'content_index': index_content,
 			})
+
+
+	@api.model
+	def create(self, vals, context=None):	
+#	 ... your coe..."""
+#		for expedient in self:
+#			if expedient.parent_exp_id
+		if vals.get('parent_exp_id'):
+			# Se obtiene el año
+			year = str(vals.get('release_year'))
+			reserve_note = vals.get('id_note')
+			
+			if  vals.get('is_reserved'):
+				year = ""
+				year = time.strftime('%Y')
+				year = year.replace("20","")
+
+			#Se obtiene el número de nota que se va a utilizar. 
+				self.env.cr.execute(
+					""" 
+						SELECT id_note 
+						FROM odisea_note 
+						WHERE note_type = '3'
+						AND release_year = %r
+						ORDER BY id_note DESC 
+						LIMIT 1 
+					""" % (year) )
+				reserve_note = self.env.cr.fetchone()[0] + 1
+			
+			# Nesesario para reservar nota.
+			value =  {
+      				'note_type':'3',
+   				'id_note':reserve_note,
+                       		'release_year': int(year),
+                       		'note_id':(str(self.id_note))+'/'+(str(self.release_year)),
+		       		'name':'',
+		       		'parent_exp_id': vals.get('parent_exp_id'),
+		       		'assigned_advisor': vals.get('assigned_advisor'),
+		       		'is_reserved':'True',
+			}
+
+			res_id = super(OdiseaNote, self).create(value, context=context)
+		else:
+			#Creación cuando se carga la nota digitalizada.
+			vals['is_reserved'] = False
+			res_id = super(OdiseaNote, self).create(vals,  context=context)
+
+
+		return res_id
+
+	@api.one
+	@api.depends('parent_exp_id')
+	def _comp_exp_type(self):
+		self.exp_type = self.env['odisea.expedient'].search(
+				[('id','=',self.parent_exp_id.id)]).issue_type
+
+	@api.one
+	@api.depends('name')
+	def _comp_change_reserved(self):
+		if self.name != "":
+			self.is_reserved = False
+		else:
+			self.is_reserved = True
+
+		return True
 
 
 

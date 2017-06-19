@@ -22,7 +22,10 @@ from openerp import models, fields, api, _
 from openerp.exceptions import Warning
 
 class OdiseaBranch(models.Model):
+	"""Branch"""
+
 	_name = 'odisea.branch'
+	_description = 'Brach'
 
 	name = fields.Char(string='Branch name', required=True, size=25)
 	description = fields.Text(string='Branch description') 

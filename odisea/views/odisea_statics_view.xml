@@ -41,6 +41,16 @@
 	    <field name="domain">[('is_child','=',False)]</field>
         </record>
 
+       <!-- Advisor Expedient Static-->
+       <record id="action_odisea_expedient_only_advisor_statistics" model="ir.actions.act_window">
+            <field name="name">My Expedient</field>
+            <field name="res_model">odisea.expedient</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_odisea_expedient_advisor_graph"/>
+            <field name="search_view_id" ref="view_odisea_expedient_statistics_general_filter"/>
+            <field name="domain">[('is_child','=',False),('assigned_user','=',uid)]</field>
+        </record>
+
 
 	<!-- General Expedient Static -->
     	<menuitem
@@ -48,6 +58,7 @@
     	    id="menu_action_odisea_general_statistics"
     	    sequence="1"
     	    parent="menu_odisea_statistics"
+	    groups="group_odisea_manager"
     	/>
 
 	<!-- Branch Expedient Static -->
@@ -56,6 +67,7 @@
     	    id="menu_action_odisea_branch_statistics"
     	    sequence="2"
     	    parent="menu_odisea_statistics"
+	    groups="group_odisea_manager"
     	/>
 
 	<!-- Advisor Expedient Static -->
@@ -64,7 +76,16 @@
     	    id="menu_action_odisea_advisor_statistics"
     	    sequence="3"
     	    parent="menu_odisea_statistics"
+	    groups="group_odisea_manager"
     	/>
+
+        <menuitem
+            action="action_odisea_expedient_only_advisor_statistics"
+            id="menu_action_odisea_only_advisor_statistics"
+            sequence="4"
+            parent="menu_odisea_statistics"
+	    groups="group_odisea_user"
+        />
 
     </data>
 </openerp>

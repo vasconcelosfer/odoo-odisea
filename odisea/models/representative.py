@@ -21,8 +21,10 @@
 from openerp import models, fields, api, tools, _
 
 class odisea_representative(models.Model):
+	"""Representative"""
 
 	_name = 'odisea.representative'
+	_description = 'Representative'
 
 	@api.multi
 	def _has_image(self):

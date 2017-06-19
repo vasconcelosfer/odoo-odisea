@@ -23,7 +23,7 @@
             <field name="model">odisea.note</field>
 <!--	    <field domain="[('note_type','=','1')]" name="id_note"/> -->
             <field name="arch" type="xml">
-                <tree string="Note">
+       		<tree string="Note">
 		   <field name="note_id"/>
 		   <field name="release_date"/>
 		   <field name="position_ids" />
@@ -43,6 +43,7 @@
             <field name="model">odisea.note</field>
             <field name="arch" type="xml">
                 <form string="Note">
+<!--		<field name="is_reserved" domain="[('is_reserved','=',False)]" />-->
 		<field name="parent_exp_id" invisible="1"/>
 		<group>
 		   <h1>
@@ -59,7 +60,7 @@
 			 options="{'no_create_edit': True}"
 			 attrs="{'required':[('note_type','in',['1','2','5'])]}" />
 	   	   <field name="name" string="Nombre de archivo"/>
-		</group>
+	</group>
 <!--		   <field name="res_name"/>-->
                    <field name="datas" filename="datas_fname" />
                    <field name="datas_fname" invisible="1" on_change="onchange_filename(datas_fname)"/>

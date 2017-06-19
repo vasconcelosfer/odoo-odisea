@@ -78,38 +78,54 @@
 
 			<h2>
 			  <field name="expedient_type" class="oe_inline" nolabel="1" /> Nro:
-			   <field name="dependency" class="oe_inline" nolabel="1" attrs="{'readonly':[('state','!=','open')]}"/> -
-	                   <field name="number" class="oe_inline" nolabel="1" attrs="{'readonly':[('state','!=','open')]}"/>-
-             	           <field name="created_year" class="oe_inline" nolabel="1" attrs="{'readonly':[('state','!=','open')]}"/> /
-             	           <field name="alc_index" class="oe_inline" nolabel="1" attrs="{'readonly':[('state','!=','open')]}"/>
+			   <field name="dependency" class="oe_inline" nolabel="1" 
+				attrs="{'readonly':[('state','=','closed')]}"/> -
+	                   <field name="number" class="oe_inline" nolabel="1" 
+				attrs="{'readonly':[('state','=','closed')]}"/>-
+             	           <field name="created_year" class="oe_inline" nolabel="1" 
+				attrs="{'readonly':[('state','=','closed')]}"/> /
+             	           <field name="alc_index" class="oe_inline" nolabel="1" 
+				attrs="{'readonly':[('state','=','closed')]}"/>
 			</h2>
-			<label for="front_page" class="oe_edit_only" attrs="{'invisible':[('state','!=','open')]}"/>
+			<label for="front_page" class="oe_edit_only" 
+				attrs="{'invisible':[('state','=','closed')]}"/>
 			<h2>
-			     <field name="front_page" string="Front Page" nolabel="0" attrs="{'readonly':[('state','!=','open')]}"/>
+			     <field name="front_page" string="Front Page" nolabel="0" 
+				attrs="{'readonly':[('state','=','closed')]}"/>
 			</h2>
 			<group name="Issue Date">
 			<group name="Issue" class="oe_left">
-			    <field name="issue_type" string="Issue Type" class="oe_inline" nolabel="0" attrs="{'readonly':[('state','!=','open')]}"/>   
+			    <field name="issue_type" string="Issue Type" class="oe_inline" nolabel="0" 
+				attrs="{'readonly':[('state','=','closed')]}"/>   
 			</group>	
-			<group name="Summary" class="oe_left" attrs="{'invisible':[('issue_type','!=','denuncia')]}">
-	                    <field name="summary_date" string="Summary Date" class="oe_edit_only"  attrs="{'readonly':[('state','!=','open')],'invisible':[('state','!=','open')]}"/>
+			<group name="Summary" class="oe_left" 
+				attrs="{'invisible':[('issue_type','!=','denuncia')]}">
+	                    <field name="summary_date" string="Summary Date" class="oe_edit_only"  
+				attrs="{'readonly':[('state','=','closed')],'invisible':[('state','!=','open')]}"/>
 	                    <field name="prescription_date" string="Prescription Date"   readonly="1"/>
 			</group>
 
 			</group>
 			<group>
-	                    <field name="issue"  nolabel="0" attrs="{'readonly':[('state','!=','open')]}"/>
+	                    <field name="issue"  nolabel="0" attrs="{'readonly':[('state','=','closed')]}"/>
 			</group>
 			<group>
-			    <field name="customs_broker" string="Customs Broker" attrs="{'readonly':[('state','!=','open')]}"/>
-			    <field name="organization" string="Organization" attrs="{'readonly':[('state','!=','open')]}"/>
+			    <field name="customs_broker" string="Customs Broker" 
+				attrs="{'readonly':[('state','=','closed')]}"/>
+			    <field name="organization" string="Organization" 
+				attrs="{'readonly':[('state','=','closed')]}"/>
 			</group>
 			<group>
-				<field name="goods" string="Goods" nolabel="0" attrs="{'readonly':[('state','!=','open')]}"/>
+				<field name="goods" string="Goods" nolabel="0" 
+				attrs="{'readonly':[('state','=','closed')]}"/>
 			</group>
 			<group>
-			    <field name="branch" string="Branch" nolabel="0" required="1" attrs="{'readonly':[('state','!=','open')]}"/>
-            	  	    <field name="assigned_advisor" nolabel="0" required="1" attrs="{'readonly':[('state','!=','open')]}"/>		   
+			    <field name="branch" string="Branch" nolabel="0" required="1"
+				attrs="{'readonly':[('state','=','closed')]}"
+				options="{'create': false, 'no_create_edit':true, 'no_create':true}" />
+            	  	    <field name="assigned_advisor" nolabel="0" required="1" 
+				attrs="{'readonly':[('state','=','closed')]}"
+				options="{'create': false, 'no_create_edit':true, 'no_create':true}" />		   
 			</group>
 			<group>
 	                    <field name="create_date" readonly="1"/>

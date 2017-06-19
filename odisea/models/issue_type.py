@@ -22,7 +22,9 @@ from openerp import models, fields, api, _
 from openerp.exceptions import Warning
 
 class OdiseaIssueType(models.Model):
+	"""Issue type"""
 	_name = 'odisea.issue.type'
+	_description = 'Issue type'
 
 	name = fields.Char(string='Issue Type', required=True, size=25)
 	description = fields.Text(string='Issue type description') 
