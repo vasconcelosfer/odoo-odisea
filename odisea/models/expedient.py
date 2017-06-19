@@ -330,6 +330,7 @@ class OdiseaExpedient(models.Model):
 		return record[0]
 
 
+
 	@api.multi
         @api.depends('child_ids')
 	def _compute_read_childs(self):
@@ -344,6 +345,17 @@ class OdiseaExpedient(models.Model):
 					#Agrego los hijos del expediente, al padre de los 2.	
 #					self.childs_id.append(child.childs_id)
 			return self.child_ids
+
+#	@api.one
+#        @api.depends('assigned_advisor')
+#	def _compute_read_childs(self):
+		#Buscamos los hijos de un padre
+#		if not self.is_child & self.child_ids:
+#			record = self.childs_id
+#			i = 0
+#			for record in child:
+				#Agrego los hijos del expediente, al padre de los 2.	
+#				self.childs_id.append(child.childs_id)
 #                               (self.env.cr.execute(
 #                                       """
 #                                       SELECT id 
@@ -351,6 +363,8 @@ class OdiseaExpedient(models.Model):
 #                                       WHERE parent_id EQ '+child.ids))
 #                                       """
 		return self.child_ids
+
+#		return
 	
 	@api.one
         @api.depends('is_child')

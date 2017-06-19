@@ -31,6 +31,7 @@
 />-->
                     <field name="exp_id" widget="text"/>
                     <field name="create_date" string="Date" widget="date"/>
+		    <field name="issue_type" string="Tipo de expediente"/>
 		    <field name="front_page"/>
 	           <!-- <field name="issue"/> -->
 		    <field name="goods"/>

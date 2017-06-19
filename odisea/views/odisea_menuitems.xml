@@ -156,7 +156,7 @@
             </field>
         </record>
 
-        <!-- Tipo DI TECN -->
+        <!-- Tipo DE TNCA -->
         <record id="action_odisea_expedient_ditecn" model="ir.actions.act_window">
             <field name="name">DE TNCA</field>
             <field name="res_model">odisea.note</field>
