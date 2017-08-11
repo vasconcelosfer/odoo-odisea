@@ -17,26 +17,28 @@
             </field>
         </record>
 
-        <!-- TREEVIEW -->
+        <!-- Kanban  -->
        	<record id="view_odisea_reserve_note_tree" model="ir.ui.view">
             <field name="name">odisea.reserve.note.tree</field>
             <field name="model">odisea.note</field>
-<!--	    <field name="form_view_id" ref="view_odisea_reserve_note_form" />-->
+	    <field name="form_view_id" ref="view_odisea_reserve_note_form" />
             <field name="arch" type="xml">
-		<kanban string="Reserve Note" create="false" >
+		<kanban string="Reserve Note" > <!--create="false"  > -->
 			<field name="note_id" />
-		   	<templates>
+		   	<templates style="border:1px solid black" >
             			<t t-name="kanban-box">
-
-				<div class="oe_employee_details"  >
+				<div class="oe_employee_details" 
+				    	style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 
+					rgba(0, 0, 0, 0.19);
+					margin:2px 2px 2px 2px;" > 
 				<sheet>
 					<div class="oe_kanban_global_click" >	
-                                	<h4><a>
+                                	<h4 style="text-align:center;margin-bottom:2px" ><a>
 						<field name="note_type"/>
 						<field name="note_id"/>
 					</a></h4>
-                           		<ul> 
-						<li>
+                           		  <ul> 
+						<li class="oe_kanban_global_click" >
 							<label for="parent_exp_id" string="Expedient"/>
                                                       	<field name="parent_exp_id" string="Expedient" />
 						</li>
@@ -49,23 +51,14 @@
 							<field name="release_date"/>
                                                 </li>
 <!--<li><button name="action_reserve" type="object" class="oe_follower oe_notfollow">Reserve Note</button></li>-->
-                             		</ul>
-                                	
-			
-<!--					<field name="note_type"  />
-                			<field name="note_id" />			
-
--->
-				</div>
+                             		  </ul>
+					</div>
 				</sheet>
 				</div>
-            			</t>
-    			
+            			</t>    			
 	    		</templates>
 		
 		</kanban>
-      		
-    		   
 	   </field>
 	</record>
 
@@ -77,17 +70,24 @@
 <!--	    <field name="priority" eval="15"/>-->
 	    <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="Note">		
-		<sheet string="Reserve DV CLAR" >
+                <form string="Note" style="height:200px" >
+		<header>
+			<button name="charge_digital_pdf"
+	                       	type="object"     
+                                
+                                string="Add PDF"/>
+		</header>
+		<sheet string="Reserve DV CLAR" style="align:center" >
+		<div>
 			<label for="is_reserved" string="Automatic Number" />
-			<field name="is_reserved" string="Automatic Number" readonly="0" />
+			<field name="is_reserved" string="Automatic Number" readonly="0" />  
 		   <h1>
 		   <div domain="[('is_reserved','=',False)]"  >
 		   	<label for="note_type"  string="DV CLAR" />
 		       	<field name="id_note" nolabel="1" class="oe_inline"
 				 attrs="{'readonly':[('is_reserved','=',True)]}" /> 
 			<label string="/" class="oe_inline" />
-	               	<field name="release_year" nolabel="1" class="oe_inline"
+	               	<field name="release_year" nolabel="1" class="oe_inline" 
 				 attrs="{'readonly':[('is_reserved','=',True)]}" />
 		   </div>	
 <!--		   <div string="not_Editable" class="oe_read_only" >
@@ -100,27 +100,22 @@
 		  </h1>
 		
 
-		  <group>
-		  <div>
-                   <p>	<label for="parent_exp_id" string="Expedient"/>
-                   	<field name="parent_exp_id" required="1"
-				options="{'create': false, 'no_create_edit':true, 'no_create':true}" />
-		   </p>
-		  </div>
-		   <p>	<label for="assigned_advisor" string="Advisor"/>
-		   	<field name="assigned_advisor" required="1"
-				options="{'create': false, 'no_create_edit':true, 'no_create':true}" /></p>
-			
-<!--			<label for="exp_type" string="Issue Type" />-->
-			<field name="exp_type" string="Issue type" readonly="1" class="oe_inline" />
-		   <p>	<label for="release_date" string="Reserved Date" />
-		   	<field name="release_date" nolabel="0" widget="date" readonly="1"/></p>
-		  </group>
+                  <group col="2" >
+                        <field name="parent_exp_id" required="1" class="oe_inline"
+                                options="{'create': false, 'no_create_edit':true, 'no_create':true}" />
+                  </group>
+                  <group>
+                        <field name="assigned_advisor" required="1" class="oe_inline"
+                                options="{'create': false, 'no_create_edit':true, 'no_create':true}" />
+                        <field name="exp_type_id" string="Issue type" readonly="1" class="oe_inline" />
+                        <field name="create_date" nolabel="0" widget="date" class="oe_inline" readonly="1"/>
+                  </group>
+                </div>
 		</sheet>
                 </form>
             </field>
         </record>
 
-
+	
     </data>
 </openerp>

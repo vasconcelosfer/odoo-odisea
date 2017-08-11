@@ -77,7 +77,7 @@ class OdiseaNote(models.Model):
 
 	release_date = fields.Date(
 		string="Release date", 
-		required=True
+		required=False
 	)
 
 	parent_exp_id = fields.Many2one(
@@ -118,6 +118,12 @@ class OdiseaNote(models.Model):
 	exp_type = fields.Char(
 		string=_('Expedient type'),
 		compute='_comp_exp_type',
+		store=True
+	)
+
+	exp_type_id = fields.Many2one(
+		'issue_type',
+		string='Issue type',
 		store=True
 	)
 	
@@ -257,5 +263,20 @@ class OdiseaNote(models.Model):
 
 		return True
 
-
+	@api.multi
+	def charge_digital_pdf(self):
+		#reserved_note = self.env['odisea.note'].
+		#model_data = self.pool.get('ir.model.data')
+		#form_view = model_data.get_object_reference(cr, uid, 'odisea', 'view_odisea_note_form_edit')
+		#form_view = ['view_odisea_note_form_edit']
+		return {
+			'view_type': 'form',
+			'view_mode': 'form',
+			'res_model': 'odisea.note',
+			#'view_id': False,
+			'type': 'ir.actions.act_window',	
+			'res_id': self.id,
+			'create':True,
+			#'views': [(form_view and form_view[1] or False, 'form')],
+		}
 

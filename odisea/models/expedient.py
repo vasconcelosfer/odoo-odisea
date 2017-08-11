@@ -24,6 +24,10 @@ from openerp.exceptions import Warning
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import logging
+import subprocess
+from PIL import Image
+from StringIO import StringIO
+
 #_logger = logging.getlogger(__name__)
 
 #from openerp import SUPERUSER_ID
@@ -46,6 +50,11 @@ class OdiseaExpedient(models.Model):
                          'Unique(dependency,number,created_year,alc_index)',
                          "El número de expediente debe ser único"),
         ]
+
+	_defaults = {
+		'registration_date': fields.Date.today(),
+	}
+
 
         _states_ = [
         # State machine: untitle
@@ -191,8 +200,9 @@ class OdiseaExpedient(models.Model):
 
         note_ids = fields.One2many(
                 'odisea.note',
-                'parent_exp_id',    
-                string='Nota'
+                'parent_exp_id',
+                string='Nota',
+		domain= [('is_reserved','=',False)],
         )
 	
 	
@@ -201,12 +211,6 @@ class OdiseaExpedient(models.Model):
 		'expedient_relation' ,
 		string="Image"
 	)
-
-#        image_ids = fields.One2many(
-#                'odisea.image',
-#                'parent_exp_id',    
-#                string='Nota'
-#        )
 
         event_ids = fields.One2many(
                 'odisea.event',
@@ -271,6 +275,12 @@ class OdiseaExpedient(models.Model):
                 compute='_comp_prescription_date',
 		store=True
 	)
+
+	issue_type_ids =  fields.Many2one(
+		'odisea.issue.type',
+		string='Issue type',
+	)
+
 
 #	destination_id = fields.Many2one(
 #               'odisea.destination',
@@ -413,7 +423,32 @@ class OdiseaExpedient(models.Model):
 		expCtx = {
 			'default_parent_exp_id': str(self.id)
 		}
-		return {
+
+
+# Vrifico si hay notas reservadas para el expediente.
+		#Valido si hay número de nota reservado
+		reserved_note = self.env['odisea.note'].search([('parent_exp_id','=',self.id),('note_type','=','3'),('is_reserved','=',True)])
+		
+		#Se valida si ahy registros
+		if self.env['odisea.note'].search_count([('parent_exp_id','=',self.id),('note_type','=',
+		'3'),('is_reserved','=',True)]) > 0:
+			note_id = reserved_note.sorted(key=lambda r: r.id)
+			
+			# Armo la ventana de notas
+			value = {
+				'view_type': 'form',
+				'view_mode': 'form',
+				'res_model': 'odisea.note',
+				'views': [(False, "form")],
+				'type': 'ir.actions.act_window',
+				'res_id': note_id[0].id,
+				'create':True,
+			}
+			
+			return value
+#Fin Validación
+
+		value = {
 	#	    'name': 'Evento ' + self.state,
 	            'type': 'ir.actions.act_window',
 	            'res_model': 'odisea.note',
@@ -423,8 +458,11 @@ class OdiseaExpedient(models.Model):
 #		    'res_id': id_created,
 		    #'context': "{'parent_exp_id': " + str(self.id) + "}",		
 		    'context': "{'default_parent_exp_id': " + str(self.id) + "}",		
-#		    'context': expCtx,
-	            'target': 'new',
+#		#    'context': expCtx,
+	            'target': 'new', 
 		    'flags': {'action_buttons': True},
-	        }
+		    
+		}	
+
+		return value
 

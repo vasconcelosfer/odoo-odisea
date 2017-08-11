@@ -191,24 +191,22 @@
         </record>
 
 	<!-- Reserva de notas -->
-	<record id="action_odisea_reserve_note2" model="ir.actions.act_window">
+<!--	<record id="action_odisea_reserve_note2" model="ir.actions.act_window">
             <field name="name">Reserve Note</field>
             <field name="res_model">odisea.note</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
 	    <field name="view_id" ref="view_odisea_reserve_note_form"/>
-<!--           <field name="domain">[('note_type','=','3'),('is_reserved','=',True)]</field>-->
         </record>
-
+-->	
+	<!-- Notas reservadas -->
         <record id="action_odisea_reserved_note" model="ir.actions.act_window">
-            <field name="name">Reserved Note</field>
+            <field name="name">Reserve Note</field>
             <field name="res_model">odisea.note</field>
+	    <field name="type">ir.actions.act_window</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,form</field>
-<!--            <field name="form_view_id" ref="view_odisea_reserve_note_form"/> 
-	    <field name="view_id" ref="view_odisea_reserve_note_tree"/>
             <field name="search_view_id" ref="view_odisea_reserve_note_filter"/>
--->
             <field name="domain">[('note_type','=','3'),('is_reserved','=',True)]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
@@ -216,26 +214,17 @@
                 </p>
             </field>
         </record>
-        <record id="action_odisea_reserve_note_map1" model="ir.actions.act_window.view">
-            <field eval="1" name="sequence" />
+	<!-- Relacionamos las vistas -->
+        <record id="view_act_kanban_reserve_note" model="ir.actions.act_window.view"> 
             <field name="view_mode">kanban</field>
             <field name="view_id" ref="view_odisea_reserve_note_tree"/>
-            <field name="search_view_id" ref="view_odisea_reserve_note_filter"/>
             <field name="act_window_id" ref="action_odisea_reserved_note"/>
-            <field name="domain">[('note_type','=','3'),('is_reserved','=',True)]</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    Reserve note.
-                </p>
-            </field>
         </record>
-<!--        <record id="action_odisea_reserve_note_map2" model="ir.actions.act_window.view">
-            <field eval="1" name="sequence" />
+        <record id="view_act_forma_reserve_note" model="ir.actions.act_window.view">
             <field name="view_mode">form</field>
             <field name="view_id" ref="view_odisea_reserve_note_form"/>
-	    <field name="act_window_id" ref="action_odisea_reserve_note"/>
+	    <field name="act_window_id" ref="action_odisea_reserved_note"/>
         </record>
--->
 
         <!-- Menu para Ramos -->
         <record id="action_odisea_branches" model="ir.actions.act_window">
@@ -309,16 +298,11 @@
         />
 	
 	<menuitem
-            action="action_odisea_reserve_note2"
-            id="menu_action_reserve_note"
-            sequence="14"
-            parent="menu_odisea2"
-        />
-	<menuitem
             action="action_odisea_reserved_note"
             id="menu_action_reserved_note"
             sequence="15"
             parent="menu_odisea2"
+	    groups="group_odisea_manager"
         />
 
 <!-- Subitems para el menu Notas -->
