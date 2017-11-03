@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-15 18:54+0000\n"
-"PO-Revision-Date: 2017-05-15 18:54+0000\n"
+"POT-Creation-Date: 2017-08-11 17:05+0000\n"
+"PO-Revision-Date: 2017-08-11 17:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -56,9 +56,41 @@ msgid "<p class=\"oe_view_nocontent_create\">\n"
 msgstr ""
 
 #. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_good
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to create a new Good.\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_image
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to create a new Image.\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_issue_type
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to create a new Issue type.\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: odisea
 #: model:ir.actions.act_window,help:odisea.action_odisea_expedient_expedients
 msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                    Click to create an Expedients.\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: odisea
+#: model:ir.actions.act_window,help:odisea.action_odisea_reserved_note
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Reserve note.\n"
 "                </p>\n"
 "            "
 msgstr ""
@@ -80,6 +112,9 @@ msgid "<p class=\"oe_view_nocontent_create\"> \n"
 msgstr ""
 
 #. module: odisea
+#: field:odisea.branch,active_branch:0
+#: field:odisea.good,active_good:0
+#: field:odisea.issue.type,active_issue_type:0
 #: field:odisea.representative,active:0
 msgid "Active"
 msgstr ""
@@ -90,8 +125,18 @@ msgid "Actuación"
 msgstr ""
 
 #. module: odisea
+#: view:odisea.note:odisea.view_odisea_reserve_note_form
+msgid "Add PDF"
+msgstr ""
+
+#. module: odisea
 #: view:odisea.representative:odisea.view_odisea_representative_form
 msgid "Address"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_reserve_note_tree
+msgid "Advisor"
 msgstr ""
 
 #. module: odisea
@@ -127,12 +172,18 @@ msgstr ""
 
 #. module: odisea
 #: field:odisea.expedient,assigned_advisor:0
+#: field:odisea.note,assigned_advisor:0
 msgid "Assigned advisor"
 msgstr ""
 
 #. module: odisea
 #: field:odisea.note,name:0
 msgid "Attachment Name"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_reserve_note_form
+msgid "Automatic Number"
 msgstr ""
 
 #. module: odisea
@@ -189,6 +240,16 @@ msgstr ""
 #. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_branch_graph
 msgid "Branch Expedient Statistics"
+msgstr ""
+
+#. module: odisea
+#: field:odisea.branch,description:0
+msgid "Branch description"
+msgstr ""
+
+#. module: odisea
+#: field:odisea.branch,name:0
+msgid "Branch name"
 msgstr ""
 
 #. module: odisea
@@ -274,6 +335,7 @@ msgstr ""
 
 #. module: odisea
 #: view:odisea.note:odisea.view_odisea_note_form
+#: view:odisea.note:odisea.view_odisea_note_form_edit
 msgid "Content"
 msgstr ""
 
@@ -297,7 +359,9 @@ msgstr ""
 #: field:odisea.branch,create_uid:0
 #: field:odisea.event,create_uid:0
 #: field:odisea.expedient,create_uid:0
+#: field:odisea.good,create_uid:0
 #: field:odisea.image,create_uid:0
+#: field:odisea.issue.type,create_uid:0
 #: field:odisea.position,create_uid:0
 #: field:odisea.representative,create_uid:0
 msgid "Created by"
@@ -307,7 +371,9 @@ msgstr ""
 #: field:odisea.branch,create_date:0
 #: field:odisea.event,create_date:0
 #: field:odisea.expedient,create_date:0
+#: field:odisea.good,create_date:0
 #: field:odisea.image,create_date:0
+#: field:odisea.issue.type,create_date:0
 #: field:odisea.position,create_date:0
 #: field:odisea.representative,create_date:0
 msgid "Created on"
@@ -347,6 +413,7 @@ msgstr ""
 #. module: odisea
 #: model:ir.actions.act_window,name:odisea.action_odisea_expedient_dvclar
 #: model:ir.ui.menu,name:odisea.menu_action_odisea5
+#: view:odisea.note:odisea.view_odisea_reserve_note_form
 #: selection:odisea.note,note_type:0
 msgid "DV CLAR"
 msgstr ""
@@ -378,11 +445,6 @@ msgid "Dependency"
 msgstr ""
 
 #. module: odisea
-#: field:odisea.branch,description:0
-msgid "Descripción del Ramo"
-msgstr ""
-
-#. module: odisea
 #: field:odisea.event,description:0
 #: field:odisea.note,description:0
 msgid "Description"
@@ -402,7 +464,9 @@ msgstr ""
 #: field:odisea.branch,display_name:0
 #: field:odisea.event,display_name:0
 #: field:odisea.expedient,display_name:0
+#: field:odisea.good,display_name:0
 #: field:odisea.image,display_name:0
+#: field:odisea.issue.type,display_name:0
 #: field:odisea.note,display_name:0
 #: field:odisea.position,display_name:0
 #: field:odisea.representative,display_name:0
@@ -410,8 +474,23 @@ msgid "Display Name"
 msgstr ""
 
 #. module: odisea
+#: field:hr.employee,docket:0
+msgid "Docket"
+msgstr ""
+
+#. module: odisea
 #: view:odisea.note:odisea.view_odisea_expedient_note
 msgid "Download"
+msgstr ""
+
+#. module: odisea
+#: sql_constraint:odisea.note:0
+msgid "El número de Nota debe ser único"
+msgstr ""
+
+#. module: odisea
+#: sql_constraint:odisea.position:0
+msgid "El número de Posición debe ser único"
 msgstr ""
 
 #. module: odisea
@@ -459,7 +538,7 @@ msgstr ""
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
 #: view:odisea.expedient:odisea.view_odisea_expedient_statistics_general_filter
 #: view:odisea.expedient:odisea.view_odisea_expedient_tree
-#: field:odisea.image,parent_exp_id:0
+#: view:odisea.note:odisea.view_odisea_reserve_note_tree
 #: field:odisea.note,parent_exp_id:0
 msgid "Expedient"
 msgstr ""
@@ -470,10 +549,17 @@ msgid "Expedient Statistics"
 msgstr ""
 
 #. module: odisea
-#: code:addons/odisea/models/expedient.py:144
+#: code:addons/odisea/models/expedient.py:150
 #: field:odisea.expedient,expedient_type:0
 #, python-format
 msgid "Expedient Type"
+msgstr ""
+
+#. module: odisea
+#: code:addons/odisea/models/note.py:119
+#: field:odisea.note,exp_type:0
+#, python-format
+msgid "Expedient type"
 msgstr ""
 
 #. module: odisea
@@ -504,12 +590,8 @@ msgstr ""
 
 #. module: odisea
 #: view:odisea.note:odisea.view_odisea_note_form
+#: view:odisea.note:odisea.view_odisea_note_form_edit
 msgid "Fecha"
-msgstr ""
-
-#. module: odisea
-#: field:odisea.expedient,prescription_date:0
-msgid "Fecha de prescripción"
 msgstr ""
 
 #. module: odisea
@@ -545,6 +627,25 @@ msgid "General Expedient"
 msgstr ""
 
 #. module: odisea
+#: view:odisea.good:odisea.view_odisea_good_filter
+#: view:odisea.good:odisea.view_odisea_good_form
+#: view:odisea.good:odisea.view_odisea_good_tree
+msgid "Good"
+msgstr ""
+
+#. module: odisea
+#: field:odisea.good,description:0
+msgid "Good description"
+msgstr ""
+
+#. module: odisea
+#: field:odisea.good,name:0
+msgid "Good name"
+msgstr ""
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_good
+#: model:ir.ui.menu,name:odisea.menu_action_odisea_good
 #: view:odisea.expedient:odisea.view_odisea_expedient_filter
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
 #: field:odisea.expedient,goods:0
@@ -554,6 +655,7 @@ msgstr ""
 #. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_statistics_general_filter
 #: view:odisea.note:odisea.view_odisea_note_filter
+#: view:odisea.note:odisea.view_odisea_reserve_note_filter
 msgid "Group by.."
 msgstr ""
 
@@ -566,7 +668,9 @@ msgstr ""
 #: field:odisea.branch,id:0
 #: field:odisea.event,id:0
 #: field:odisea.expedient,id:0
+#: field:odisea.good,id:0
 #: field:odisea.image,id:0
+#: field:odisea.issue.type,id:0
 #: field:odisea.note,id:0
 #: field:odisea.position,id:0
 #: field:odisea.representative,id:0
@@ -574,6 +678,12 @@ msgid "ID"
 msgstr ""
 
 #. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_image
+#: model:ir.ui.menu,name:odisea.menu_action_odisea_image
+#: field:odisea.expedient,image_ids:0
+#: view:odisea.image:odisea.view_odisea_image_filter
+#: view:odisea.image:odisea.view_odisea_image_form
+#: view:odisea.image:odisea.view_odisea_image_tree
 #: field:odisea.image,image:0
 #: field:odisea.representative,image:0
 msgid "Image"
@@ -582,6 +692,21 @@ msgstr ""
 #. module: odisea
 #: field:odisea.image,image_filename:0
 msgid "Image Filename"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Image adding"
+msgstr ""
+
+#. module: odisea
+#: field:odisea.image,expedient_relation:0
+msgid "Image relation"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.expedient:odisea.view_odisea_expedient_form
+msgid "Images"
 msgstr ""
 
 #. module: odisea
@@ -622,7 +747,29 @@ msgstr ""
 #. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
 #: field:odisea.expedient,issue_type:0
+#: view:odisea.issue.type:odisea.view_odisea_issue_type_filter
+#: view:odisea.issue.type:odisea.view_odisea_issue_type_form
+#: view:odisea.issue.type:odisea.view_odisea_issue_type_tree
+#: field:odisea.issue.type,name:0
 msgid "Issue Type"
+msgstr ""
+
+#. module: odisea
+#: field:odisea.expedient,issue_type_ids:0
+#: view:odisea.note:odisea.view_odisea_reserve_note_form
+#: field:odisea.note,exp_type_id:0
+msgid "Issue type"
+msgstr ""
+
+#. module: odisea
+#: field:odisea.issue.type,description:0
+msgid "Issue type description"
+msgstr ""
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_issue_type
+#: model:ir.ui.menu,name:odisea.menu_action_odisea_issue_type
+msgid "Issue types"
 msgstr ""
 
 #. module: odisea
@@ -639,7 +786,9 @@ msgstr ""
 #: field:odisea.branch,__last_update:0
 #: field:odisea.event,__last_update:0
 #: field:odisea.expedient,__last_update:0
+#: field:odisea.good,__last_update:0
 #: field:odisea.image,__last_update:0
+#: field:odisea.issue.type,__last_update:0
 #: field:odisea.note,__last_update:0
 #: field:odisea.position,__last_update:0
 #: field:odisea.representative,__last_update:0
@@ -650,7 +799,9 @@ msgstr ""
 #: field:odisea.branch,write_uid:0
 #: field:odisea.event,write_uid:0
 #: field:odisea.expedient,write_uid:0
+#: field:odisea.good,write_uid:0
 #: field:odisea.image,write_uid:0
+#: field:odisea.issue.type,write_uid:0
 #: field:odisea.note,write_uid:0
 #: field:odisea.position,write_uid:0
 #: field:odisea.representative,write_uid:0
@@ -661,7 +812,9 @@ msgstr ""
 #: field:odisea.branch,write_date:0
 #: field:odisea.event,write_date:0
 #: field:odisea.expedient,write_date:0
+#: field:odisea.good,write_date:0
 #: field:odisea.image,write_date:0
+#: field:odisea.issue.type,write_date:0
 #: field:odisea.note,write_date:0
 #: field:odisea.position,write_date:0
 #: field:odisea.representative,write_date:0
@@ -669,13 +822,13 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: odisea
-#: field:hr.employee,docket:0
-msgid "Legajo"
+#: model:ir.ui.menu,name:odisea.menu_odisea2
+msgid "Main Menu"
 msgstr ""
 
 #. module: odisea
-#: model:ir.ui.menu,name:odisea.menu_odisea2
-msgid "Main Menu"
+#: model:res.groups,name:odisea.group_odisea_manager
+msgid "Manager"
 msgstr ""
 
 #. module: odisea
@@ -705,6 +858,12 @@ msgid "My Branch"
 msgstr ""
 
 #. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_expedient_only_advisor_statistics
+#: model:ir.ui.menu,name:odisea.menu_action_odisea_only_advisor_statistics
+msgid "My Expedient"
+msgstr ""
+
+#. module: odisea
 #: model:ir.actions.act_window,name:odisea.action_odisea_expedient_myexpedients
 #: model:ir.ui.menu,name:odisea.menu_action_odisea
 msgid "My Expedients"
@@ -719,12 +878,8 @@ msgstr ""
 
 #. module: odisea
 #: view:odisea.note:odisea.view_odisea_note_form
+#: view:odisea.note:odisea.view_odisea_note_form_edit
 msgid "Nombre de archivo"
-msgstr ""
-
-#. module: odisea
-#: field:odisea.branch,name:0
-msgid "Nombre del Ramo"
 msgstr ""
 
 #. module: odisea
@@ -733,18 +888,17 @@ msgid "Nota"
 msgstr ""
 
 #. module: odisea
-#: model:ir.ui.menu,name:odisea.menu_odisea
-msgid "Notas"
-msgstr ""
-
-#. module: odisea
 #: view:odisea.note:odisea.view_odisea_expedient_note
 #: view:odisea.note:odisea.view_odisea_note_filter
 #: view:odisea.note:odisea.view_odisea_note_form
+#: view:odisea.note:odisea.view_odisea_note_form_edit
+#: view:odisea.note:odisea.view_odisea_reserve_note_filter
+#: view:odisea.note:odisea.view_odisea_reserve_note_form
 msgid "Note"
 msgstr ""
 
 #. module: odisea
+#: model:ir.ui.menu,name:odisea.menu_odisea_notes
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
 #: field:odisea.position,note_ids:0
 #: field:odisea.representative,comment:0
@@ -764,10 +918,17 @@ msgid "Number"
 msgstr ""
 
 #. module: odisea
-#: code:addons/odisea/models/expedient.py:130
-#: code:addons/odisea/models/note.py:41
+#: code:addons/odisea/models/expedient.py:141
+#: code:addons/odisea/models/note.py:73
+#: field:odisea.expedient,exp_id:0
+#: field:odisea.note,note_id:0
 #, python-format
 msgid "Number Com"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_reserve_note_filter
+msgid "Number of Note"
 msgstr ""
 
 #. module: odisea
@@ -776,12 +937,7 @@ msgid "Number of note"
 msgstr ""
 
 #. module: odisea
-#: field:odisea.expedient,exp_id:0
-#: field:odisea.note,note_id:0
-msgid "Número"
-msgstr ""
-
-#. module: odisea
+#: model:ir.module.category,name:odisea.module_management
 #: model:ir.ui.menu,name:odisea.menu_odisea_main
 msgid "Odisea"
 msgstr ""
@@ -830,6 +986,7 @@ msgstr ""
 
 #. module: odisea
 #: view:odisea.note:odisea.view_odisea_note_form
+#: view:odisea.note:odisea.view_odisea_note_form_edit
 msgid "Posiciones"
 msgstr ""
 
@@ -839,6 +996,7 @@ msgid "Posición Arancelaria"
 msgstr ""
 
 #. module: odisea
+#: field:odisea.good,related_positions:0
 #: field:odisea.note,position_ids:0
 #: field:odisea.position,name:0
 msgid "Position"
@@ -850,8 +1008,9 @@ msgid "Positions"
 msgstr ""
 
 #. module: odisea
-#: code:addons/odisea/models/expedient.py:264
+#: code:addons/odisea/models/expedient.py:274
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
+#: field:odisea.expedient,prescription_date:0
 #, python-format
 msgid "Prescription Date"
 msgstr ""
@@ -877,11 +1036,6 @@ msgid "Ramo"
 msgstr ""
 
 #. module: odisea
-#: field:odisea.branch,active_branch:0
-msgid "Ramo activo"
-msgstr ""
-
-#. module: odisea
 #: field:odisea.expedient,registration_date:0
 msgid "Registration date"
 msgstr ""
@@ -899,6 +1053,28 @@ msgstr ""
 #. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_form
 msgid "Reopen"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_reserve_note_form
+msgid "Reserve DV CLAR"
+msgstr ""
+
+#. module: odisea
+#: model:ir.actions.act_window,name:odisea.action_odisea_reserved_note
+#: model:ir.ui.menu,name:odisea.menu_action_reserved_note
+#: view:odisea.note:odisea.view_odisea_reserve_note_tree
+msgid "Reserve Note"
+msgstr ""
+
+#. module: odisea
+#: field:odisea.note,is_reserved:0
+msgid "Reserved"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_reserve_note_tree
+msgid "Reserved Date"
 msgstr ""
 
 #. module: odisea
@@ -1024,8 +1200,13 @@ msgid "This field holds the image used as avatar for this contact, limited to 10
 msgstr ""
 
 #. module: odisea
-#: field:odisea.note,note_type:0
-msgid "Tipo"
+#: model:res.groups,comment:odisea.group_odisea_user
+msgid "This group is for users of limited access to Odisea (reading, modification, creation) "
+msgstr ""
+
+#. module: odisea
+#: model:res.groups,comment:odisea.group_odisea_manager
+msgid "This group is for users who have full control of Odisea"
 msgstr ""
 
 #. module: odisea
@@ -1035,7 +1216,7 @@ msgstr ""
 
 #. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_filter
-#: field:odisea.expedient,expedient_type_sh:0
+#: view:odisea.expedient:odisea.view_odisea_expedient_tree
 msgid "Tipo de expediente"
 msgstr ""
 
@@ -1055,8 +1236,19 @@ msgid "True"
 msgstr ""
 
 #. module: odisea
+#: field:odisea.note,note_type:0
 #: field:odisea.note,type:0
 msgid "Type"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_reserve_note_filter
+msgid "Type of  Note"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.note:odisea.view_odisea_reserve_note_filter
+msgid "Type of Note"
 msgstr ""
 
 #. module: odisea
@@ -1075,8 +1267,18 @@ msgid "Use Company Address"
 msgstr ""
 
 #. module: odisea
+#: model:ir.module.category,description:odisea.module_management
+msgid "User access level for this module"
+msgstr ""
+
+#. module: odisea
 #: field:odisea.expedient,assigned_user:0
 msgid "User assigned for employee"
+msgstr ""
+
+#. module: odisea
+#: model:res.groups,name:odisea.group_odisea_user
+msgid "Users"
 msgstr ""
 
 #. module: odisea
@@ -1091,6 +1293,7 @@ msgstr ""
 
 #. module: odisea
 #: view:odisea.expedient:odisea.view_odisea_expedient_statistics_general_filter
+#: view:odisea.note:odisea.view_odisea_reserve_note_filter
 msgid "Year"
 msgstr ""
 
@@ -1107,6 +1310,11 @@ msgstr ""
 #. module: odisea
 #: view:odisea.representative:odisea.view_odisea_representative_form
 msgid "e.g. www.odoo.com"
+msgstr ""
+
+#. module: odisea
+#: view:odisea.good:odisea.view_odisea_good_form
+msgid "good"
 msgstr ""
 
 #. module: odisea
